@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from './card/interfaces/card.interface';
 import { CardModel } from './card/models/card.model';
+import { hoverAnimation } from './animations/hover.animation';
 
 @Component({
   selector: 'app-votes',
   templateUrl: './votes.component.html',
-  styleUrls: ['./votes.component.scss']
+  styleUrls: ['./votes.component.scss'],
+  animations: [ hoverAnimation ]
 })
 export class VotesComponent {
 

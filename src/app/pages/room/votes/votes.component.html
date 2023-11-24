@@ -1,3 +1,9 @@
 <div class="votes">
-  <app-card class="card" *ngFor="let card of cards" [card]="card" (click)="card.toggleFlip()"></app-card>
+  <app-card #cardComponent
+    *ngFor="let card of cards"
+    class="card"
+    [@hover]="cardComponent.isHovered"
+    [card]="card"
+    (click)="card.toggleFlip()">
+  </app-card>
 </div>
