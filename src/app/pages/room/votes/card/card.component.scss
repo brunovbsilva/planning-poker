@@ -41,6 +41,13 @@
         font-size: 30px;
       }
     }
+    .creator-name {
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
     &--red {
       color: red;
       .retangle {
@@ -56,10 +63,28 @@
   }
   
   .card-back {
-    background: red;
     -webkit-transform : rotateY(-180deg);
     -ms-transform     : rotateY(-180deg);
     transform         : rotateY(-180deg);
+    .back-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+    }
+    .creator-name {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 0 16px;
+      font-size: 16px;
+      font-weight: bold;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      border-radius: 6px;
+    }
   }
 
   .card-side {

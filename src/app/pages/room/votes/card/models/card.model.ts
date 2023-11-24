@@ -8,7 +8,8 @@ export class CardModel implements Card {
 
   constructor(
     public readonly cardType: 1 | 2 | 3 | 4,
-    public readonly value: number
+    public readonly value: number,
+    public readonly creator?: string
   ) {
     this.type = this.getCardType(cardType);
   }
