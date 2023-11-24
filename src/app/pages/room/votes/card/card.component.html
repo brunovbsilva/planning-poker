@@ -1,0 +1,12 @@
+<div class="card" [@flipAnimation]="card.isFliped">
+  <div class="card-side card-front" [ngClass]="getClasses()">
+    <div class="retangle">
+      <span class="card-type">{{ getCardType() }}</span>
+    </div>
+    <div class="card-value">
+      <span class="number">{{ getCardValue() }}</span>
+      <span class="type">{{ getCardType() }}</span>
+    </div>
+  </div>
+  <div class="card-side card-back">back</div>
+</div>

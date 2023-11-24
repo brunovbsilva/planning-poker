@@ -1,0 +1,11 @@
+.current-room {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  .room-name {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+}

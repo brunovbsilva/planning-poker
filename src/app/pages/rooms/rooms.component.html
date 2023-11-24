@@ -1,0 +1,9 @@
+<div class="room-list">
+  <input #name type="text">
+  <a (click)="createRoom(name.value)">create room</a>
+  <app-room-item *ngFor="let room of rooms"
+    [room]="room"
+    (onDelete)="deleteRoom($event)"
+    (onJoin)="joinRoom($event)">
+  </app-room-item>
+</div>

@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .page {
+    overflow: auto;
+    flex: 1 1 auto;
+    position: relative;
+  }
+}
