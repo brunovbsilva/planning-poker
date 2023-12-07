@@ -1,0 +1,27 @@
+.main-input {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: map-get($disabled, 700);
+  padding: 0 16px;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid map-get($disabled, 500);
+
+  &:focus {
+    outline: none;
+    border-color: map-get($primary, 500);
+  }
+
+  &::placeholder {
+    color: map-get($disabled, 500);
+  }
+
+  &:disabled {
+    background: map-get($disabled, 100);
+    border-color: map-get($disabled, 400);
+    &::placeholder {
+      color: map-get($disabled, 400);
+    }
+  }
+}

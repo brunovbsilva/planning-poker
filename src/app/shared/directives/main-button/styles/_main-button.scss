@@ -1,0 +1,64 @@
+.main-button {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 2rem;
+  padding: 0 16px;
+  border-radius: 4px;
+  background: white;
+  border: none;
+
+  &--primary {
+    color: map-get($primary, 900);
+    &:hover {
+      background: map-get($primary, A100);
+    }
+    &:active {
+      background: map-get($primary, A200);
+    }
+  }
+
+  &--accent {
+    color: map-get($accent, 900);
+    &:hover {
+      background: map-get($accent, A100);
+    }
+    &:active {
+      background: map-get($accent, A200);
+    }
+  }
+
+  &--warn {
+    color: map-get($warn, 900);
+    &:hover {
+      background: map-get($warn, A100);
+    }
+    &:active {
+      background: map-get($warn, A200);
+    }
+  }
+
+  &--error {
+    color: map-get($error, 500);
+    &:hover {
+      background: map-get($error, 100);
+    }
+    &:active {
+      background: map-get($error, 200);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &:disabled {
+    background: transparent;
+    color: map-get($disabled, 700);
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
