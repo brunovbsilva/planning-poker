@@ -18,7 +18,8 @@ export class RoomService {
   }
 
   updateRoom(room: IRoom) {
-    this.firestore.doc<IRoom>('rooms/' + room.id).update(room);
+    console.log(this.roomObjectModel(room));
+    this.firestore.doc<IRoom>('rooms/' + room.id).update(this.roomObjectModel(room));
   }
 
   deleteRoom(roomId: string) {
@@ -42,12 +43,25 @@ export class RoomService {
   }
 
   private roomObjectModel(room: IRoom) {
-    return Object.assign({ name: room.name, creator: room.creator, tasks: room.tasks.map(task => this.taskObjectModel(task)) });
+    return Object.assign({ 
+      name: room.name,
+      creator: room.creator,
+      tasks: room.tasks.map(task => this.taskObjectModel(task)),
+      currentTask: room.currentTask 
+    });
   }
   private taskObjectModel(task: ITask) {
-    return Object.assign({ name: task.name, votes: task.votes.map(vote => this.voteObjectModel(vote)) });
+    return Object.assign({
+      name: task.name,
+      votes: task.votes.map(vote => this.voteObjectModel(vote))
+    });
   }
   private voteObjectModel(vote: IVote) {
-    return Object.assign({ userId: vote.userId, userName: vote.userName, value: vote.value, hidden: vote.hidden });
+    return Object.assign({
+      userId: vote.userId,
+      userName: vote.userName,
+      value: vote.value,
+      hidden: vote.hidden
+    });
   }
 }

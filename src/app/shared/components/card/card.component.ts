@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { CardType } from './models/card-type.enum';
 import { flipAnimation } from './animations/flip.animation';
-import { Card } from './interfaces/card.interface';
+import { ICard } from './interfaces/card.interface';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +11,7 @@ import { Card } from './interfaces/card.interface';
 })
 export class CardComponent {
 
-  @Input() card!: Card;
+  @Input() card!: ICard;
   public isHovered: boolean = false;
 
   public getCardType() {

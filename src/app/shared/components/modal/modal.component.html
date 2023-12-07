@@ -1,0 +1,12 @@
+<div class="background" *ngIf="isOpen" (click)="close()"></div>
+<div class="modal" *ngIf="isOpen">
+  <div class="modal__header">
+    <h1>{{ title }}</h1>
+  </div>
+  <div class="modal__body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal__footer">
+    <ng-content select="button"></ng-content>
+  </div>
+</div>

@@ -10,4 +10,6 @@ export interface IRoom {
   createTask(name: string): void;
   nextTask(): void;
   previousTask(): void;
+  deleteTask(task: ITask): void;
+  setTaskIndex(index: number): void;
 }

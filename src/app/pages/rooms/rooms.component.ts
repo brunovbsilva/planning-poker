@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RoomService } from '../../services/room.service';
 import { IRoomItem } from './room-item/interfaces/room-item.inteface';
 import { map } from 'rxjs';
@@ -6,6 +6,7 @@ import { RoomItem } from './room-item/models/room-item';
 import { Router } from '@angular/router';
 import { Room } from '../room/models/room';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
 
 @Component({
   selector: 'app-rooms',
@@ -15,6 +16,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class RoomsComponent implements OnInit {
 
   rooms: IRoomItem[] = [];
+  @ViewChild('modal') modal!: IModal;
 
   constructor(
     private roomService: RoomService,
@@ -34,10 +36,11 @@ export class RoomsComponent implements OnInit {
   }
 
   createRoom(name: string) {
+    if(!name) return;
     this.userAuth.user.subscribe(user => {
       const room = new Room(name, user?.uid!);
-      console.log(room);
       this.roomService.createRoom(room);
     });
+    this.modal.close();
   }
 }

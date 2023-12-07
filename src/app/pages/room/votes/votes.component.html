@@ -1,9 +1,17 @@
+<div class="current-votes">
+  <div class="current-votes__title">Current Votes</div>
+  <button class="current-votes__btn-flip" (click)="showVotes()">Virar cartas</button>
+  <button class="current-votes__btn-revote" (click)="revote()">Revotar</button>
+  <div class="current-votes__list">
+    <app-card *ngFor="let vote of task.votes" [card]="mapVote(vote)"></app-card>
+  </div>
+</div>
 <div class="votes">
   <app-card #cardComponent
     *ngFor="let card of cards"
     class="card"
     [@hover]="cardComponent.isHovered"
     [card]="card"
-    (click)="card.toggleFlip()">
+    (click)="vote(card.value)">
   </app-card>
 </div>

@@ -1,7 +1,12 @@
-<div class="create-room">
-  <input #name type="text" class="input">
-  <button (click)="createRoom(name.value)">create room</button>
-</div>
+<button (click)="modal.open()">Criar Sala</button>
+
 <div class="room-list">
   <app-room-item *ngFor="let room of rooms" [room]="room"></app-room-item>
 </div>
+
+
+<app-modal #modal title="Criar Sala">
+  <input #name type="text" class="input" placeholder="Digite o nome da sala">
+  <button (click)="createRoom(name.value)">Criar</button>
+  <button (click)="modal.close()">Cancelar</button>
+</app-modal>

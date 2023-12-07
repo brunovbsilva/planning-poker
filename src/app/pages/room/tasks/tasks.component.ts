@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from '../interfaces/room.interface';
+import { ITask } from '../interfaces/task.interface';
+import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
 
 @Component({
   selector: 'app-tasks',
@@ -10,11 +12,13 @@ import { IRoom } from '../interfaces/room.interface';
 export class TasksComponent implements OnInit {
 
   @Input() room!: IRoom;
-  index = 0;
+  @ViewChild('modal') modal!: IModal;
 
   constructor(private roomService: RoomService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.room);
+  }
 
   nextTask() {
     this.room.nextTask();
@@ -28,6 +32,11 @@ export class TasksComponent implements OnInit {
 
   createTask(name: string) {
     this.room.createTask(name);
+    this.roomService.updateRoom(this.room);
+  }
+
+  deleteTask(task: ITask) {
+    this.room.deleteTask(task);
     this.roomService.updateRoom(this.room);
   }
 }

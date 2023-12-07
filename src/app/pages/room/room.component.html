@@ -3,5 +3,5 @@
     {{room.name}}
   </span>
   <app-tasks [room]="room"></app-tasks>
-  <app-votes></app-votes>
+  <app-votes *ngIf="room.tasks[room.currentTask]" [room]="room"></app-votes>
 </div>

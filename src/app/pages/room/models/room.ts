@@ -6,7 +6,7 @@ export class Room implements IRoom {
   constructor(
     public readonly name: string,
     public readonly creator: string,
-    public tasks: ITask[] = [new Task('Task 1')],
+    public tasks: ITask[] = [],
     public currentTask: number = 0,
     public readonly id?: string,
   ) {}
@@ -19,5 +19,12 @@ export class Room implements IRoom {
   }
   previousTask(): void {
     this.currentTask == 0 ? this.tasks.length - 1 : this.currentTask--;
+  }
+  deleteTask(task: ITask): void {
+    this.tasks = this.tasks.filter(taskItem => taskItem !== task);
+    this.setTaskIndex(0);
+  }
+  setTaskIndex(index: number): void {
+    this.currentTask = index;
   }
 }

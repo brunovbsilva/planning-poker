@@ -6,11 +6,12 @@ export class Task implements ITask {
 
   constructor(
     public name: string,
-    public votes: IVote[] = [new Vote('unknown', 'unknown', 1)]
+    public votes: IVote[] = []
   ) {}
   
   
   vote(vote: IVote): void {
+    this.votes = this.votes.filter(v => v.userId !== vote.userId);
     this.votes.push(vote);
   }
   deleteVote(vote: IVote): void {
