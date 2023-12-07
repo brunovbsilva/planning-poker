@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RoomService } from 'src/app/services/room.service';
-import { IRoom } from '../../rooms/interfaces/iroom';
+import { IRoom } from '../interfaces/room.interface';
 
 @Component({
   selector: 'app-tasks',
@@ -17,22 +17,17 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {}
 
   nextTask() {
-    this.room.currentTask++;
+    this.room.nextTask();
     this.roomService.updateRoom(this.room);
   }
 
   previousTask() {
-    this.room.currentTask--;
+    this.room.previousTask();
     this.roomService.updateRoom(this.room);
   }
 
-  getTask(): string {
-    return this.room?.tasks[this.room.currentTask] || '';
-  }
-
-  addTask() {
-    this.room.tasks.push('task ' + this.index);
+  createTask(name: string) {
+    this.room.createTask(name);
     this.roomService.updateRoom(this.room);
-    this.index++;
   }
 }

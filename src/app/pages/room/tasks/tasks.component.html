@@ -1,5 +1,5 @@
 <button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
-<span>{{ room.tasks[room.currentTask] || '' }}</span>
+<span>{{ room.tasks[room.currentTask]?.name || '' }}</span>
 <button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
 
-<button (click)="addTask()">addTasks</button>
+<button (click)="createTask('teste')">create</button>

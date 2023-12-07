@@ -17,7 +17,7 @@ export class LoginComponent {
   login() {
     this.auth.signInWithPopup(this.googleAuthProvider())
       .then(
-        () => this.router.navigate(['room']),
+        () => this.router.navigate(['rooms']),
         error => console.log(error)
       )
   }

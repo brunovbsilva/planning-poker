@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { RoomService } from '../../services/room.service';
-import { Room } from './models/room';
-import { IRoom } from './interfaces/iroom';
+import { IRoomItem } from './room-item/interfaces/room-item.inteface';
+import { map } from 'rxjs';
+import { RoomItem } from './room-item/models/room-item';
 import { Router } from '@angular/router';
+import { Room } from '../room/models/room';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-rooms',
@@ -12,30 +14,30 @@ import { Router } from '@angular/router';
 })
 export class RoomsComponent implements OnInit {
 
-  rooms: IRoom[] = [];
+  rooms: IRoomItem[] = [];
 
   constructor(
     private roomService: RoomService,
+    private userAuth: AngularFireAuth,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.roomService.getRooms().subscribe({
-      next: rooms => this.rooms = rooms,
-      error: error => console.log(error)
-    })
+    this.roomService.getRooms()
+      .pipe(
+        map(rooms => rooms.map(room => new RoomItem(room.id, room.name, this.roomService, this.router)))
+      )
+      .subscribe({
+        next: rooms => this.rooms = rooms,
+        error: error => {throw(error)}
+      })
   }
 
   createRoom(name: string) {
-    this.roomService.createRoom({name: name, tasks: [], currentTask: 0});
-  }
-
-  deleteRoom(id: string) {
-    console.log(id);
-    this.roomService.deleteRoom(id);
-  }
-
-  joinRoom(id: string) {
-    this.router.navigate(['room', id]);
+    this.userAuth.user.subscribe(user => {
+      const room = new Room(name, user?.uid!);
+      console.log(room);
+      this.roomService.createRoom(room);
+    });
   }
 }

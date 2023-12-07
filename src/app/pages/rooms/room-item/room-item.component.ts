@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IRoom } from '../interfaces/iroom';
+import { IRoom } from '../../room/interfaces/room.interface';
+import { IRoomItem } from './interfaces/room-item.inteface';
 
 @Component({
   selector: 'app-room-item',
@@ -7,15 +8,5 @@ import { IRoom } from '../interfaces/iroom';
   styleUrls: ['./room-item.component.scss']
 })
 export class RoomItemComponent {
-  @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
-  @Output() onJoin: EventEmitter<string> = new EventEmitter<string>();
-  @Input() room!: IRoom;
-
-  deleteRoom() {
-    this.onDelete.emit(this.room.id);
-  }
-
-  joinRoom() {
-    this.onJoin.emit(this.room.id);
-  }
+  @Input() room!: IRoomItem;
 }
