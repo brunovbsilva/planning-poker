@@ -8,7 +8,7 @@ import { IModal } from './interfaces/modal.interface';
 })
 export class ModalComponent implements IModal, OnInit {
   @ViewChildren('button') buttons: HTMLElement[] = [];
-  @Input() title: string = '';
+  @Input() modalTitle: string = '';
   isOpen: boolean = false;
 
   ngOnInit(): void {

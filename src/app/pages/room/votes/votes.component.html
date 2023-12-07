@@ -1,7 +1,7 @@
 <div class="current-votes">
   <div class="current-votes__title">Current Votes</div>
-  <button class="current-votes__btn-flip" (click)="showVotes()">Virar cartas</button>
-  <button class="current-votes__btn-revote" (click)="revote()">Revotar</button>
+  <button main-button class="current-votes__btn-flip" (click)="showVotes()">Virar cartas</button>
+  <button main-button theme="accent" class="current-votes__btn-revote" (click)="revote()">Revotar</button>
   <div class="current-votes__list">
     <app-card *ngFor="let vote of task.votes" [card]="mapVote(vote)"></app-card>
   </div>

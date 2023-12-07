@@ -1,12 +1,16 @@
-<button (click)="modal.open()">Criar Sala</button>
+<button main-button theme="primary" (click)="modal.open()">Criar Sala</button>
+<!-- <button main-button theme="accent" (click)="modal.open()">Criar Sala</button>
+<button main-button theme="warn" (click)="modal.open()">Criar Sala</button>
+<button main-button theme="error" (click)="modal.open()">Criar Sala</button>
+<button main-button disabled (click)="modal.open()">Criar Sala</button> -->
 
 <div class="room-list">
   <app-room-item *ngFor="let room of rooms" [room]="room"></app-room-item>
 </div>
 
 
-<app-modal #modal title="Criar Sala">
-  <input #name type="text" class="input" placeholder="Digite o nome da sala">
-  <button (click)="createRoom(name.value)">Criar</button>
-  <button (click)="modal.close()">Cancelar</button>
+<app-modal #modal modalTitle="Criar Sala">
+  <input #name main-input type="text" class="input" placeholder="Digite o nome da sala">
+  <button main-button (click)="createRoom(name.value)">Criar</button>
+  <button main-button theme="error" (click)="modal.close()">Cancelar</button>
 </app-modal>

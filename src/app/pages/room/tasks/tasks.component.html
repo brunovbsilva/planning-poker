@@ -1,15 +1,15 @@
-<button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
+<button main-button theme="warn" [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
 <span>{{ room.tasks[room.currentTask]?.name || '' }}</span>
-<button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
+<button main-button theme="warn" [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
 
-<button (click)="modal.open()">Update Tasks</button>
+<button main-button (click)="modal.open()">Update Tasks</button>
 
-<app-modal #modal title="Tasks">
-
+<app-modal #modal modalTitle="Tasks">
+  
   <ng-container *ngIf="room.tasks.length > 0; else noTasks">
     <div class="task" *ngFor="let task of room.tasks">
       <span class="task__name">{{ task.name }}</span>
-      <button (click)="deleteTask(task)">delete</button>
+      <button main-button theme="error" (click)="deleteTask(task)">delete</button>
     </div>
   </ng-container>
   <ng-template #noTasks>
@@ -17,8 +17,8 @@
   </ng-template>
 
   <div class="create-task">
-    <input #name type="text" class="input" placeholder="Digite o nome da task">
-    <button (click)="createTask(name.value)">Criar</button>
+    <input #name main-input type="text" (keyup)="0" placeholder="Digite o nome da task">
+    <button main-button [disabled]="!name.value" (click)="createTask(name.value)">Criar</button>
   </div>
 
 </app-modal>

@@ -1,5 +1,5 @@
 export interface IModal {
-  title: string;
+  modalTitle: string;
   isOpen: boolean;
 
   open(): void;
