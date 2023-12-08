@@ -3,6 +3,6 @@
   <div class="user" *ngIf="auth.user | async as user">
     <img class="user-image" [src]="user.photoURL" alt="user image">
     <span class="user-name">{{user.displayName}}</span>
-    <a class="log-out" (click)="logout()">Sair</a>
+    <button main-button theme="warn" class="log-out" (click)="logout()">Sair</button>
   </div>
 </div>
