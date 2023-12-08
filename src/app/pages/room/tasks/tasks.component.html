@@ -1,6 +1,6 @@
-<button main-button theme="warn" [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
+<button main-button theme="warn" [disabled]="room.currentTask == 0 || room.tasks.length == 0" (click)="previousTask()">{{'<'}}</button>
 <span>{{ room.tasks[room.currentTask]?.name || '' }}</span>
-<button main-button theme="warn" [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
+<button main-button theme="warn" [disabled]="room.currentTask == room.tasks.length - 1 || room.tasks.length == 0" (click)="nextTask()">{{'>'}}</button>
 
 <button main-button (click)="modal.open()">Update Tasks</button>
 
