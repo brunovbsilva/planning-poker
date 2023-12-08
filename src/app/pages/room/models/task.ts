@@ -23,5 +23,11 @@ export class Task implements ITask {
   revote(): void {
     this.votes = [];
   }
+  getResult(): number {
+    const length = this.votes.length;
+    return Math.round(
+      this.votes.reduce((acc, vote) => acc + vote.value/length, 0)
+    );
+  }
 
 }

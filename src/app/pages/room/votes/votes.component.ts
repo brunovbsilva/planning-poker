@@ -22,6 +22,9 @@ export class VotesComponent {
   get task(): ITask {
     return this.room.tasks[this.room.currentTask];
   };
+  get flippedVotes(): boolean {
+    return this.task.votes.some(vote => !vote.hidden);
+  }
 
   public cards: Card[] = [
     new Card(1, 1),
@@ -46,6 +49,7 @@ export class VotesComponent {
   }
 
   vote(value: number) {
+    if(this.flippedVotes) return;
     this.userAuth.user.subscribe(user => {
       const vote = new Vote(user?.uid!, user?.displayName!, value);
       this.task.vote(vote);
@@ -61,5 +65,9 @@ export class VotesComponent {
   revote() {
     this.task.revote();
     this.roomService.updateRoom(this.room);
+  }
+
+  getResult() {
+    return this.task.getResult();
   }
 }

@@ -8,4 +8,5 @@ export interface ITask {
   deleteVote(vote: IVote): void;
   showVotes(): void;
   revote(): void;
+  getResult(): number;
 }
