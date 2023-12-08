@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChildren } from '@angular/core';
+import { Component, Input, ViewChildren } from '@angular/core';
 import { IModal } from './interfaces/modal.interface';
 
 @Component({
@@ -6,14 +6,10 @@ import { IModal } from './interfaces/modal.interface';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements IModal, OnInit {
+export class ModalComponent implements IModal {
   @ViewChildren('button') buttons: HTMLElement[] = [];
   @Input() modalTitle: string = '';
   isOpen: boolean = false;
-
-  ngOnInit(): void {
-    console.log(this.buttons);
-  }
 
   open(): void {
     this.isOpen = true;

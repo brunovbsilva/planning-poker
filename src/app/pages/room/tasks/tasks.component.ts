@@ -16,9 +16,7 @@ export class TasksComponent implements OnInit {
 
   constructor(private roomService: RoomService) { }
 
-  ngOnInit(): void {
-    console.log(this.room);
-  }
+  ngOnInit(): void { }
 
   nextTask() {
     this.room.nextTask();
