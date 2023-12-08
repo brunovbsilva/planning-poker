@@ -18,7 +18,6 @@ export class RoomService {
   }
 
   updateRoom(room: IRoom) {
-    console.log(this.roomObjectModel(room));
     this.firestore.doc<IRoom>('rooms/' + room.id).update(this.roomObjectModel(room));
   }
 

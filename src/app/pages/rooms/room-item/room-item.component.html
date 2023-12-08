@@ -1,5 +1,7 @@
-<div>
-  <h1>{{room.name}}</h1>
-  <button main-button (click)="room.join()">join</button>
-  <button main-button theme="error" (click)="room.delete()">delete</button>
+<div class="room">
+  <h2 class="room__name">{{room.name}}</h2>
+  <div class="buttons">
+    <button main-button (click)="room.join()">join</button>
+    <button main-button theme="error" (click)="room.delete()">delete</button>
+  </div>
 </div>
