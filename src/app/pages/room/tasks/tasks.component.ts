@@ -28,6 +28,11 @@ export class TasksComponent implements OnInit {
     this.roomService.updateRoom(this.room);
   }
 
+  setTask(index: number) {
+    this.room.setTaskIndex(index);
+    this.roomService.updateRoom(this.room);
+  }
+
   createTask(name: string) {
     this.room.createTask(name);
     this.roomService.updateRoom(this.room);

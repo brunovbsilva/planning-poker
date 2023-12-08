@@ -1,5 +1,5 @@
 <div class="current-room" *ngIf="room">
-  <span class="room-name">{{room.name}}</span>
+  <h1 class="room-name">{{room.name}}</h1>
   <app-tasks [room]="room"></app-tasks>
   <app-votes *ngIf="room.tasks[room.currentTask]" [room]="room"></app-votes>
 </div>
