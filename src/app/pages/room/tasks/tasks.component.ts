@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { RoomService } from 'src/app/services/room.service';
-import { IRoom } from '../../rooms/interfaces/iroom';
+import { IRoom } from '../interfaces/room.interface';
+import { ITask } from '../interfaces/task.interface';
+import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
 
 @Component({
   selector: 'app-tasks',
@@ -10,29 +12,34 @@ import { IRoom } from '../../rooms/interfaces/iroom';
 export class TasksComponent implements OnInit {
 
   @Input() room!: IRoom;
-  index = 0;
+  @ViewChild('modal') modal!: IModal;
 
   constructor(private roomService: RoomService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   nextTask() {
-    this.room.currentTask++;
+    this.room.nextTask();
     this.roomService.updateRoom(this.room);
   }
 
   previousTask() {
-    this.room.currentTask--;
+    this.room.previousTask();
     this.roomService.updateRoom(this.room);
   }
 
-  getTask(): string {
-    return this.room?.tasks[this.room.currentTask] || '';
+  setTask(index: number) {
+    this.room.setTaskIndex(index);
+    this.roomService.updateRoom(this.room);
   }
 
-  addTask() {
-    this.room.tasks.push('task ' + this.index);
+  createTask(name: string) {
+    this.room.createTask(name);
     this.roomService.updateRoom(this.room);
-    this.index++;
+  }
+
+  deleteTask(task: ITask) {
+    this.room.deleteTask(task);
+    this.roomService.updateRoom(this.room);
   }
 }

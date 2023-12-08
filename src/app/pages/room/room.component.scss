@@ -1,11 +1,13 @@
 .current-room {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px auto;
+  padding: 0 16px;
+  max-width: 1260px;
+  width: 100%;
   .room-name {
     font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    text-align: center;
   }
 }

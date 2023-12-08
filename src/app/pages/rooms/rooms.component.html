@@ -1,9 +1,18 @@
-<div class="room-list">
-  <input #name type="text">
-  <a (click)="createRoom(name.value)">create room</a>
-  <app-room-item *ngFor="let room of rooms"
-    [room]="room"
-    (onDelete)="deleteRoom($event)"
-    (onJoin)="joinRoom($event)">
-  </app-room-item>
+<div class="actions">
+  <h2 class="rooms__header">Escolha ou crie uma sala</h2>
+  <button main-button theme="primary" (click)="modal.open()">Criar Sala</button>
 </div>
+
+<div class="rooms">
+  <div class="rooms__list">
+    <app-room-item *ngFor="let room of rooms" [room]="room"></app-room-item>
+    <span class="no-room" *ngIf="rooms.length == 0">Não há salas no momento!</span>
+  </div>
+</div>
+
+
+<app-modal #modal modalTitle="Criar Sala">
+  <input #name main-input type="text" class="input" placeholder="Digite o nome da sala">
+  <button main-button (click)="createRoom(name.value)">Criar</button>
+  <button main-button theme="error" (click)="modal.close()">Cancelar</button>
+</app-modal>

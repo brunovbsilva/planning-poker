@@ -1,0 +1,13 @@
+.room {
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  .room__name {
+    padding: 0 16px;
+  }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 10px;
+  }
+}

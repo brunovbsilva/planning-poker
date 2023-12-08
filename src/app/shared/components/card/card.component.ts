@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { CardType } from './models/card-type.enum';
 import { flipAnimation } from './animations/flip.animation';
-import { Card } from './interfaces/card.interface';
+import { ICard } from './interfaces/card.interface';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +11,8 @@ import { Card } from './interfaces/card.interface';
 })
 export class CardComponent {
 
-  @Input() card!: Card;
+  @Input() card!: ICard;
+  public isHovered: boolean = false;
 
   public getCardType() {
     switch(this.card.type) {
@@ -46,5 +47,11 @@ export class CardComponent {
       'card-front--red': [CardType.HEARTS,  CardType.DIAMONDS].includes(this.card.type),
       'card-front--black': [CardType.SPADES, CardType.CLUBS].includes(this.card.type),
     }
+  }
+  
+  @HostListener('mouseenter', ['$event'])
+  @HostListener('mouseleave', ['$event'])
+  private changeIsHovered(event: MouseEvent){
+    this.isHovered = event.type === 'mouseenter';
   }
 }

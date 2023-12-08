@@ -1,0 +1,20 @@
+@import './colors';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&family=Roboto:ital,wght@0,400;0,700;0,900;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+p, span {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}

@@ -1,0 +1,25 @@
+.update-tasks-btn {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.tasks-control {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: lightgray;
+  border-radius: 4px;
+  .tasks-control__previous, .tasks-control__next {
+    display: flex;
+    gap: 5px;
+  }
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}

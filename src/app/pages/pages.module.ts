@@ -6,9 +6,7 @@ import { RoomComponent } from './room/room.component';
 import { RoomItemComponent } from './rooms/room-item/room-item.component';
 import { TasksComponent } from './room/tasks/tasks.component';
 import { VotesComponent } from './room/votes/votes.component';
-import { CardComponent } from './room/votes/card/card.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,14 +14,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RoomComponent,
     RoomItemComponent,
     TasksComponent,
-    VotesComponent,
-    CardComponent
+    VotesComponent
   ],
   imports: [
     PagesRoutingModule,
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    SharedModule
   ]
 })
 export class PagesModule {}

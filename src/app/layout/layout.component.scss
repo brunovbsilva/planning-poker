@@ -3,8 +3,20 @@
   flex-direction: column;
 
   .page {
-    overflow: auto;
+    overflow: hidden;
     flex: 1 1 auto;
+    height: calc(100vh - 120px);
     position: relative;
+  }
+}
+
+@media (min-width:641px)  {
+  :host .page {
+    height: calc(100vh - 100px);
+  }
+}
+@media (min-width:961px)  { 
+  :host .page {
+    height: calc(100vh - 80px);
   }
 }

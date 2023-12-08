@@ -1,3 +1,22 @@
-<div class="votes">
-  <app-card class="card" *ngFor="let card of cards" [card]="card" (click)="card.toggleFlip()"></app-card>
+<div class="actions" *ngIf="task.votes.length > 0">
+  <button main-button class="current-votes__btn-flip" [disabled]="flippedVotes" (click)="showVotes()">Virar cartas</button>
+  <button main-button theme="accent" class="current-votes__btn-revote" [disabled]="!flippedVotes" (click)="revote()">Revotar</button>
+</div>
+
+<div class="votes-result">
+  <h1>{{ flippedVotes ? getResult() : '-' }}</h1>
+</div>
+
+<div class="current-votes-list">
+  <app-card *ngFor="let vote of task.votes" [card]="mapVote(vote)"></app-card>
+</div>
+
+<div class="votes" *ngIf="!flippedVotes">
+  <app-card #cardComponent
+    *ngFor="let card of cards"
+    class="card"
+    [@hover]="cardComponent.isHovered"
+    [card]="card"
+    (click)="vote(card.value)">
+  </app-card>
 </div>

@@ -1,5 +1,6 @@
 <div class="card" [@flipAnimation]="card.isFliped">
   <div class="card-side card-front" [ngClass]="getClasses()">
+    <span *ngIf="card.creator" class="creator-name">{{ card.creator }}</span>
     <div class="retangle">
       <span class="card-type">{{ getCardType() }}</span>
     </div>
@@ -8,5 +9,8 @@
       <span class="type">{{ getCardType() }}</span>
     </div>
   </div>
-  <div class="card-side card-back">back</div>
+  <div class="card-side card-back">
+    <span *ngIf="card.creator" class="creator-name">{{ card.creator }}</span>
+    <img class="back-image" src="assets/images/back-card.png" alt="card back" />
+  </div>
 </div>
