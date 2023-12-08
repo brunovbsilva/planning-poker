@@ -10,6 +10,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { PagesModule } from './pages/pages.module';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 const config = {
   apiKey: "AIzaSyBxcb1o6HFEHy-RwZevt909OKSOqEpvW-g",
@@ -26,13 +29,20 @@ const config = {
     LoginComponent
   ],
   imports: [
-    PagesModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
     AppRoutingModule,
     LayoutModule,
+    PagesModule,
+    SharedModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule
+  ],
+  exports: [
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
