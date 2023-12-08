@@ -1,0 +1,31 @@
+name: DEPLOY
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v3
+
+      - name: 'install angular'
+        run: npm install -g @angular/cli@15.2.0
+
+      - name: 'install dependencies'
+        run: npm install
+
+      - name: 'build angular' 
+        run: ng build --base-href /planning-poker/
+
+      - name: 'Deploy 🚀'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/planning-poker
+          branch: gh-pages
+          clean: true
