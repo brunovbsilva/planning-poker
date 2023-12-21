@@ -53,7 +53,7 @@ export class VotesComponent {
     if(this.flippedVotes) return;
     this.userAuth.currentUser
       .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
-      .then(() => this.roomService.updateRoom(this.room));
+      .finally(() => this.roomService.updateRoom(this.room));
   }
 
   showVotes() {
