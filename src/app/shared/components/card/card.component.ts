@@ -44,7 +44,7 @@ export class CardComponent {
 
   public getClasses() {
     return {
-      'card-front--red': [CardType.HEARTS,  CardType.DIAMONDS].includes(this.card.type),
+      'card-front--red': [CardType.HEARTS, CardType.DIAMONDS].includes(this.card.type),
       'card-front--black': [CardType.SPADES, CardType.CLUBS].includes(this.card.type),
     }
   }
