@@ -9,6 +9,7 @@ import { Vote } from '../models/vote';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IRoom } from '../interfaces/room.interface';
 import { RoomService } from 'src/app/services/room.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-votes',
@@ -50,14 +51,13 @@ export class VotesComponent {
 
   vote(value: number) {
     if(this.flippedVotes) return;
-    this.userAuth.user.subscribe(user => {
-      const vote = new Vote(user?.uid!, user?.displayName!, value);
-      this.task.vote(vote);
-      this.roomService.updateRoom(this.room);
-    });
+    this.userAuth.currentUser
+      .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
+      .then(() => this.roomService.updateRoom(this.room));
   }
 
   showVotes() {
+    if(this.flippedVotes) return;
     this.task.showVotes();
     this.roomService.updateRoom(this.room);
   }

@@ -12,4 +12,5 @@ export interface IRoom {
   previousTask(): void;
   deleteTask(task: ITask): void;
   setTaskIndex(index: number): void;
+  updateValues(room: IRoom): void;
 }

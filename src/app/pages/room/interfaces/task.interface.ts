@@ -9,4 +9,5 @@ export interface ITask {
   showVotes(): void;
   revote(): void;
   getResult(): number;
+  updateValues(task: ITask): void;
 }

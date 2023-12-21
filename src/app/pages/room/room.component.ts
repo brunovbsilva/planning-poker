@@ -27,23 +27,25 @@ export class RoomComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.roomService.listenerRoom(this.roomId!).subscribe(room => {
-      this.room = new Room(
-        room.name,
-        room.creator,
-        room.tasks.map(task => new Task(
-          task.name,
-          task.votes.map(vote => new Vote(
-            vote.userId,
-            vote.userName,
-            vote.value,
-            vote.hidden
-          ))
-        )),
-        room.currentTask,
-        room.id
-      );
-    });
+    this.subscription = this.roomService.listenerRoom(this.roomId!)
+      .subscribe(room => {
+        if(this.room) this.room?.updateValues(room);
+        else this.room = new Room(
+          room.name,
+          room.creator,
+          room.tasks.map(task => new Task(
+            task.name,
+            task.votes.map(vote => new Vote(
+              vote.userId,
+              vote.userName,
+              vote.value,
+              vote.hidden
+            ))
+          )),
+          room.currentTask,
+          room.id
+        );
+      });
   }
   
   ngOnDestroy(): void {

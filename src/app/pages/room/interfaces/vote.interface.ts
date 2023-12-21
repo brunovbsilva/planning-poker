@@ -6,4 +6,5 @@ export interface IVote {
 
   updateVote(vote: number): void;
   showVote(): void;
+  updateValues(vote: IVote): void;
 }
