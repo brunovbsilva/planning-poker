@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    public auth: AngularFireAuth,
+    private auth: AngularFireAuth,
     private router: Router) { }
 
   ngOnInit(): void {}
