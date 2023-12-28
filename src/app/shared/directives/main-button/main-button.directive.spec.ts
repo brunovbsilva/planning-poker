@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { MainButtonDirective, Theme } from './main-button.directive';
-import { MockElementRef } from '../../mocks/element-ref.mock';
+import { MockElementRef } from '../../mocks/others/element-ref.mock';
 import { TestBed, async } from '@angular/core/testing';
 
 describe('MainButtonDirective', () => {

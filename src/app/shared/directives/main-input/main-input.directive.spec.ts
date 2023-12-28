@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { MainInputDirective } from './main-input.directive';
 import { ElementRef } from '@angular/core';
-import { MockElementRef } from '../../mocks/element-ref.mock';
+import { MockElementRef } from '../../mocks/others/element-ref.mock';
 
 describe('MainInputDirective', () => {
   let elementRef: ElementRef;
