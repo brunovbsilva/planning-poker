@@ -43,15 +43,20 @@ export class Task implements ITask {
     if(this.votes === votes) return;
     if(votes.length === 0) this.votes = [];
     else votes.forEach((vote: IVote) => {
-      let currentVote = this.votes.find(x => x.userId === vote.userId);
+      const currentVote = this.votes.find(x => x.userId === vote.userId);
       if(currentVote) currentVote.updateValues(vote);
-      else this.votes.push(new Vote(
-        vote.userId,
-        vote.userName,
-        vote.value,
-        vote.hidden
-      ));
+      else this.pushVote(vote);
+      this.votes = this.votes.filter(x => votes.map(v => v.userId).includes(x.userId));
     });
+  }
+
+  private pushVote(vote: IVote): void {
+    this.votes.push(new Vote(
+      vote.userId,
+      vote.userName,
+      vote.value,
+      vote.hidden
+    ));
   }
 
 }

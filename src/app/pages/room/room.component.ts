@@ -31,22 +31,26 @@ export class RoomComponent extends BaseComponent implements OnInit {
       this.roomService.listenerRoom(this.roomId!)
         .subscribe(room => {
           if(this.room) this.room?.updateValues(room);
-          else this.room = new Room(
-            room.name,
-            room.creator,
-            room.tasks.map(task => new Task(
-              task.name,
-              task.votes.map(vote => new Vote(
-                vote.userId,
-                vote.userName,
-                vote.value,
-                vote.hidden
-              ))
-            )),
-            room.currentTask,
-            room.id
-          );
+          else this.startRoom(room);
         })
+    );
+  }
+
+  private startRoom(room: IRoom): void {
+    this.room = new Room(
+      room.name,
+      room.creator,
+      room.tasks.map(task => new Task(
+        task.name,
+        task.votes.map(vote => new Vote(
+          vote.userId,
+          vote.userName,
+          vote.value,
+          vote.hidden
+        ))
+      )),
+      room.currentTask,
+      room.id
     );
   }
 }

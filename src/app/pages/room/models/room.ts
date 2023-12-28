@@ -64,18 +64,23 @@ export class Room implements IRoom {
     if(this.tasks === tasksToUpdate) return;
     if(tasksToUpdate.length === 0) this.tasks = [];
     else tasksToUpdate.forEach((task: ITask) => {
-      let currentTask = this.tasks.find(x => x.name === task.name);
+      const currentTask = this.tasks.find(x => x.name === task.name);
       if(currentTask) currentTask.updateValues(task);
-      else this.tasks.push(new Task(
-        task.name,
-        task.votes.map(vote => new Vote(
-          vote.userId,
-          vote.userName,
-          vote.value,
-          vote.hidden
-        ))
-      ));
+      else this.pushTask(task);
+      this.tasks = this.tasks.filter(x => tasksToUpdate.map(x => x.name).includes(x.name));
     });
+  }
+
+  private pushTask(task: ITask): void {
+    this.tasks.push(new Task(
+      task.name,
+      task.votes.map(vote => new Vote(
+        vote.userId,
+        vote.userName,
+        vote.value,
+        vote.hidden
+      ))
+    ));
   }
 
   private updateCurrentTask(currentTask: number): void {
