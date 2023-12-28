@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from './interfaces/room.interface';
-import { Subscription } from 'rxjs';
 import { Room } from './models/room';
 import { Task } from './models/task';
 import { Vote } from './models/vote';

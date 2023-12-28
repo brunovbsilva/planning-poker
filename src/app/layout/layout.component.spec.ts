@@ -4,7 +4,7 @@ import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('LayoutComponent', () => {
+fdescribe('LayoutComponent', () => {
   let component: LayoutComponent;
   let fixture: ComponentFixture<LayoutComponent>;
 

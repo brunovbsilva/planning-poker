@@ -9,7 +9,6 @@ import { Vote } from '../models/vote';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IRoom } from '../interfaces/room.interface';
 import { RoomService } from 'src/app/services/room.service';
-import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-votes',
