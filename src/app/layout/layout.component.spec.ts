@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
-import { HeaderComponent } from './header/header.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HeaderComponentSpec } from '../shared/mocks/layout/header.component.mock';
 
-fdescribe('LayoutComponent', () => {
+describe('LayoutComponent', () => {
   let component: LayoutComponent;
   let fixture: ComponentFixture<LayoutComponent>;
 
@@ -12,7 +12,7 @@ fdescribe('LayoutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LayoutComponent,
-        HeaderComponent
+        HeaderComponentSpec
       ],
       imports: [
         RouterTestingModule
