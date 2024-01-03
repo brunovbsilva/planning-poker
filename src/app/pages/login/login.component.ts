@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
@@ -11,15 +11,13 @@ import firebase from 'firebase/compat/app';
 export class LoginComponent {
   constructor(
     public auth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone
   ) {}
 
   login() {
     this.auth.signInWithPopup(this.googleAuthProvider())
-      .then(
-        () => this.router.navigate(['rooms']),
-        error => console.log(error)
-      )
+      .then(() => this.ngZone.run(() => this.router.navigate(['rooms'])));
   }
 
   googleAuthProvider() {
