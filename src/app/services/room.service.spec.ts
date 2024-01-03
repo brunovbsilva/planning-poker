@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { IRoom } from '../pages/room/interfaces/room.interface';
 import { IRoomItem } from '../pages/rooms/room-item/interfaces/room-item.inteface';
 
-\describe('RoomService', () => {
+describe('RoomService', () => {
   let service: RoomService;
   let firestore: AngularFirestore;
   const roomMock = new Room(
