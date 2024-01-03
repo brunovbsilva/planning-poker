@@ -4,7 +4,7 @@ import { AngularFireStorage, AngularFireStorageModule } from "@angular/fire/comp
 import { AngularFireStorageMock } from "./angular-fire-storage.mock";
 import { AngularFirestoreMock } from "./angular-firestore.mock";
 import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFirestore, AngularFirestoreModule } from "@angular/fire/compat/firestore";
 
 const config = {
   apiKey: "mocked-api-key",
@@ -25,5 +25,5 @@ export const AngularFireModulesMock = [
 export const AngularFireProvidersMock = [
   { provide: AngularFireAuth, useClass: AngularFireAuthMock },
   { provide: AngularFireStorage, useClass: AngularFireStorageMock },
-  { provide: AngularFireStorage, useClass: AngularFirestoreMock }
+  { provide: AngularFirestore, useClass: AngularFirestoreMock }
 ]
