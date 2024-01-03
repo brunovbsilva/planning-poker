@@ -26,6 +26,10 @@ export class RoomComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.startListenerRoom();
+  }
+
+  private startListenerRoom(): void {
     this.toDestroy(
       this.roomService.listenerRoom(this.roomId!)
         .subscribe(room => {
@@ -33,7 +37,7 @@ export class RoomComponent extends BaseComponent implements OnInit {
           else this.startRoom(room);
         })
     );
-  }
+  };
 
   private startRoom(room: IRoom): void {
     this.room = new Room(
