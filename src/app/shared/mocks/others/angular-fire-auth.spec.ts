@@ -1,14 +1,15 @@
 export class AngularFireAuthMock {
+  public currentUser = new Promise((resolve) => resolve(null));
   signInWithEmailAndPassword(email: string, password: string) {
-    return new Promise((resolve) => resolve({}));
+    return this.currentUser;
   }
   signInWithPopup(provider: any) {
-    return new Promise((resolve) => resolve({}));
+    return this.currentUser;
   }
   createUserWithEmailAndPassword(email: string, password: string) {
-    return new Promise((resolve) => resolve({}));
+    return this.currentUser;
   }
   signOut() {
-    return new Promise((resolve) => resolve({}));
+    return this.currentUser;
   }
 }

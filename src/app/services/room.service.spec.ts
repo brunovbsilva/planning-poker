@@ -1,5 +1,4 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-
 import { RoomService } from './room.service';
 import { AngularFireModulesMock, AngularFireProvidersMock } from '../shared/mocks/others';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -27,7 +26,9 @@ describe('RoomService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AngularFireModulesMock],
-      providers: [AngularFireProvidersMock]
+      providers: [
+        AngularFireProvidersMock
+      ]
     });
     service = TestBed.inject(RoomService);
     firestore = TestBed.inject(AngularFirestore);
@@ -79,13 +80,13 @@ describe('RoomService', () => {
     }));
   });
 
-  xdescribe('getRooms', () => {
+  describe('getRooms', () => {
     let observer: Observable<IRoomItem[]>;
     beforeEach(() => observer = service.getRooms());
 
     it('should get observable', () => expect(observer).toBeTruthy());
     it('should get a room', fakeAsync(() => {
-      observer.subscribe(r => expect(r).toBeInstanceOf(Array));
+      observer.subscribe(r => expect(r).toBeInstanceOf(Array<IRoomItem>));
       service.createRoom(roomMock);
       tick();
     }));

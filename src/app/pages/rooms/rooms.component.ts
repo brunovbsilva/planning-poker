@@ -39,9 +39,13 @@ export class RoomsComponent extends BaseComponent implements OnInit {
   }
 
   createRoom(name: string) {
-    if(!name) return;
+    if(this.isNullOrEmpty(name)) return;
     this.userAuth.currentUser
       .then(user => this.roomService.createRoom(new Room(name, user?.uid!)))
       .finally(() => this.modal.close());
+  }
+
+  private isNullOrEmpty(value: string | null | undefined): boolean {
+    return value === null || value === undefined || value === '';
   }
 }

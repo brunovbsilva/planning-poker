@@ -1,8 +1,8 @@
 import { AngularFireAuth, AngularFireAuthModule } from "@angular/fire/compat/auth";
-import { AngularFireAuthMock } from "./angular-fire-auth.mock";
+import { AngularFireAuthMock } from "./angular-fire-auth.spec";
 import { AngularFireStorage, AngularFireStorageModule } from "@angular/fire/compat/storage";
-import { AngularFireStorageMock } from "./angular-fire-storage.mock";
-import { AngularFirestoreMock } from "./angular-firestore.mock";
+import { AngularFireStorageMock } from "./angular-fire-storage.spec";
+import { AngularFirestoreMock } from "./angular-firestore.spec";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestore, AngularFirestoreModule } from "@angular/fire/compat/firestore";
 

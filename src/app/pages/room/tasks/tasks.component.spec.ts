@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TasksComponent } from './tasks.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
-import { ModalComponentSpec } from 'src/app/shared/mocks/components/modal.component.mock';
+import { ModalComponentSpec } from 'src/app/shared/mocks/components/modal.component.spec';
 import { RoomService } from 'src/app/services/room.service';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service';
-import { RoomMock } from 'src/app/shared/mocks/constants';
+import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
+import { RoomMock, TaskMock } from 'src/app/shared/mocks/constants';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -101,11 +101,12 @@ describe('TasksComponent', () => {
 
     describe('deleteTask', () => {
       beforeEach(() => {
+        component.room.tasks = [TaskMock]
         component.deleteTask(component.room.tasks[0]);
       });
 
       it('should call room.deleteTask', () => expect(roomSpy.deleteTask).toHaveBeenCalled());
-      it('should delete task', () => expect(component.room.tasks.length).toBe(1));
+      it('should delete task', () => expect(component.room.tasks.length).toBe(0));
     });
   })
 });

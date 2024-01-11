@@ -3,9 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RoomComponent } from './room.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RoomService } from 'src/app/services/room.service';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service';
-import { TasksComponentSpec } from 'src/app/shared/mocks/pages/tasks.component.mock';
-import { VotesComponentSpec } from 'src/app/shared/mocks/pages/votes.component.mock';
+import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
+import { TasksComponentSpec } from 'src/app/shared/mocks/pages/tasks.component.spec';
+import { VotesComponentSpec } from 'src/app/shared/mocks/pages/votes.component.spec';
 
 describe('RoomComponent', () => {
   let component: RoomComponent;
@@ -39,7 +39,7 @@ describe('RoomComponent', () => {
   });
 
   it('should update room', () => {
-    let spyUpdate = spyOn(component.room!, 'updateValues');
+    let spyUpdate = spyOn(component.room!, 'updateValues').and.callThrough();
     service.updateRoom(component.room!);
     expect(spyUpdate).toHaveBeenCalled();
   })

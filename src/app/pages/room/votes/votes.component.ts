@@ -25,7 +25,6 @@ export class VotesComponent {
   get flippedVotes(): boolean {
     return this.task.votes.some(vote => !vote.hidden);
   }
-
   public cards: Card[] = [
     new Card(1, 1),
     new Card(2, 2),
