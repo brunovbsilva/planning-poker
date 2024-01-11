@@ -9,4 +9,4 @@ export const VoteFlipMock = new Vote('mocked user id', 'mocked user name', 10, f
 export const TaskMock = new Task('mocked task', [VoteMock, VoteMock])
 export const TaskFlipMock = new Task('mocked task', [VoteFlipMock, VoteMock])
 export const RoomMock = new Room('mocked room', 'mocked creator', [TaskMock, TaskFlipMock], 0, 'mocked id');
-export const RoomItemMock = new RoomItem('999', 'mocked name', any, any);
+export const RoomItemMock = new RoomItem(RoomMock.id!, RoomMock.name, any, any);

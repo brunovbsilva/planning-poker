@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, map } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { IRoom } from "src/app/pages/room/interfaces/room.interface";
 import { IRoomItem } from "src/app/pages/rooms/room-item/interfaces/room-item.inteface";
 import { RoomMock } from "../constants";
