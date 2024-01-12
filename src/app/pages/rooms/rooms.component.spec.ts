@@ -9,6 +9,7 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { RoomItemComponent } from './room-item/room-item.component';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 describe('RoomsComponent', () => {
   let component: RoomsComponent;
@@ -31,7 +32,7 @@ describe('RoomsComponent', () => {
       ],
       providers: [
         AngularFireProvidersMock,
-        { provide: RoomService, useClass: RoomServiceMock }
+        RoomServiceProviderMock
       ]
     });
     fixture = TestBed.createComponent(RoomsComponent);

@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-
 import { VotesComponent } from './votes.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
 import { RoomService } from 'src/app/services/room.service';
 import { RoomMock, TaskFlipMock, TaskMock } from 'src/app/shared/mocks/constants';
 import { CardComponentSpec } from 'src/app/shared/mocks/components/card.component.spec';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 xdescribe('VotesComponent', () => {
   let component: VotesComponent;
@@ -25,7 +24,7 @@ xdescribe('VotesComponent', () => {
       ],
       providers: [
         AngularFireProvidersMock,
-        { provide: RoomService, useClass: RoomServiceMock }
+        RoomServiceProviderMock
       ]
     });
     fixture = TestBed.createComponent(VotesComponent);

@@ -3,14 +3,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RoomComponent } from './room.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RoomService } from 'src/app/services/room.service';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
 import { TasksComponentSpec } from 'src/app/shared/mocks/pages/tasks.component.spec';
 import { VotesComponentSpec } from 'src/app/shared/mocks/pages/votes.component.spec';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 describe('RoomComponent', () => {
   let component: RoomComponent;
   let fixture: ComponentFixture<RoomComponent>;
-
   let service: RoomService;
 
   beforeEach(() => {
@@ -21,15 +20,11 @@ describe('RoomComponent', () => {
         VotesComponentSpec
       ],
       imports: [RouterTestingModule],
-      providers: [
-        { provide: RoomService, useClass: RoomServiceMock }
-      ]
+      providers: [RoomServiceProviderMock]
     });
     fixture = TestBed.createComponent(RoomComponent);
     component = fixture.componentInstance;
-
     service = TestBed.inject(RoomService);
-
     fixture.detectChanges();
   });
 
