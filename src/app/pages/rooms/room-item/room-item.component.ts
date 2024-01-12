@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IRoom } from '../../room/interfaces/room.interface';
+import { Component, Input } from '@angular/core';
 import { IRoomItem } from './interfaces/room-item.inteface';
 
 @Component({

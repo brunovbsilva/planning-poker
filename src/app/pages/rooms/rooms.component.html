@@ -1,6 +1,6 @@
 <div class="actions">
   <h2 class="rooms__header">Escolha ou crie uma sala</h2>
-  <button main-button theme="primary" (click)="modal.open()">Criar Sala</button>
+  <button main-button theme="primary" (click)="modal.open()">Criar sala</button>
 </div>
 
 <div class="rooms">
@@ -10,8 +10,7 @@
   </div>
 </div>
 
-
-<app-modal #modal modalTitle="Criar Sala">
+<app-modal #modal modalTitle="Criar sala">
   <input #name main-input type="text" class="input" placeholder="Digite o nome da sala">
   <button main-button (click)="createRoom(name.value)">Criar</button>
   <button main-button theme="error" (click)="modal.close()">Cancelar</button>

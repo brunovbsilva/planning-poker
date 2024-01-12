@@ -1,11 +1,13 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
+export type Theme = 'primary' | 'accent' | 'warn' | 'error';
+
 @Directive({
   selector: 'button[main-button]'
 })
 export class MainButtonDirective implements OnInit {
 
-  @Input() theme: 'primary' | 'accent' | 'warn' | 'error' = 'primary';
+  @Input() theme: Theme = 'primary';
 
   constructor(private element: ElementRef) { }
 

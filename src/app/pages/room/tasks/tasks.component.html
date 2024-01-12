@@ -1,11 +1,11 @@
 <button main-button class="update-tasks-btn" (click)="modal.open()">Atualizar tasks</button>
 
-<div class="tasks-control" *ngIf="room.tasks.length > 0">
+<div class="tasks-control" *ngIf="room.tasks[room.currentTask]">
   <div class="tasks-control__previous">
     <button main-button [disabled]="room.currentTask == 0" (click)="setTask(0)">{{'<<'}}</button>
     <button main-button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
   </div>
-  <span>{{ room.tasks[room.currentTask]?.name || '' }}</span>
+  <span>{{ room.tasks[room.currentTask].name }}</span>
   <div class="tasks-control__next">
     <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
     <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>

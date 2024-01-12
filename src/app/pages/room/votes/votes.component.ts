@@ -25,7 +25,6 @@ export class VotesComponent {
   get flippedVotes(): boolean {
     return this.task.votes.some(vote => !vote.hidden);
   }
-
   public cards: Card[] = [
     new Card(1, 1),
     new Card(2, 2),
@@ -50,14 +49,13 @@ export class VotesComponent {
 
   vote(value: number) {
     if(this.flippedVotes) return;
-    this.userAuth.user.subscribe(user => {
-      const vote = new Vote(user?.uid!, user?.displayName!, value);
-      this.task.vote(vote);
-      this.roomService.updateRoom(this.room);
-    });
+    this.userAuth.currentUser
+      .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
+      .finally(() => this.roomService.updateRoom(this.room));
   }
 
   showVotes() {
+    if(this.flippedVotes) return;
     this.task.showVotes();
     this.roomService.updateRoom(this.room);
   }
