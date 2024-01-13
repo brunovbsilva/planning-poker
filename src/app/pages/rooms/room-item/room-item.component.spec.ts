@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
 import { RoomItemMock } from 'src/app/shared/mocks/constants';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 describe('RoomItemComponent', () => {
   let component: RoomItemComponent;
@@ -27,7 +27,7 @@ describe('RoomItemComponent', () => {
         AngularFireModulesMock
       ],
       providers: [
-        { provide: RoomService, useClass: RoomServiceMock },
+        RoomServiceProviderMock,
         AngularFireProvidersMock
       ]
     });

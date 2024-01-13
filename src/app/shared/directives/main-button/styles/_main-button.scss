@@ -9,42 +9,46 @@
   border: none;
 
   &--primary {
-    color: map-get($primary, 900);
+    color: map-get($primary, constrast, base);
+    background: map-get($primary, base);
     &:hover {
-      background: map-get($primary, A100);
+      background: map-get($primary, light);
     }
     &:active {
-      background: map-get($primary, A200);
+      background: map-get($primary, dark);
     }
   }
 
   &--accent {
-    color: map-get($accent, 900);
+    color: map-get($accent, constrast, base);
+    background: map-get($accent, base);
     &:hover {
-      background: map-get($accent, A100);
+      background: map-get($accent, light);
     }
     &:active {
-      background: map-get($accent, A200);
+      background: map-get($accent, dark);
     }
   }
 
   &--warn {
-    color: map-get($warn, 900);
+    color: map-get($warn, constrast, base);
+    background: map-get($warn, base);
     &:hover {
-      background: map-get($warn, A100);
+      background: map-get($warn, light);
     }
     &:active {
-      background: map-get($warn, A200);
+      background: map-get($warn, dark);
     }
   }
 
   &--error {
-    color: map-get($error, 500);
+    color: map-get($error, constrast, base);
+    background: map-get($error, base);
     &:hover {
-      background: map-get($error, 100);
+      background: map-get($error, light);
     }
     &:active {
-      background: map-get($error, 200);
+      background: map-get($error, dark);
     }
   }
 
@@ -55,7 +59,7 @@
 
   &:disabled {
     background: transparent;
-    color: map-get($disabled, 700);
+    color: map-get($disabled, lighter);
   }
 
   &:not(:disabled) {

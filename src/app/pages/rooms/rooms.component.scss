@@ -11,9 +11,14 @@
   .rooms__list {
     border: 1px solid gray;
     border-radius: 4px;
+    width: 100%;
     app-room-item {
       display: block;
       padding: 10px 0;
+    }
+    .no-room {
+      line-height: 3.25rem;
+      text-align: center;
     }
     :nth-child(even) {
       background-color: #f5f5f5;

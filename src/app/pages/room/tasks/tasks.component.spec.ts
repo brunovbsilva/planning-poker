@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TasksComponent } from './tasks.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
 import { ModalComponentSpec } from 'src/app/shared/mocks/components/modal.component.spec';
 import { RoomService } from 'src/app/services/room.service';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
 import { RoomMock, TaskMock } from 'src/app/shared/mocks/constants';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 describe('TasksComponent', () => {
   let component: TasksComponent;
@@ -21,7 +20,7 @@ describe('TasksComponent', () => {
       imports: [AngularFireModulesMock],
       providers: [
         AngularFireProvidersMock,
-        { provide: RoomService, useClass: RoomServiceMock }
+        RoomServiceProviderMock
       ]
     });
     fixture = TestBed.createComponent(TasksComponent);

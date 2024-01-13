@@ -1,3 +1,5 @@
+@import "../../../../assets/sass/colors";
+
 .update-tasks-btn {
   float: right;
   margin-bottom: 10px;
@@ -7,11 +9,28 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: lightgray;
+  background-color: transparent;
+  border: 2px solid map-get($disabled, light);
+  color: map-get($disabled, constrast, light);
   border-radius: 4px;
   .tasks-control__previous, .tasks-control__next {
     display: flex;
     gap: 5px;
+    > button {
+      background: transparent;
+      &:not(:disabled) {
+        color: map-get($disabled, constrast, base);
+        &:hover {
+          background: map-get($disabled, lighter);
+          color: map-get($disabled, constrast, lighter);
+        }
+        &:active {
+          background: map-get($disabled, dark);
+          color: map-get($disabled, constrast, dark);
+        }
+      }
+      
+    }
   }
 }
 
