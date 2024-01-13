@@ -13,6 +13,8 @@ import { PagesModule } from './pages/pages.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { TitleStrategy } from '@angular/router';
+import { TitlePrefixStrategy } from './shared/strategies/title-prefix.strategy';
 
 const config = {
   apiKey: "AIzaSyBxcb1o6HFEHy-RwZevt909OKSOqEpvW-g",
@@ -44,7 +46,9 @@ const config = {
   exports: [
     SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: TitleStrategy, useClass: TitlePrefixStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
