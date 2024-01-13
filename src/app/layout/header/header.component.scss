@@ -1,5 +1,7 @@
+@import '../../../assets/sass/colors';
+
 .header {
-  background: #c2c2c2;
+  background: map-get($primary, base);
   width: 100vw;
   height: 120px;
   display: flex;
@@ -8,7 +10,7 @@
   align-items: center;
   padding: 0 2rem;
   .header-title {
-    color: #000;
+    color: map-get($primary, constrast, base);
     flex-basis: 100%;
     text-align: center;
     cursor: pointer;
@@ -27,6 +29,7 @@
       justify-content: center;
       .user-name {
         margin: 0 .5rem;
+        color: map-get($primary, constrast, base);
       }
       .user-image {
         width: 3rem;

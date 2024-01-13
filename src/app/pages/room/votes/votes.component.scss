@@ -1,3 +1,4 @@
+@import '../../../../assets/sass/colors';
 
 .actions {
   display: flex;
@@ -7,7 +8,8 @@
 }
 
 .votes-result {
-  border: 3px solid black;
+  border: 3px solid map-get($disabled, light);
+  color: map-get($disabled, constrast, light);
   border-radius: 4px;
   text-align: center;
   font-size: 3rem;
