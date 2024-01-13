@@ -5,7 +5,7 @@
     <button main-button [disabled]="room.currentTask == 0" (click)="setTask(0)">{{'<<'}}</button>
     <button main-button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
   </div>
-  <span>{{ room.tasks[room.currentTask].name }}</span>
+  <h3>{{ room.tasks[room.currentTask].name }}</h3>
   <div class="tasks-control__next">
     <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
     <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>

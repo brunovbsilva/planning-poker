@@ -9,7 +9,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: map-get($disabled, light);
+  background-color: transparent;
+  border: 2px solid map-get($disabled, light);
   color: map-get($disabled, constrast, light);
   border-radius: 4px;
   .tasks-control__previous, .tasks-control__next {
