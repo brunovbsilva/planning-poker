@@ -1,6 +1,8 @@
+import { Observable } from "rxjs";
+
 export interface IModal {
   modalTitle: string;
-  isOpen: boolean;
+  isOpen$: Observable<boolean>;
 
   open(): void;
   close(): void;

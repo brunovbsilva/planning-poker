@@ -1,5 +1,5 @@
-<div class="background" *ngIf="isOpen" (click)="close()"></div>
-<div class="modal" *ngIf="isOpen">
+<div class="background" *ngIf="isOpen$ | async" (click)="close()"></div>
+<div class="modal" *ngIf="isOpen$ | async" modalKeydowns (escapeKeydown)="close()">
   <div class="modal__header">
     <h1>{{ modalTitle }}</h1>
   </div>

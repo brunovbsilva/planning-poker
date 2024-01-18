@@ -66,7 +66,7 @@ describe('RoomsComponent', () => {
     it('button should be "Criar sala"', () => expect(button.innerText).toBe('Criar sala'));
     describe('on click button', () => {
       beforeEach(() => button.click());
-      it('should open modal', () => expect(component.modal.isOpen).toBeTrue());
+      it('should open modal', () => expect(component.modal.isOpen$).toBeTrue());
     });
   });
 
