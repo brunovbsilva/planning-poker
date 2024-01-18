@@ -14,7 +14,6 @@ export class TasksComponent implements OnInit {
 
   @Input() room!: IRoom;
   @ViewChild('modal') modal!: IModal;
-  @ViewChild('name') inputName!: HTMLInputElement;
   public createTaskForm = new FormControl('');
 
   constructor(private roomService: RoomService) { }
