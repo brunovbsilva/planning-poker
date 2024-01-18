@@ -4,13 +4,16 @@ import { CardComponent } from './components/card/card.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MainButtonDirective } from './directives/main-button/main-button.directive';
 import { MainInputDirective } from './directives/main-input/main-input.directive';
+import { ModalKeydownsDirective } from './components/modal/directives/modal-keydowns.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     CardComponent,
     ModalComponent,
     MainButtonDirective,
-    MainInputDirective
+    MainInputDirective,
+    ModalKeydownsDirective
   ],
   exports: [
     CardComponent,
@@ -19,7 +22,7 @@ import { MainInputDirective } from './directives/main-input/main-input.directive
     MainInputDirective
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ]
 })
 export class SharedModule {}

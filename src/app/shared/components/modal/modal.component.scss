@@ -8,6 +8,7 @@
   opacity: 0.5;
   z-index: 99;
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -18,4 +19,19 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 100;
+
+  .modal__header {
+    margin-bottom: 10px;
+  }
+
+  .modal__body {
+    margin-bottom: 10px;
+  }
+
+  .modal__footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
 }

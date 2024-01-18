@@ -7,6 +7,7 @@ import { RoomItemComponent } from './rooms/room-item/room-item.component';
 import { TasksComponent } from './room/tasks/tasks.component';
 import { VotesComponent } from './room/votes/votes.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     PagesRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule {}

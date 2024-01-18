@@ -26,7 +26,7 @@ describe('ModalComponent', () => {
 
   describe('if isOpen is true', () => {
     beforeEach(() => {
-      component.isOpen = true;
+      component.open();
       fixture.detectChanges();
       background = fixture.debugElement.query(By.css('.background'));
       modal = fixture.debugElement.query(By.css('.modal'));
@@ -43,7 +43,7 @@ describe('ModalComponent', () => {
         background = fixture.debugElement.query(By.css('.background'));
         modal = fixture.debugElement.query(By.css('.modal'));
       });
-      it('should set isOpen to false', () => expect(component.isOpen).toBeFalsy());
+      it('should set isOpen to false', () => expect(component.isOpen$).toBeFalsy());
       it('should hide modal', () => expect(modal).toBeFalsy());
       it('should hide background', () => expect(background).toBeFalsy());
     });
@@ -51,7 +51,7 @@ describe('ModalComponent', () => {
 
   describe('if isOpen is false', () => {
     beforeEach(() => {
-      component.isOpen = false;
+      component.close();
       fixture.detectChanges();
       background = fixture.debugElement.query(By.css('.background'));
       modal = fixture.debugElement.query(By.css('.modal'));
@@ -66,7 +66,7 @@ describe('ModalComponent', () => {
         background = fixture.debugElement.query(By.css('.background'));
         modal = fixture.debugElement.query(By.css('.modal'));
       })
-      it('should set isOpen to true', () => expect(component.isOpen).toBeTruthy());
+      it('should set isOpen to true', () => expect(component.isOpen$).toBeTruthy());
       it('should show modal', () => expect(modal).toBeTruthy());
       it('should show background', () => expect(background).toBeTruthy());
     })
