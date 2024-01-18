@@ -1,6 +1,8 @@
-<button main-button class="update-tasks-btn" (click)="modal.open()">Atualizar tasks</button>
+<div class="update-tasks">
+  <button main-button class="update-tasks-btn" (click)="modal.open()">Atualizar tasks</button>
+</div>
 
-<div class="tasks-control" *ngIf="room.tasks[room.currentTask]">
+<div class="tasks-control" *ngIf="room.tasks[room.currentTask] else noTasks">
   <div class="tasks-control__previous">
     <button main-button [disabled]="room.currentTask == 0" (click)="setTask(0)">{{'<<'}}</button>
     <button main-button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
@@ -11,6 +13,9 @@
     <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>
   </div>
 </div>
+<ng-template #noTasks>
+  <h3 class="no-tasks">Não há tasks no momento</h3>
+</ng-template>
 
 <app-modal #modal modalTitle="Tasks">
 
@@ -19,14 +24,12 @@
     <button main-button [disabled]="!name.value" (click)="createTask(name.value)">Criar</button>
   </div>
   
-  <ng-container *ngIf="room.tasks.length > 0; else noTasks">
+  <div class="task__list">
     <div class="task" *ngFor="let task of room.tasks">
       <span class="task__name">{{ task.name }}</span>
       <button main-button theme="error" (click)="deleteTask(task)">delete</button>
     </div>
-  </ng-container>
-  <ng-template #noTasks>
-    <span class="no-tasks">Não há tasks no momento</span>
-  </ng-template>
+    <h3 *ngIf="room.tasks.length == 0" class="no-tasks-modal">Não há tasks no momento</h3>
+  </div>
 
 </app-modal>

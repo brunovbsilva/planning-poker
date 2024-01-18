@@ -1,8 +1,8 @@
 @import "../../../../assets/sass/colors";
-
-.update-tasks-btn {
-  float: right;
-  margin-bottom: 10px;
+.update-tasks {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .tasks-control {
@@ -34,23 +34,11 @@
   }
 }
 
-.task {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  .task__name {
-    max-width: 50vw;
-    min-width: 180px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    margin-right: 1rem;
-  }
-  &:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
+.no-tasks {
+  border: 1px solid gray;
+  border-radius: 4px;
+  line-height: 3.25rem;
+  text-align: center;
 }
 
 app-modal {
@@ -62,4 +50,36 @@ app-modal {
       flex: 1;
     }
   }
+  .task__list {
+    border: 1px solid gray;
+    border-radius: 4px;
+    div:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+    div:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+    div:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+    .no-tasks-modal {
+      line-height: 3.25rem;
+      text-align: center;
+    }
+    .task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      .task__name {
+        max-width: 50vw;
+        min-width: 180px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-right: 1rem;
+      }
+    }
+  }
+  
 }

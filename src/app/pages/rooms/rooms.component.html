@@ -1,12 +1,14 @@
-<div class="actions">
-  <h2 class="rooms__header">Escolha ou crie uma sala</h2>
-  <button main-button theme="primary" (click)="modal.open()">Criar sala</button>
-</div>
-
-<div class="rooms">
-  <div class="rooms__list">
-    <app-room-item *ngFor="let room of rooms" [room]="room"></app-room-item>
-    <h3 class="no-room" *ngIf="rooms.length == 0">Não há salas no momento!</h3>
+<div class="rooms-content">
+  <div class="actions">
+    <h2 class="rooms__header">Escolha ou crie uma sala</h2>
+    <button main-button theme="primary" (click)="modal.open()">Criar sala</button>
+  </div>
+  
+  <div class="rooms">
+    <div class="rooms__list">
+      <app-room-item *ngFor="let room of rooms" [room]="room"></app-room-item>
+      <h3 class="no-room" *ngIf="rooms.length == 0">Não há salas no momento!</h3>
+    </div>
   </div>
 </div>
 
