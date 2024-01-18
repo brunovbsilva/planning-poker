@@ -42,3 +42,14 @@
   border-bottom: 1px solid #ccc;
   margin-bottom: 1rem;
 }
+
+app-modal {
+  .create-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    input {
+      flex: 1;
+    }
+  }
+}

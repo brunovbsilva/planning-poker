@@ -13,6 +13,11 @@
 </div>
 
 <app-modal #modal modalTitle="Tasks">
+
+  <div class="create-task">
+    <input #name main-input type="text" (keyup)="0" placeholder="Digite o nome da task">
+    <button main-button [disabled]="!name.value" (click)="createTask(name.value)">Criar</button>
+  </div>
   
   <ng-container *ngIf="room.tasks.length > 0; else noTasks">
     <div class="task" *ngFor="let task of room.tasks">
@@ -23,10 +28,5 @@
   <ng-template #noTasks>
     <span class="no-tasks">Não há tasks no momento</span>
   </ng-template>
-
-  <div class="create-task">
-    <input #name main-input type="text" (keyup)="0" placeholder="Digite o nome da task">
-    <button main-button [disabled]="!name.value" (click)="createTask(name.value)">Criar</button>
-  </div>
 
 </app-modal>
