@@ -3,6 +3,7 @@ import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';
 import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tasks',
@@ -13,6 +14,8 @@ export class TasksComponent implements OnInit {
 
   @Input() room!: IRoom;
   @ViewChild('modal') modal!: IModal;
+  @ViewChild('name') inputName!: HTMLInputElement;
+  public createTaskForm = new FormControl('');
 
   constructor(private roomService: RoomService) { }
 
@@ -35,6 +38,7 @@ export class TasksComponent implements OnInit {
 
   createTask(name: string) {
     this.room.createTask(name);
+    this.createTaskForm.reset();
     this.roomService.updateRoom(this.room);
   }
 

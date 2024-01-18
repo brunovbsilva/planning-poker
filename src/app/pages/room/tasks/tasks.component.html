@@ -15,7 +15,7 @@
 <app-modal #modal modalTitle="Tasks">
 
   <div class="create-task">
-    <input #name main-input type="text" (keyup)="0" placeholder="Digite o nome da task">
+    <input #name main-input type="text" (keyup)="0" [formControl]="createTaskForm" placeholder="Digite o nome da task">
     <button main-button [disabled]="!name.value" (click)="createTask(name.value)">Criar</button>
   </div>
   

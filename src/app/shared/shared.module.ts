@@ -5,6 +5,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MainButtonDirective } from './directives/main-button/main-button.directive';
 import { MainInputDirective } from './directives/main-input/main-input.directive';
 import { ModalKeydownsDirective } from './components/modal/directives/modal-keydowns.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ModalKeydownsDirective } from './components/modal/directives/modal-keyd
     MainInputDirective
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ]
 })
 export class SharedModule {}

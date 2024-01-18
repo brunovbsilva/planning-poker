@@ -36,17 +36,27 @@
 
 .task {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ccc;
   margin-bottom: 1rem;
+  .task__name {
+    max-width: 50vw;
+    min-width: 180px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 1rem;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
 }
 
 app-modal {
   .create-task {
     display: flex;
-    gap: 10px;
+    gap: .5rem;
     margin-bottom: 16px;
     input {
       flex: 1;
