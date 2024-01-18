@@ -1,0 +1,89 @@
+{
+  "configVersion": 1,
+  "timestamp": 1705614738441,
+  "index": "/planning-poker/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/planning-poker/favicon.ico",
+        "/planning-poker/index.html",
+        "/planning-poker/main.e3b4d91402089f0c.js",
+        "/planning-poker/manifest.webmanifest",
+        "/planning-poker/polyfills.a5db4d43bab8ae86.js",
+        "/planning-poker/runtime.9264c3d2a07564c3.js",
+        "/planning-poker/styles.d3fbd015815d244f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/planning-poker/assets/icons/icon-128x128.png",
+        "/planning-poker/assets/icons/icon-144x144.png",
+        "/planning-poker/assets/icons/icon-152x152.png",
+        "/planning-poker/assets/icons/icon-192x192.png",
+        "/planning-poker/assets/icons/icon-384x384.png",
+        "/planning-poker/assets/icons/icon-48x48.png",
+        "/planning-poker/assets/icons/icon-512x512.png",
+        "/planning-poker/assets/icons/icon-72x72.png",
+        "/planning-poker/assets/icons/icon-96x96.png",
+        "/planning-poker/assets/images/back-card.png",
+        "/planning-poker/assets/sass/_colors.scss",
+        "/planning-poker/assets/sass/_style.scss"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/planning-poker/assets/icons/icon-128x128.png": "999e0afa822267dc07d3d1e7800d062103fcd761",
+    "/planning-poker/assets/icons/icon-144x144.png": "b054b7277a1c38a743b01fd73e92929e17886fe9",
+    "/planning-poker/assets/icons/icon-152x152.png": "1f5ded2e84cbf9a8edbfdac2f94215e2ea82a8e6",
+    "/planning-poker/assets/icons/icon-192x192.png": "af5037f65d846a14779f85786ae783a51a18eaf1",
+    "/planning-poker/assets/icons/icon-384x384.png": "23c5ab5b087abc1ba3d45e3ae821e9d32b18a9f7",
+    "/planning-poker/assets/icons/icon-48x48.png": "afa6ada8ba34afb55e65727671068d1b6fa9c95a",
+    "/planning-poker/assets/icons/icon-512x512.png": "474ca7c6a8b7c6af9af52f8dc65635e8e2132680",
+    "/planning-poker/assets/icons/icon-72x72.png": "5bbb2a5cf8d5536d22139c98515ff5857ef3c515",
+    "/planning-poker/assets/icons/icon-96x96.png": "b8e85d94a0611cbb5b277b7ba38dd7dea089850b",
+    "/planning-poker/assets/images/back-card.png": "e3bff8dbfe81b77d5911e80c1a39660a31dc2851",
+    "/planning-poker/assets/sass/_colors.scss": "5de29a856f4fe0df7865ffda71f074f70cd78826",
+    "/planning-poker/assets/sass/_style.scss": "182104bc8805494b2d7fd0cc69fae96913986bea",
+    "/planning-poker/favicon.ico": "18365c73ce4057bfb97de0a4b5024c91586f86e0",
+    "/planning-poker/index.html": "701d4ec3a3e802b8f539e32c334d8eb955734de5",
+    "/planning-poker/main.e3b4d91402089f0c.js": "36e9d4ee685c366fdc16a0f39ad6218e7d65cb56",
+    "/planning-poker/manifest.webmanifest": "a68d451d4497bd71ce001471c93da9bcdb3d3cbf",
+    "/planning-poker/polyfills.a5db4d43bab8ae86.js": "01ccfab498b9634781c46d5c6f826cb9bc94615f",
+    "/planning-poker/runtime.9264c3d2a07564c3.js": "9aa2304ecc333c4b73282cf7fac2c5ad0a53003d",
+    "/planning-poker/styles.d3fbd015815d244f.css": "65b3ebf7cabd0177895e07b8debad408f1c55aab"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
