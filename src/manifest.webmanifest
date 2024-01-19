@@ -1,7 +1,7 @@
 {
-  "name": "planning-poker",
-  "short_name": "planning-poker",
-  "theme_color": "#1976d2",
+  "name": "Planning Poker",
+  "short_name": "Planning Poker",
+  "theme_color": "#ff1a40",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
