@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1705702528414,
+  "timestamp": 1705703101588,
   "index": "/planning-poker/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/planning-poker/favicon.ico",
         "/planning-poker/index.html",
-        "/planning-poker/main.0022383d6450b79c.js",
+        "/planning-poker/main.9315b5d68c0031c3.js",
         "/planning-poker/manifest.webmanifest",
         "/planning-poker/polyfills.a5db4d43bab8ae86.js",
         "/planning-poker/runtime.9264c3d2a07564c3.js",
@@ -60,9 +60,9 @@
     "/planning-poker/assets/sass/_colors.scss": "5de29a856f4fe0df7865ffda71f074f70cd78826",
     "/planning-poker/assets/sass/_style.scss": "182104bc8805494b2d7fd0cc69fae96913986bea",
     "/planning-poker/favicon.ico": "18365c73ce4057bfb97de0a4b5024c91586f86e0",
-    "/planning-poker/index.html": "951ff6067a4d0bce4bc7ff5771af80d260aac8b6",
-    "/planning-poker/main.0022383d6450b79c.js": "17a78ddbf03fc354ee78ee6807bb9b20479a542e",
-    "/planning-poker/manifest.webmanifest": "a68d451d4497bd71ce001471c93da9bcdb3d3cbf",
+    "/planning-poker/index.html": "78a3b0cff5e4c14a034be9536df5dbc9dbfcf821",
+    "/planning-poker/main.9315b5d68c0031c3.js": "ee65c4ab3c94c190db4725e26bbff7d69a1915bd",
+    "/planning-poker/manifest.webmanifest": "6af0e14d38096f1361892fa9897795d4727da20c",
     "/planning-poker/polyfills.a5db4d43bab8ae86.js": "01ccfab498b9634781c46d5c6f826cb9bc94615f",
     "/planning-poker/runtime.9264c3d2a07564c3.js": "9aa2304ecc333c4b73282cf7fac2c5ad0a53003d",
     "/planning-poker/styles.d3fbd015815d244f.css": "65b3ebf7cabd0177895e07b8debad408f1c55aab"
