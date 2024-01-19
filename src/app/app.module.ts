@@ -16,15 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { TitleStrategy } from '@angular/router';
 import { TitlePrefixStrategy } from './shared/strategies/title-prefix.strategy';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
-const config = {
-  apiKey: "AIzaSyBxcb1o6HFEHy-RwZevt909OKSOqEpvW-g",
-  authDomain: "planning-poker-cd302.firebaseapp.com",
-  projectId: "planning-poker-cd302",
-  storageBucket: "planning-poker-cd302.appspot.com",
-  messagingSenderId: "903421093759",
-  appId: "1:903421093759:web:79ee181c62d36ca5d09c4a"
-}
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +31,7 @@ const config = {
     LayoutModule,
     PagesModule,
     SharedModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
