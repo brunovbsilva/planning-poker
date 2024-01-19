@@ -14,6 +14,14 @@ jobs:
       - name: Checkout ✅
         uses: actions/checkout@v3
 
+      - name: 'setup node and run secrets.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+        run: node secrets.js
+        env:
+          FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
+
       - name: 'install angular'
         run: npm install -g @angular/cli@15.2.0
 
