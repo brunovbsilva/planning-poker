@@ -17,7 +17,7 @@ jobs:
       - name: 'setup node and run secrets.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '16.x'
 
       - name: 'run secrets.js'
         run: node secrets.js
