@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+
+      - name: 'run secrets.js'
         run: node secrets.js
         env:
           FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
