@@ -1,8 +1,8 @@
-import { Observable } from "rxjs";
+import { Signal } from "@angular/core";
 
 export interface IModal {
   modalTitle: string;
-  isOpen$: Observable<boolean>;
+  isOpen$: Signal<boolean>;
 
   open(): void;
   close(): void;
