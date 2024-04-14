@@ -17,6 +17,11 @@ import { TitleStrategy } from '@angular/router';
 import { TitlePrefixStrategy } from './shared/strategies/title-prefix.strategy';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,7 @@ import { environment } from 'src/environments/environment';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
   ],
   exports: [
     SharedModule
