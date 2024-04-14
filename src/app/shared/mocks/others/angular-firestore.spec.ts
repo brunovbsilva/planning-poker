@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, Subject, of } from "rxjs";
+import { Observable, Subject, of } from "rxjs";
 import { RoomItemMock } from "../constants";
 
 class Doc {

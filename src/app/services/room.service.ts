@@ -58,7 +58,7 @@ export class RoomService {
     return Object.assign({
       userId: vote.userId,
       userName: vote.userName,
-      value: vote.value,
+      value: String(vote.value),
       hidden: vote.hidden
     });
   }

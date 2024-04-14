@@ -5,6 +5,6 @@ import { map } from 'rxjs';
 
 export const loggedUserGuard: CanMatchFn = (route, segments) => {
   return inject(AngularFireAuth).user.pipe(
-    map(user => user == null ? false : true)
+    map(user => user ? true : false)
   );
 };

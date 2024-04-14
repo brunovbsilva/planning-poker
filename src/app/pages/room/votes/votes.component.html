@@ -1,6 +1,19 @@
-<div class="actions" *ngIf="task.votes.length > 0">
-  <button main-button class="current-votes__btn-flip" [disabled]="flippedVotes" (click)="showVotes()">Virar cartas</button>
-  <button main-button theme="accent" class="current-votes__btn-revote" [disabled]="!flippedVotes" (click)="revote()">Revotar</button>
+<div class="actions">
+  <button main-button class="current-votes__btn-flip"
+    [disabled]="task.votes.length == 0 || flippedVotes"
+    (click)="showVotes()">
+    Virar cartas
+  </button>
+  <button main-button theme="accent" class="current-votes__btn-revote"
+    [disabled]="task.votes.length == 0 || !flippedVotes"
+    (click)="revote()">
+    Revotar
+  </button>
+  <button main-button theme="accent"
+    [disabled]="flippedVotes"
+    (click)="modal.open()">
+    Votar
+  </button>
 </div>
 
 <div class="votes-result">
@@ -20,3 +33,26 @@
     (click)="vote(card.value)">
   </app-card>
 </div>
+
+<app-modal #modal modalTitle="Votação">
+  <div class="modal-content">
+    <div class="modal-votes">
+      <app-modal-vote-item
+        label="Entendimento"
+        (onChoose)="complexity.set($event)">
+      </app-modal-vote-item>
+      <app-modal-vote-item
+        label="Complexidade"
+        (onChoose)="understandment.set($event)">
+      </app-modal-vote-item>
+    </div>
+    <h2 class="modal-result">{{ compute() }}</h2>
+  </div>
+  
+  <button main-button
+    theme="primary"
+    [disabled]="flippedVotes"
+    (click)="vote(compute()); modal.close()">
+    Votar
+  </button>
+</app-modal>

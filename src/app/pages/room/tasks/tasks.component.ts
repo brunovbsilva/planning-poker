@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';
@@ -10,15 +10,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
 
   @Input() room!: IRoom;
   @ViewChild('modal') modal!: IModal;
   public createTaskForm = new FormControl('');
 
   constructor(private roomService: RoomService) { }
-
-  ngOnInit(): void { }
 
   nextTask() {
     this.room.nextTask();

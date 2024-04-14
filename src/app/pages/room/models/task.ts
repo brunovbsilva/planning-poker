@@ -23,9 +23,10 @@ export class Task implements ITask {
     this.votes = [];
   }
   getResult(): number {
-    const length = this.votes.length;
+    const numberVotes = this.votes.filter(vote => Number(vote.value) > 0);
+    const length = numberVotes.length;
     return Math.round(
-      this.votes.reduce((acc, vote) => acc + vote.value/length, 0)
+      numberVotes.reduce((acc, vote) => acc + Number(vote.value)/length, 0)
     );
   }
 
