@@ -4,7 +4,7 @@ export class Vote implements IVote {
   constructor(
     public readonly userId: string,
     public readonly userName: string,
-    public value: number,
+    public value: string | number,
     public hidden: boolean = true,
   ) {}
 
@@ -24,7 +24,7 @@ export class Vote implements IVote {
     this.hidden = hidden;
   }
 
-  private updateCurrentVote(vote: number): void {
+  private updateCurrentVote(vote: string | number): void {
     if(this.value === vote) return;
     this.value = vote;
   }

@@ -1,10 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {Component, computed, Input, signal} from '@angular/core';
 import { ICard } from '../../../shared/components/card/interfaces/card.interface';
 import { Card } from '../../../shared/components/card/models/card.model';
 import { hoverAnimation } from './animations/hover.animation';
 import { ITask } from '../interfaces/task.interface';
 import { IVote } from '../interfaces/vote.interface';
-import { CardType } from '../../../shared/components/card/models/card-type.enum';
 import { Vote } from '../models/vote';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IRoom } from '../interfaces/room.interface';
@@ -26,17 +25,35 @@ export class VotesComponent {
     return this.task.votes.some(vote => !vote.hidden);
   }
   public cards: Card[] = [
-    new Card(1, 1),
-    new Card(2, 2),
-    new Card(3, 3),
-    new Card(4, 5),
-    new Card(1, 8),
-    new Card(2, 13),
-    new Card(3, 21),
-    new Card(4, 34),
-    new Card(1, 55),
-    new Card(2, 89)
+    new Card(1),
+    new Card(2),
+    new Card(3),
+    new Card(5),
+    new Card(8),
+    new Card(13),
+    new Card(21),
+    new Card('?'),
+    new Card('☕︎')
   ];
+
+  public complexity = signal<any>("?");
+  public understandment = signal<any>("?");
+  public compute = computed(() => {
+    const complexity = this.complexity();
+    const understandment = this.understandment();
+    return [complexity, understandment].some(x => x == "?")
+      ? "?" 
+      : this.getVoteByComplexity(Number(complexity), Number(understandment));
+  });
+
+  private getVoteByComplexity(complexity: number, understandment: number): string {
+    const result = (complexity + understandment) / 2;
+    if(result <= 3) return String(result);
+    if(result < 5) return "3";
+    if(result < 8) return "5";
+    if(result < 13) return "8";
+    return "13"; 
+  }
 
   constructor(
     private userAuth: AngularFireAuth,
@@ -44,10 +61,10 @@ export class VotesComponent {
   ) { }
 
   mapVote(vote: IVote): ICard {
-    return new Card(CardType.HEARTS, vote.value, vote.hidden, vote.userName);
+    return new Card(vote.value, vote.hidden, vote.userName);
   }
 
-  vote(value: number) {
+  vote(value: string | number) {
     if(this.flippedVotes) return;
     this.userAuth.currentUser
       .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))

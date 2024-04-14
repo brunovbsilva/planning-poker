@@ -1,0 +1,29 @@
+<h4>{{ label() }}:</h4>
+<div class="vote-button">
+  <button main-button 
+    [class.main-button--primary]="getTheme('1')"
+    [class.main-button--accent]="!getTheme('1')"
+    (click)="emit('1')">
+    Fácil
+  </button>
+  <button main-button
+    [class.main-button--primary]="getTheme('3')"
+    [class.main-button--accent]="!getTheme('3')"
+    (click)="emit('3')">
+    Médio
+  </button>
+  <button main-button
+    [class.main-button--primary]="getTheme('13')"
+    [class.main-button--accent]="!getTheme('13')"
+    (click)="emit('13')">
+    Difícil
+  </button>
+  <button main-button
+    [class.main-button--primary]="getTheme('?')"
+    [class.main-button--accent]="!getTheme('?')"
+    (click)="emit('?')">
+    ?
+  </button>
+</div>
+
+

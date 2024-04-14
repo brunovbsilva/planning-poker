@@ -1,9 +1,10 @@
-import { computed, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { inject } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { CanMatchFn } from '@angular/router';
+import { map } from 'rxjs';
 
 export const loggedUserGuard: CanMatchFn = (route, segments) => {
-  const user = toSignal(inject(AngularFireAuth).user);
-  return computed(() => user != null)();
+  return inject(AngularFireAuth).user.pipe(
+    map(user => user ? true : false)
+  );
 };

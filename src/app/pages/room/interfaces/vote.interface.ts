@@ -1,7 +1,7 @@
 export interface IVote {
   readonly userId: string;
   readonly userName: string;
-  value: number;
+  value: string | number;
   hidden: boolean;
 
   updateVote(vote: number): void;

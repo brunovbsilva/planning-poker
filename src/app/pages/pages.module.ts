@@ -8,6 +8,7 @@ import { TasksComponent } from './room/tasks/tasks.component';
 import { VotesComponent } from './room/votes/votes.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalVoteItemComponent } from "./room/votes/modal-vote-item/modal-vote-item.component";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RoomComponent,
     RoomItemComponent,
     TasksComponent,
-    VotesComponent
+    VotesComponent,
+    ModalVoteItemComponent
   ],
   imports: [
     PagesRoutingModule,
