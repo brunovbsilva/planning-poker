@@ -3,10 +3,11 @@ import { flipAnimation } from './animations/flip.animation';
 import { ICard } from './interfaces/card.interface';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
-  animations: flipAnimation
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrls: ['./card.component.scss'],
+    animations: flipAnimation,
+    standalone: true
 })
 export class CardComponent {
 

@@ -1,12 +1,14 @@
 <div class="header">
   <h4 class="header-title" [routerLink]="''">Planning Poker</h4>
-  <div class="user-content" *ngIf="user()">
-    <div class="user">
-      <img class="user-image" [src]="user().photoURL" alt="user image">
-      <span class="user-name">{{ user().displayName }}</span>
+  @if (user()) {
+    <div class="user-content">
+      <div class="user">
+        <img class="user-image" [src]="user().photoURL" alt="user image">
+        <span class="user-name">{{ user().displayName }}</span>
+      </div>
+      <div class="logout">
+        <button main-button theme="error" class="logout-btn" (click)="logout()">Sair</button>
+      </div>
     </div>
-    <div class="logout">
-      <button main-button theme="error" class="logout-btn" (click)="logout()">Sair</button>
-    </div>
-  </div>
+  }
 </div>

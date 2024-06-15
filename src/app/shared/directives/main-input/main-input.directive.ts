@@ -1,7 +1,8 @@
 import { Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[main-input]'
+    selector: '[main-input]',
+    standalone: true
 })
 export class MainInputDirective implements OnInit {
 

@@ -1,7 +1,8 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
-  selector: '[modalKeydowns]'
+    selector: '[modalKeydowns]',
+    standalone: true
 })
 export class ModalKeydownsDirective {
 

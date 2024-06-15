@@ -6,11 +6,15 @@ import { Room } from './models/room';
 import { Task } from './models/task';
 import { Vote } from './models/vote';
 import { BaseComponent } from 'src/app/shared/components/base.component';
+import { VotesComponent } from './votes/votes.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
-  selector: 'app-room',
-  templateUrl: './room.component.html',
-  styleUrls: ['./room.component.scss']
+    selector: 'app-room',
+    templateUrl: './room.component.html',
+    styleUrls: ['./room.component.scss'],
+    standalone: true,
+    imports: [TasksComponent, VotesComponent]
 })
 export class RoomComponent extends BaseComponent implements OnInit {
 

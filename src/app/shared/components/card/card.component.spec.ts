@@ -17,9 +17,8 @@ describe('CardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CardComponent],
-      imports: [BrowserAnimationsModule]
-    });
+    imports: [BrowserAnimationsModule, CardComponent]
+});
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
     component.card = new Card(CardType.CLUBS, 1, false, undefined);

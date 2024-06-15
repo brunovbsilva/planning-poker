@@ -2,20 +2,21 @@
   <button main-button class="update-tasks-btn" (click)="modal.open()">Atualizar tasks</button>
 </div>
 
-<div class="tasks-control" *ngIf="room.tasks[room.currentTask] else noTasks">
-  <div class="tasks-control__previous">
-    <button main-button [disabled]="room.currentTask == 0" (click)="setTask(0)">{{'<<'}}</button>
-    <button main-button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
+@if (room.tasks[room.currentTask]) {
+  <div class="tasks-control">
+    <div class="tasks-control__previous">
+      <button main-button [disabled]="room.currentTask == 0" (click)="setTask(0)">{{'<<'}}</button>
+      <button main-button [disabled]="room.currentTask == 0" (click)="previousTask()">{{'<'}}</button>
+    </div>
+    <h3>{{ room.tasks[room.currentTask].name }}</h3>
+    <div class="tasks-control__next">
+      <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
+      <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>
+    </div>
   </div>
-  <h3>{{ room.tasks[room.currentTask].name }}</h3>
-  <div class="tasks-control__next">
-    <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
-    <button main-button [disabled]="room.currentTask == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>
-  </div>
-</div>
-<ng-template #noTasks>
+} @else {
   <h3 class="no-tasks">Não há tasks no momento</h3>
-</ng-template>
+}
 
 <app-modal #modal modalTitle="Tasks">
 
@@ -23,13 +24,17 @@
     <input #name main-input type="text" (keyup)="0" [formControl]="createTaskForm" placeholder="Digite o nome da task">
     <button main-button [disabled]="!name.value" (click)="createTask(name.value); name.focus()">Criar</button>
   </div>
-  
+
   <div class="task__list">
-    <div class="task" *ngFor="let task of room.tasks">
-      <span class="task__name">{{ task.name }}</span>
-      <button main-button theme="error" (click)="deleteTask(task)">delete</button>
-    </div>
-    <h3 *ngIf="room.tasks.length == 0" class="no-tasks-modal">Não há tasks no momento</h3>
+    @for (task of room.tasks; track task) {
+      <div class="task">
+        <span class="task__name">{{ task.name }}</span>
+        <button main-button theme="error" (click)="deleteTask(task)">delete</button>
+      </div>
+    }
+    @if (room.tasks.length == 0) {
+      <h3 class="no-tasks-modal">Não há tasks no momento</h3>
+    }
   </div>
 
 </app-modal>

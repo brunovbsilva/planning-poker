@@ -3,12 +3,17 @@ import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';
 import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MainInputDirective } from '../../../shared/directives/main-input/main-input.directive';
+import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { MainButtonDirective } from '../../../shared/directives/main-button/main-button.directive';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+    selector: 'app-tasks',
+    templateUrl: './tasks.component.html',
+    styleUrls: ['./tasks.component.scss'],
+    standalone: true,
+    imports: [MainButtonDirective, ModalComponent, FormsModule, MainInputDirective, ReactiveFormsModule]
 })
 export class TasksComponent {
 

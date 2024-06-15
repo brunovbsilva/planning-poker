@@ -9,10 +9,9 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
-      imports: [AngularFireModulesMock],
-      providers: [AngularFireProvidersMock]
-    });
+    imports: [AngularFireModulesMock, LoginComponent],
+    providers: [AngularFireProvidersMock]
+});
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

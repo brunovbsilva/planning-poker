@@ -15,17 +15,15 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HeaderComponent
-      ],
-      imports: [
+    imports: [
         RouterTestingModule,
-        AngularFireModulesMock
-      ],
-      providers: [
+        AngularFireModulesMock,
+        HeaderComponent
+    ],
+    providers: [
         AngularFireProvidersMock
-      ]
-    });
+    ]
+});
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
 

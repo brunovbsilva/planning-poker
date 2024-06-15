@@ -8,12 +8,18 @@ import { Vote } from '../models/vote';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IRoom } from '../interfaces/room.interface';
 import { RoomService } from 'src/app/services/room.service';
+import { ModalVoteItemComponent } from './modal-vote-item/modal-vote-item.component';
+import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { CardComponent } from '../../../shared/components/card/card.component';
+import { MainButtonDirective } from '../../../shared/directives/main-button/main-button.directive';
 
 @Component({
-  selector: 'app-votes',
-  templateUrl: './votes.component.html',
-  styleUrls: ['./votes.component.scss'],
-  animations: [ hoverAnimation ]
+    selector: 'app-votes',
+    templateUrl: './votes.component.html',
+    styleUrls: ['./votes.component.scss'],
+    animations: [hoverAnimation],
+    standalone: true,
+    imports: [MainButtonDirective, CardComponent, ModalComponent, ModalVoteItemComponent]
 })
 export class VotesComponent {
 

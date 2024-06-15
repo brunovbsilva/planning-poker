@@ -21,16 +21,16 @@ describe('RoomItemComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoomItemComponent ],
-      imports: [ 
+    imports: [
         RouterTestingModule,
-        AngularFireModulesMock
-      ],
-      providers: [
+        AngularFireModulesMock,
+        RoomItemComponent
+    ],
+    providers: [
         RoomServiceProviderMock,
         AngularFireProvidersMock
-      ]
-    });
+    ]
+});
     fixture = TestBed.createComponent(RoomItemComponent);
     component = fixture.componentInstance;
     roomService = TestBed.inject(RoomService);

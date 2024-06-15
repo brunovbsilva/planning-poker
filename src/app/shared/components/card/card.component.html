@@ -1,9 +1,13 @@
 <div class="card" [@flipAnimation]="card.isFliped">
   <div class="card-side card-front">
-    <span *ngIf="card.creator" class="creator-name">{{ card.creator }}</span>
+    @if (card.creator) {
+      <span class="creator-name">{{ card.creator }}</span>
+    }
     <span class="card-value">{{ card.value }}</span>
   </div>
   <div class="card-side card-back">
-    <span *ngIf="card.creator" class="creator-name">{{ card.creator }}</span>
+    @if (card.creator) {
+      <span class="creator-name">{{ card.creator }}</span>
+    }
   </div>
 </div>
