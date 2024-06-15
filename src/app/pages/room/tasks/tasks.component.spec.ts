@@ -13,16 +13,13 @@ describe('TasksComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TasksComponent,
-        ModalComponentSpec
-      ],
-      imports: [AngularFireModulesMock],
-      providers: [
+    declarations: [ModalComponentSpec],
+    imports: [AngularFireModulesMock, TasksComponent],
+    providers: [
         AngularFireProvidersMock,
         RoomServiceProviderMock
-      ]
-    });
+    ]
+});
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
 

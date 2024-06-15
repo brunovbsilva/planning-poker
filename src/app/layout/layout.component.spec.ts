@@ -10,14 +10,12 @@ describe('LayoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LayoutComponent,
-        HeaderComponentSpec
-      ],
-      imports: [
-        RouterTestingModule
-      ]
-    });
+    declarations: [HeaderComponentSpec],
+    imports: [
+        RouterTestingModule,
+        LayoutComponent
+    ]
+});
     fixture = TestBed.createComponent(LayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -21,18 +21,23 @@
 </div>
 
 <div class="current-votes-list">
-  <app-card *ngFor="let vote of task.votes" [card]="mapVote(vote)"></app-card>
+  @for (vote of task.votes; track vote) {
+    <app-card [card]="mapVote(vote)"></app-card>
+  }
 </div>
 
-<div class="votes" *ngIf="!flippedVotes">
-  <app-card #cardComponent
-    *ngFor="let card of cards"
-    class="card"
-    [@hover]="cardComponent.isHovered"
-    [card]="card"
-    (click)="vote(card.value)">
-  </app-card>
-</div>
+@if (!flippedVotes) {
+  <div class="votes">
+    @for (card of cards; track card) {
+      <app-card #cardComponent
+        class="card"
+        [@hover]="cardComponent.isHovered"
+        [card]="card"
+        (click)="vote(card.value)">
+      </app-card>
+    }
+  </div>
+}
 
 <app-modal #modal modalTitle="Votação">
   <div class="modal-content">
@@ -48,7 +53,7 @@
     </div>
     <h2 class="modal-result">{{ compute() }}</h2>
   </div>
-  
+
   <button main-button
     theme="primary"
     [disabled]="flippedVotes"

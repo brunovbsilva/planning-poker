@@ -29,7 +29,7 @@
           color: map-get($disabled, constrast, dark);
         }
       }
-      
+
     }
   }
 }
@@ -44,6 +44,7 @@
 app-modal {
   .create-task {
     display: flex;
+    flex-direction: column;
     gap: .5rem;
     margin-bottom: 16px;
     input {
@@ -81,5 +82,5 @@ app-modal {
       }
     }
   }
-  
+
 }

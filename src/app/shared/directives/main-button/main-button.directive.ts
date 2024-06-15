@@ -3,7 +3,8 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 export type Theme = 'primary' | 'accent' | 'warn' | 'error';
 
 @Directive({
-  selector: 'button[main-button]'
+    selector: 'button[main-button]',
+    standalone: true
 })
 export class MainButtonDirective implements OnInit {
 

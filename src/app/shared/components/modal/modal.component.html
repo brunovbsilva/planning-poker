@@ -1,12 +1,16 @@
-<div class="background" *ngIf="isOpen$()" (click)="close()"></div>
-<div class="modal" *ngIf="isOpen$()" modalKeydowns (escapeKeydown)="close()">
-  <div class="modal__header">
-    <h1>{{ modalTitle }}</h1>
+@if (isOpen$()) {
+  <div class="background" (click)="close()"></div>
+}
+@if (isOpen$()) {
+  <div class="modal" modalKeydowns (escapeKeydown)="close()">
+    <div class="modal__header">
+      <h1>{{ modalTitle }}</h1>
+    </div>
+    <div class="modal__body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal__footer">
+      <ng-content select="button"></ng-content>
+    </div>
   </div>
-  <div class="modal__body">
-    <ng-content></ng-content>
-  </div>
-  <div class="modal__footer">
-    <ng-content select="button"></ng-content>
-  </div>
-</div>
+}

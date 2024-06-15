@@ -25,14 +25,11 @@ describe('RoomComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        RoomComponent,
-        TasksComponentSpec,
-        VotesComponentSpec
-      ],
-      imports: [RouterTestingModule],
-      providers: [RoomServiceProviderMock]
-    });
+    declarations: [TasksComponentSpec,
+        VotesComponentSpec],
+    imports: [RouterTestingModule, RoomComponent],
+    providers: [RoomServiceProviderMock]
+});
     fixture = TestBed.createComponent(RoomComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(RoomService);

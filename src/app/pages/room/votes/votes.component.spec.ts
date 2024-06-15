@@ -21,19 +21,17 @@ describe('VotesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        VotesComponent,
-        CardComponentSpec
-      ],
-      imports: [
+    declarations: [CardComponentSpec],
+    imports: [
         AngularFireModulesMock,
-        BrowserAnimationsModule
-      ],
-      providers: [
+        BrowserAnimationsModule,
+        VotesComponent
+    ],
+    providers: [
         AngularFireProvidersMock,
         RoomServiceProviderMock
-      ]
-    });
+    ]
+});
     fixture = TestBed.createComponent(VotesComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(RoomService);

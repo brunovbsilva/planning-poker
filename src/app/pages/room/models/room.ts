@@ -19,7 +19,6 @@ export class Room implements IRoom {
     name: string,
     creator: string,
     public tasks: ITask[] = [],
-    public currentTask: number = 0,
     public readonly id?: string,
   ) {
     this._name = name;
@@ -29,25 +28,14 @@ export class Room implements IRoom {
   createTask(name: string): void {
     this.tasks.push(new Task(name));
   }
-  nextTask(): void {
-    this.currentTask == this.tasks.length - 1 ? 0 : this.currentTask++;
-  }
-  previousTask(): void {
-    this.currentTask == 0 ? this.tasks.length - 1 : this.currentTask--;
-  }
   deleteTask(task: ITask): void {
     this.tasks = this.tasks.filter(taskItem => taskItem !== task);
-    this.setTaskIndex(0);
-  }
-  setTaskIndex(index: number): void {
-    this.currentTask = index;
   }
 
   updateValues(room: IRoom): void {
     this.updateName(room.name);
     this.updateCreator(room.creator);
     this.updateTasks(room.tasks);
-    this.updateCurrentTask(room.currentTask);
   }
 
   private updateName(name: string): void {
@@ -81,10 +69,5 @@ export class Room implements IRoom {
         vote.hidden
       ))
     ));
-  }
-
-  private updateCurrentTask(currentTask: number): void {
-    if(this.currentTask === currentTask) return;
-    this.currentTask = currentTask;
   }
 }
