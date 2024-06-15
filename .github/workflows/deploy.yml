@@ -25,12 +25,12 @@ jobs:
           FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
 
       - name: 'install angular'
-        run: npm install -g @angular/cli@17.1.0
+        run: npm install -g @angular/cli@17.3.11
 
       - name: 'install dependencies'
-        run: npm install
+        run: npm install --force
 
-      - name: 'build angular' 
+      - name: 'build angular'
         run: ng build --base-href /planning-poker/
 
       - name: 'Deploy 🚀'
