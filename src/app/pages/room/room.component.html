@@ -1,9 +1,9 @@
-@if (room) {
+@if ($room()) {
   <div class="current-room">
-    <h1 class="room-name">{{room.name}}</h1>
-    <app-tasks [room]="room"></app-tasks>
-    @if (room.tasks[room.currentTask]) {
-      <app-votes [room]="room"></app-votes>
+    <h1 class="room-name">{{$room()!.name}}</h1>
+    <app-tasks [room]="$room()!" [(currentTask)]="currentTask"></app-tasks>
+    @if ($room()!.tasks[currentTask]) {
+      <app-votes [room]="$room()!" [currentTask]="currentTask"></app-votes>
     }
   </div>
 }

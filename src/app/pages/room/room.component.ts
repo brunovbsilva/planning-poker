@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/services/room.service';
 import { IRoom } from './interfaces/room.interface';
@@ -8,18 +8,24 @@ import { Vote } from './models/vote';
 import { BaseComponent } from 'src/app/shared/components/base.component';
 import { VotesComponent } from './votes/votes.component';
 import { TasksComponent } from './tasks/tasks.component';
+import {JsonPipe} from "@angular/common";
 
 @Component({
     selector: 'app-room',
     templateUrl: './room.component.html',
     styleUrls: ['./room.component.scss'],
     standalone: true,
-    imports: [TasksComponent, VotesComponent]
+    imports: [
+      TasksComponent,
+      VotesComponent,
+      JsonPipe
+    ]
 })
 export class RoomComponent extends BaseComponent implements OnInit {
 
   public roomId: string | null;
-  public room?: IRoom;
+  public $room = signal<IRoom | undefined>(this.startRoom(undefined));
+  public currentTask = 0;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,21 +36,21 @@ export class RoomComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.startListenerRoom();
+    this.toDestroy(
+      this.roomService
+        .listenerRoom(this.roomId!)
+        .subscribe(value => this.$room.update(room => {
+          if(room) room.updateValues(value);
+          else room = this.startRoom(value);
+          if(this.currentTask >= (room?.tasks?.length ?? 0)) this.currentTask = 0;
+          return room;
+        }))
+    );
   }
 
-  private startListenerRoom(): void {
-    this.toDestroy(
-      this.roomService.listenerRoom(this.roomId!)
-        .subscribe(room => {
-          if(this.room) this.room?.updateValues(room);
-          else this.startRoom(room);
-        })
-    );
-  };
-
-  private startRoom(room: IRoom): void {
-    this.room = new Room(
+  private startRoom(room: IRoom | undefined): IRoom | undefined {
+    if(!room) return undefined;
+    return new Room(
       room.name,
       room.creator,
       room.tasks.map(task => new Task(
@@ -56,7 +62,6 @@ export class RoomComponent extends BaseComponent implements OnInit {
           vote.hidden
         ))
       )),
-      room.currentTask,
       room.id
     );
   }

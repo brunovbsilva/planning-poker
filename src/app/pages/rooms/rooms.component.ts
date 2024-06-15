@@ -44,10 +44,10 @@ export class RoomsComponent extends BaseComponent implements OnInit {
     );
   }
 
-  createRoom(name: string) {
+  async createRoom(name: string) {
     if(this.isNullOrEmpty(name)) return;
     this.userAuth.currentUser
-      .then(user => this.roomService.createRoom(new Room(name, user?.uid!)))
+      .then(async user => await this.roomService.createRoom(new Room(name, user?.uid!)))
       .finally(() => this.modal.close());
   }
 

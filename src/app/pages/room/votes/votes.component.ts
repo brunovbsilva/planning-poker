@@ -1,4 +1,4 @@
-import {Component, computed, Input, signal} from '@angular/core';
+import {Component, computed, Input, model, signal} from '@angular/core';
 import { ICard } from '../../../shared/components/card/interfaces/card.interface';
 import { Card } from '../../../shared/components/card/models/card.model';
 import { hoverAnimation } from './animations/hover.animation';
@@ -24,8 +24,9 @@ import { MainButtonDirective } from '../../../shared/directives/main-button/main
 export class VotesComponent {
 
   @Input() room!: IRoom;
+  @Input() currentTask!: number;
   get task(): ITask {
-    return this.room.tasks[this.room.currentTask];
+    return this.room.tasks[this.currentTask];
   };
   get flippedVotes(): boolean {
     return this.task.votes.some(vote => !vote.hidden);
@@ -48,7 +49,7 @@ export class VotesComponent {
     const complexity = this.complexity();
     const understandment = this.understandment();
     return [complexity, understandment].some(x => x == "?")
-      ? "?" 
+      ? "?"
       : this.getVoteByComplexity(Number(complexity), Number(understandment));
   });
 
@@ -58,7 +59,7 @@ export class VotesComponent {
     if(result < 5) return "3";
     if(result < 8) return "5";
     if(result < 13) return "8";
-    return "13"; 
+    return "13";
   }
 
   constructor(
@@ -74,18 +75,18 @@ export class VotesComponent {
     if(this.flippedVotes) return;
     this.userAuth.currentUser
       .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
-      .finally(() => this.roomService.updateRoom(this.room));
+      .finally(async () => await this.roomService.updateRoom(this.room));
   }
 
-  showVotes() {
+  async showVotes() {
     if(this.flippedVotes) return;
     this.task.showVotes();
-    this.roomService.updateRoom(this.room);
+    await this.roomService.updateRoom(this.room);
   }
 
-  revote() {
+  async revote() {
     this.task.revote();
-    this.roomService.updateRoom(this.room);
+    await this.roomService.updateRoom(this.room);
   }
 
   getResult() {

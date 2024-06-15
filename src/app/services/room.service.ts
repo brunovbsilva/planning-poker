@@ -13,16 +13,16 @@ export class RoomService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  createRoom(room: IRoom): void {
-    this.firestore.collection<IRoom>('rooms').add(this.roomObjectModel(room));
+  async createRoom(room: IRoom): Promise<void> {
+    await this.firestore.collection<IRoom>('rooms').add(this.roomObjectModel(room));
   }
 
-  updateRoom(room: IRoom): void {
-    this.firestore.doc<IRoom>('rooms/' + room.id).update(this.roomObjectModel(room));
+  async updateRoom(room: IRoom): Promise<void> {
+    await this.firestore.doc<IRoom>('rooms/' + room.id).update(this.roomObjectModel(room));
   }
 
-  deleteRoom(roomId: string): void {
-    this.firestore.doc<IRoom>('rooms/' + roomId).delete();
+  async deleteRoom(roomId: string): Promise<void> {
+    await this.firestore.doc<IRoom>('rooms/' + roomId).delete();
   }
 
   listenerRoom(roomId: string): Observable<IRoom> {
@@ -41,11 +41,10 @@ export class RoomService {
     return Object.assign({ id: id }, data);
   }
   private roomObjectModel(room: IRoom) {
-    return Object.assign({ 
+    return Object.assign({
       name: room.name,
       creator: room.creator,
-      tasks: room.tasks.map(task => this.taskObjectModel(task)),
-      currentTask: room.currentTask 
+      tasks: room.tasks.map(task => this.taskObjectModel(task))
     });
   }
   private taskObjectModel(task: ITask) {
