@@ -13,6 +13,11 @@
   border: 2px solid map-get($disabled, light);
   color: map-get($disabled, constrast, light);
   border-radius: 4px;
+  .tasks-control__name {
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .tasks-control__previous, .tasks-control__next {
     display: flex;
     gap: 5px;
