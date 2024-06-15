@@ -25,7 +25,7 @@ jobs:
           FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
 
       - name: 'install angular'
-        run: npm install -g @angular/cli@17.3.11
+        run: npm install -g @angular/cli
 
       - name: 'install dependencies'
         run: npm install --force
