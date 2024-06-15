@@ -17,7 +17,7 @@ jobs:
       - name: 'setup node and run secrets.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: 'run secrets.js'
         run: node secrets.js
@@ -25,7 +25,7 @@ jobs:
           FIREBASE_DETAILS: ${{ secrets.FIREBASE_DETAILS }}
 
       - name: 'install angular'
-        run: npm install -g @angular/cli@15.2.0
+        run: npm install -g @angular/cli@17.1.0
 
       - name: 'install dependencies'
         run: npm install
