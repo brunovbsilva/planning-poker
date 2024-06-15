@@ -1,4 +1,4 @@
-import {Component, computed, Input, model, signal} from '@angular/core';
+import {Component, computed, Input, signal} from '@angular/core';
 import { ICard } from '../../../shared/components/card/interfaces/card.interface';
 import { Card } from '../../../shared/components/card/models/card.model';
 import { hoverAnimation } from './animations/hover.animation';
