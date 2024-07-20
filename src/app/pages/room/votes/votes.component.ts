@@ -45,8 +45,7 @@ export class VotesComponent {
     new Card('?'),
     new Card('☕︎')
   ];
-  protected _cards$ = signal<Card[]>(this.cards);
-  public cards$ = this._cards$.asReadonly();
+  public cards$ = signal<Card[]>(this.cards);
 
   public complexity$ = signal<any>("?");
   public understanding$ = signal<any>("?");
@@ -70,7 +69,15 @@ export class VotesComponent {
   constructor(
     private userAuth: AngularFireAuth,
     private roomService: RoomService
-  ) { }
+  ) {
+    this.userAuth.currentUser
+      .then(user => user?.displayName)
+      .then(name => this.task.votes.find(x => x.userName == name))
+      .then(vote => this.cards.find(x => x.value == vote?.value))
+      .then(card => {
+        if (card) card.highlight = true
+      });
+  }
 
   mapVote(vote: IVote): ICard {
     return new Card(vote.value, vote.hidden, vote.userName);
@@ -81,13 +88,13 @@ export class VotesComponent {
 
     this.userAuth.currentUser
       .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
-      .then(() => this.setHighlight(value.toString()))
+      .then(() => this.highlightCard(value.toString()))
       .finally(async () => await this.roomService.updateRoom(this.room));
   }
 
-  private setHighlight(value: string) {
-    this.cards.filter(x => x.highlight).forEach(x => x.highlight = false);
-    this.cards.find(x => x.value.toString() === value)!.highlight = true;
+  private highlightCard(value: string) {
+    this.cards.filter(x => x.highlight).forEach(card => card.highlight = false);
+    this.cards.find(x => x.value.toString() == value)!.highlight = true;
   }
 
   async showVotes() {
