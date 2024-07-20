@@ -5,13 +5,13 @@ import { environment } from 'src/environments/environment';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { TitlePrefixStrategy } from './app/shared/strategies/title-prefix.strategy';
-import {provideRouter, TitleStrategy} from '@angular/router';
-import {routes} from "./app/app-routing";
+import { provideRouter, TitleStrategy } from '@angular/router';
+import { routes } from "./app/app-routing";
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 
 
 bootstrapApplication(AppComponent, {
@@ -26,11 +26,11 @@ bootstrapApplication(AppComponent, {
     ),
     provideAnimations(),
     provideRouter(routes),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideDatabase(() => getDatabase()),
     provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
     { provide: TitleStrategy, useClass: TitlePrefixStrategy },
   ]
 })
