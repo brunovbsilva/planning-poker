@@ -29,7 +29,7 @@ bootstrapApplication(AppComponent, {
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirebaseApp(() => initializeApp()),
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
     { provide: TitleStrategy, useClass: TitlePrefixStrategy },
   ]
