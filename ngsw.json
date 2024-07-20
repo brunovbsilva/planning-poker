@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1721509444263,
+  "timestamp": 1721510474111,
   "index": "/planning-poker/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/planning-poker/728.072d8c612d40aaab.js",
+        "/planning-poker/728.1c51467569b698a5.js",
         "/planning-poker/favicon.ico",
         "/planning-poker/index.html",
         "/planning-poker/main.69f2f46104a5314e.js",
         "/planning-poker/manifest.webmanifest",
         "/planning-poker/polyfills.479ad118c3604eff.js",
-        "/planning-poker/runtime.5f7429fcb1ab10ac.js",
+        "/planning-poker/runtime.ec78fdb5fb8d821d.js",
         "/planning-poker/styles.f10b92ed3504270c.css"
       ],
       "patterns": []
@@ -48,7 +48,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/planning-poker/728.072d8c612d40aaab.js": "1dc9a9e32306e3a84376d65c821a82665d29bdf6",
+    "/planning-poker/728.1c51467569b698a5.js": "ed904c0cfbac09a2bb18318d28a9ace577a74e9c",
     "/planning-poker/assets/icons/icon-128x128.png": "999e0afa822267dc07d3d1e7800d062103fcd761",
     "/planning-poker/assets/icons/icon-144x144.png": "b054b7277a1c38a743b01fd73e92929e17886fe9",
     "/planning-poker/assets/icons/icon-152x152.png": "1f5ded2e84cbf9a8edbfdac2f94215e2ea82a8e6",
@@ -62,11 +62,11 @@
     "/planning-poker/assets/sass/_colors.scss": "5de29a856f4fe0df7865ffda71f074f70cd78826",
     "/planning-poker/assets/sass/_style.scss": "182104bc8805494b2d7fd0cc69fae96913986bea",
     "/planning-poker/favicon.ico": "18365c73ce4057bfb97de0a4b5024c91586f86e0",
-    "/planning-poker/index.html": "8d0b99ee668985818552f66a49e2e2af050a1730",
+    "/planning-poker/index.html": "dc459251220929d2b0264f9bed80cc1b988d3fe6",
     "/planning-poker/main.69f2f46104a5314e.js": "9c267844e5272c71113f99346b560ad949347091",
     "/planning-poker/manifest.webmanifest": "6af0e14d38096f1361892fa9897795d4727da20c",
     "/planning-poker/polyfills.479ad118c3604eff.js": "b906e81280b31f70385369a7d7f6036b4eb3b993",
-    "/planning-poker/runtime.5f7429fcb1ab10ac.js": "0d4865964e1ad06d51173afcc4d1e20e48645e79",
+    "/planning-poker/runtime.ec78fdb5fb8d821d.js": "a8becbb5f1005adb38daae84b01db2ce86f8437b",
     "/planning-poker/styles.f10b92ed3504270c.css": "75e72b9f39214633a15670b9441a631bad469490"
   },
   "navigationUrls": [
