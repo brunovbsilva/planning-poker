@@ -31,7 +31,8 @@ export class VotesComponent {
   get flippedVotes(): boolean {
     return this.task.votes.some(vote => !vote.hidden);
   }
-  public cards: Card[] = [
+
+  private cards: Card[] = [
     new Card(1),
     new Card(2),
     new Card(3),
@@ -39,22 +40,26 @@ export class VotesComponent {
     new Card(8),
     new Card(13),
     new Card(21),
+    new Card(34),
+    new Card(55),
     new Card('?'),
     new Card('☕︎')
   ];
+  protected _cards$ = signal<Card[]>(this.cards);
+  public cards$ = this._cards$.asReadonly();
 
-  public complexity = signal<any>("?");
-  public understandment = signal<any>("?");
-  public compute = computed(() => {
-    const complexity = this.complexity();
-    const understandment = this.understandment();
-    return [complexity, understandment].some(x => x == "?")
+  public complexity$ = signal<any>("?");
+  public understanding$ = signal<any>("?");
+  public compute$ = computed(() => {
+    const complexity = this.complexity$();
+    const understanding = this.understanding$();
+    return [complexity, understanding].some(x => x == "?")
       ? "?"
-      : this.getVoteByComplexity(Number(complexity), Number(understandment));
+      : this.getVoteByComplexity(Number(complexity), Number(understanding));
   });
 
-  private getVoteByComplexity(complexity: number, understandment: number): string {
-    const result = (complexity + understandment) / 2;
+  private getVoteByComplexity(complexity: number, understanding: number): string {
+    const result = (complexity + understanding) / 2;
     if(result <= 3) return String(result);
     if(result < 5) return "3";
     if(result < 8) return "5";
@@ -73,9 +78,16 @@ export class VotesComponent {
 
   vote(value: string | number) {
     if(this.flippedVotes) return;
+
     this.userAuth.currentUser
       .then((user) => this.task.vote(new Vote(user?.uid!, user?.displayName!, value)))
+      .then(() => this.setHighlight(value.toString()))
       .finally(async () => await this.roomService.updateRoom(this.room));
+  }
+
+  private setHighlight(value: string) {
+    this.cards.filter(x => x.highlight).forEach(x => x.highlight = false);
+    this.cards.find(x => x.value.toString() === value)!.highlight = true;
   }
 
   async showVotes() {

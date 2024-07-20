@@ -7,16 +7,21 @@ import { ICard } from './interfaces/card.interface';
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss'],
     animations: flipAnimation,
-    standalone: true
+    standalone: true,
+  host: {
+     '[class.highlighted]': 'card.highlight'
+  }
 })
 export class CardComponent {
 
   @Input() card!: ICard;
   public isHovered: boolean = false;
-  
+
   @HostListener('mouseenter', ['$event'])
   @HostListener('mouseleave', ['$event'])
   private changeIsHovered(event: MouseEvent){
     this.isHovered = event.type === 'mouseenter';
   }
+
+  protected readonly history = history;
 }

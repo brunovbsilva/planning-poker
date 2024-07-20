@@ -28,7 +28,7 @@
 
 @if (!flippedVotes) {
   <div class="votes">
-    @for (card of cards; track card) {
+    @for (card of cards$(); track card) {
       <app-card #cardComponent
         class="card"
         [@hover]="cardComponent.isHovered"
@@ -44,20 +44,17 @@
     <div class="modal-votes">
       <app-modal-vote-item
         label="Entendimento"
-        (onChoose)="complexity.set($event)">
+        (onChoose)="complexity$.set($event)">
       </app-modal-vote-item>
       <app-modal-vote-item
         label="Complexidade"
-        (onChoose)="understandment.set($event)">
+        (onChoose)="understanding$.set($event)">
       </app-modal-vote-item>
     </div>
-    <h2 class="modal-result">{{ compute() }}</h2>
+    <h2 class="modal-result">{{ compute$() }}</h2>
   </div>
 
-  <button main-button
-    theme="primary"
-    [disabled]="flippedVotes"
-    (click)="vote(compute()); modal.close()">
+  <button main-button theme="primary" [disabled]="flippedVotes" (click)="vote(compute$()); modal.close()">
     Votar
   </button>
 </app-modal>

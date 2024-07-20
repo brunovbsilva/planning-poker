@@ -2,6 +2,15 @@
 
 $base-color: map-get(colors.$primary, base);
 
+:host {
+  &.highlighted {
+    .card-front {
+      background: $base-color !important;
+      color: white !important;
+    }
+  }
+}
+
 .card {
   position: relative;
   width: 4.5rem;
@@ -19,7 +28,7 @@ $base-color: map-get(colors.$primary, base);
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     -webkit-transform : rotateY(0deg);
     -ms-transform     : rotateY(0deg);
     transform         : rotateY(0deg);
@@ -49,7 +58,7 @@ $base-color: map-get(colors.$primary, base);
       font-weight: bold;
     }
   }
-  
+
   .card-back {
     -webkit-transform : rotateY(-180deg);
     -ms-transform     : rotateY(-180deg);
