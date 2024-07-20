@@ -75,9 +75,6 @@ Apache-2.0
 @firebase/storage
 Apache-2.0
 
-@firebase/storage-compat
-Apache-2.0
-
 @firebase/util
 Apache-2.0
 
@@ -86,13 +83,17 @@ Apache-2.0
 
 firebase/app
 
+firebase/auth
+
 firebase/compat/app
 
 firebase/compat/auth
 
 firebase/compat/firestore
 
-firebase/compat/storage
+firebase/firestore
+
+firebase/storage
 
 idb
 ISC
