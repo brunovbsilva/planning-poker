@@ -3,8 +3,6 @@ import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testin
 import { RoomsComponent } from './rooms.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
 import { RoomService } from 'src/app/services/room.service';
-import { RoomServiceMock } from 'src/app/shared/mocks/service/room.service.spec';
-import { RouterTestingModule } from '@angular/router/testing';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
@@ -23,7 +21,6 @@ describe('RoomsComponent', () => {
     TestBed.configureTestingModule({
     imports: [
         AngularFireModulesMock,
-        RouterTestingModule,
         RoomsComponent,
         RoomItemComponent,
         ModalComponent
