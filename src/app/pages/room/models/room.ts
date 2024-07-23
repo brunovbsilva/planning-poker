@@ -25,6 +25,10 @@ export class Room implements IRoom {
     this._creator = creator;
   }
 
+  async copyCode(): Promise<void> {
+    return await navigator.clipboard.writeText(this.id!);
+  }
+
   createTask(name: string): void {
     this.tasks.push(new Task(name));
   }

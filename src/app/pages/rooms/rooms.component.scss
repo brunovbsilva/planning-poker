@@ -1,35 +1,10 @@
 .rooms-content {
-  .actions {
-    max-width: 1260px;
-    margin: 0 auto 16px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .rooms {
-    max-width: 1260px;
-    display: block;
-    margin: 0 auto;
-    .rooms__list {
-      border: 1px solid gray;
-      border-radius: 4px;
-      width: 100%;
-      app-room-item {
-        display: block;
-        padding: 10px 0;
-      }
-      .no-room {
-        line-height: 3.25rem;
-        text-align: center;
-      }
-      :nth-child(even) {
-        background-color: #f5f5f5;
-      }
-      :first-child {
-        border-radius: 4px 4px 0 0;
-      }
-      :last-child {
-        border-radius: 0 0 4px 4px;
-      }
-    }
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+  .main-form {
+    flex: 1 1 auto;
   }
 }

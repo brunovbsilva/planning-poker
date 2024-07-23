@@ -9,4 +9,5 @@ export interface IRoom {
   createTask(name: string): void;
   deleteTask(task: ITask): void;
   updateValues(room: IRoom): void;
+  copyCode(): Promise<void>;
 }

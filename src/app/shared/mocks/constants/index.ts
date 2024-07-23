@@ -4,8 +4,8 @@ import { IVote } from "src/app/pages/room/interfaces/vote.interface";
 import { Room } from "src/app/pages/room/models/room";
 import { Task } from "src/app/pages/room/models/task";
 import { Vote } from "src/app/pages/room/models/vote";
-import { IRoomItem } from "src/app/pages/rooms/room-item/interfaces/room-item.inteface";
-import { RoomItem } from "src/app/pages/rooms/room-item/models/room-item";
+import { IRoomItem } from "src/app/pages/rooms/models/room-item.inteface";
+import { RoomItem } from "src/app/pages/rooms/models/room-item";
 
 const any: any = jasmine.anything();
 export class ConstantMocks {

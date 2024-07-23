@@ -1,5 +1,6 @@
 <div class="update-tasks">
-  <button main-button class="update-tasks-btn" (click)="modal.open()">Atualizar tasks</button>
+  <button main-button (click)="modal.open()">Atualizar tasks</button>
+  <button main-button theme="accent" (click)="room.copyCode()">Copiar código</button>
 </div>
 
 @if (room.tasks[currentTask$()]) {
