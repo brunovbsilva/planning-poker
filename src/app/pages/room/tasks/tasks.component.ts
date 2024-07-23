@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, model, Output, ViewChild} from '@angular/core';
 import { RoomService } from 'src/app/services/room/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';
@@ -20,24 +20,20 @@ export class TasksComponent {
   @Input() room!: IRoom;
   @ViewChild('modal') modal!: IModal;
   public createTaskForm = new FormControl('');
-  @Input() currentTask!: number;
-  @Output() currentTaskChange = new EventEmitter<number>();
+  currentTask$ = model.required<number>();
 
   constructor(private roomService: RoomService) { }
 
   nextTask() {
-    this.currentTask = (this.currentTask + 1) % this.room.tasks.length;
-    this.currentTaskChange.emit(this.currentTask);
+    this.currentTask$.update(x => (x+1) % this.room.tasks.length);
   }
 
   previousTask() {
-    this.currentTask = (this.currentTask - 1) % this.room.tasks.length;
-    this.currentTaskChange.emit(this.currentTask);
+    this.currentTask$.update(x => (x-1) % this.room.tasks.length);
   }
 
   setTask(index: number) {
-    this.currentTask = index;
-    this.currentTaskChange.emit(this.currentTask);
+    this.currentTask$.set(index);
   }
 
   async createTask(name: string) {

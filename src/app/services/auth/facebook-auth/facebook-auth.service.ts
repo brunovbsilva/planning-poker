@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {UserService} from "../../user/user.service";
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import {User} from "../models/user.model";
 import {AuthService} from "../auth.service";
 
@@ -18,7 +18,7 @@ export class FacebookAuthService extends AuthService {
 
   override async login(): Promise<void> {
     await this.auth
-      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .signInWithPopup(this.facebookAuthProvider())
       .then((user) =>
         this.user.setUser(
           new User(
@@ -28,5 +28,9 @@ export class FacebookAuthService extends AuthService {
           )
         )
       );
+  }
+
+  facebookAuthProvider() {
+    return new firebase.auth.FacebookAuthProvider();
   }
 }

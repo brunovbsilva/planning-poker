@@ -4,7 +4,7 @@ import {Guid} from "guid-typescript";
 export class User implements IUser {
   readonly id: string;
   readonly name: string;
-  readonly image?: string;
+  readonly image: string;
 
   constructor(
     name: string | null | undefined,
@@ -13,7 +13,7 @@ export class User implements IUser {
   ) {
     this.id = id ?? Guid.create().toString();
     this.name = name ?? 'Unknown name';
-    this.image = image ?? undefined
+    this.image = image ?? '';
   }
 
 }

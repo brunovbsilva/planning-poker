@@ -1,8 +1,11 @@
-import { Component, NgZone, OnInit, Signal } from '@angular/core';
+import {Component, computed, NgZone, OnInit, Signal} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MainButtonDirective } from '../../shared/directives/main-button/main-button.directive';
+import {UserService} from "../../services/user/user.service";
+import {IUser} from "../../services/auth/models/user.interface";
+import {User} from "../../services/auth/models/user.model";
 
 @Component({
     selector: 'app-header',
@@ -11,21 +14,19 @@ import { MainButtonDirective } from '../../shared/directives/main-button/main-bu
     standalone: true,
     imports: [RouterLink, MainButtonDirective]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  protected user: Signal<any>;
+  name$ = computed(() => this.user.user$()?.name);
+  image$ = computed(() => this.user.user$()?.image);
 
   constructor(
-    public auth: AngularFireAuth,
+    private user: UserService,
     private router: Router,
     private ngZone: NgZone
-  ) {
-    this.user = toSignal(auth.user);
-  }
+  ) { }
 
-  ngOnInit(): void {}
-
-  logout() {
-    this.auth.signOut().then(() => this.ngZone.run(() => this.router.navigate([''])));
+  async logout() {
+    this.user.removeUser();
+    setTimeout(() => this.ngZone.run(() => this.router.navigate([''])), 1);
   }
 }

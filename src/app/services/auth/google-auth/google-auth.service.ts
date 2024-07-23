@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AuthService} from "../auth.service";
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import {User} from "../models/user.model";
 import {UserService} from "../../user/user.service";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
@@ -18,7 +18,7 @@ export class GoogleAuthService extends AuthService {
 
   override async login(): Promise<void> {
     await this.auth
-      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .signInWithPopup(this.googleAuthProvider())
       .then((user) =>
         this.user.setUser(
           new User(
@@ -28,5 +28,9 @@ export class GoogleAuthService extends AuthService {
           )
         )
       );
+  }
+
+  private googleAuthProvider() {
+    return new firebase.auth.GoogleAuthProvider();
   }
 }
