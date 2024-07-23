@@ -1,4 +1,4 @@
-.current-room {
+:host {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -8,5 +8,9 @@
   .room-name {
     font-size: 3rem;
     text-align: center;
+  }
+
+  .copy-button {
+    position: absolute;
   }
 }

@@ -9,17 +9,19 @@ import { BaseComponent } from 'src/app/shared/components/base.component';
 import { VotesComponent } from './votes/votes.component';
 import { TasksComponent } from './tasks/tasks.component';
 import {JsonPipe} from "@angular/common";
+import {MainButtonDirective} from "../../shared/directives/main-button/main-button.directive";
 
 @Component({
     selector: 'app-room',
     templateUrl: './room.component.html',
     styleUrls: ['./room.component.scss'],
     standalone: true,
-    imports: [
-      TasksComponent,
-      VotesComponent,
-      JsonPipe
-    ]
+  imports: [
+    TasksComponent,
+    VotesComponent,
+    JsonPipe,
+    MainButtonDirective
+  ]
 })
 export class RoomComponent extends BaseComponent implements OnInit {
 

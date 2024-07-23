@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { IRoom } from '../../pages/room/interfaces/room.interface';
-import { Observable, map } from 'rxjs';
-import { IRoomItem } from '../../pages/rooms/room-item/interfaces/room-item.inteface';
+import {Observable, map, lastValueFrom} from 'rxjs';
+import { IRoomItem } from '../../pages/rooms/models/room-item.inteface';
 import { ITask } from '../../pages/room/interfaces/task.interface';
 import { IVote } from '../../pages/room/interfaces/vote.interface';
+import {RoomItem} from "../../pages/rooms/models/room-item";
 
 @Injectable({
   providedIn: 'root'
@@ -13,26 +14,35 @@ export class RoomService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  async createRoom(room: IRoom): Promise<void> {
-    await this.firestore.collection<IRoom>('rooms').add(this.roomObjectModel(room));
+  async createRoom(room: IRoom) {
+    return await this.firestore.collection<IRoom>('rooms')
+      .add(this.roomObjectModel(room))
   }
 
   async updateRoom(room: IRoom): Promise<void> {
-    await this.firestore.doc<IRoom>('rooms/' + room.id).update(this.roomObjectModel(room));
+    await this.firestore.doc<IRoom>(`rooms/${room.id}`).update(this.roomObjectModel(room));
   }
 
   async deleteRoom(roomId: string): Promise<void> {
-    await this.firestore.doc<IRoom>('rooms/' + roomId).delete();
+    await this.firestore.doc<IRoom>(`rooms/${roomId}`).delete();
   }
 
   listenerRoom(roomId: string): Observable<IRoom> {
-    return this.firestore.doc<IRoom>('rooms/' + roomId).valueChanges()
+    return this.firestore.doc<IRoom>(`rooms/${roomId}`).valueChanges()
       .pipe(map(room => Object.assign({ id: roomId }, room)));
   }
 
   getRooms(): Observable<IRoomItem[]> {
     return this.firestore.collection<IRoom>('rooms').snapshotChanges()
-      .pipe(map(actions => actions.map(this.actionToRoomModel)));
+      .pipe(
+        map(actions => actions.map(this.actionToRoomModel)),
+        map(rooms => rooms.map(room => new RoomItem(room.id, room.name)))
+      );
+  }
+
+  getRoomById(roomId: string) : Observable<IRoomItem | undefined> {
+    return this.getRooms()
+      .pipe(map(list => list.find(room => room.id === roomId)));
   }
 
   private actionToRoomModel(action: any) {

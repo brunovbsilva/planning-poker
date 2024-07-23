@@ -7,7 +7,7 @@ import { Task } from '../../pages/room/models/task';
 import { Vote } from '../../pages/room/models/vote';
 import { Observable } from 'rxjs';
 import { IRoom } from '../../pages/room/interfaces/room.interface';
-import { IRoomItem } from '../../pages/rooms/room-item/interfaces/room-item.inteface';
+import { IRoomItem } from '../../pages/rooms/models/room-item.inteface';
 
 describe('RoomService', () => {
   let service: RoomService;
