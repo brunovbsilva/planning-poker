@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VotesComponent } from './votes.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { RoomTaskNoVotesMock} from 'src/app/shared/mocks/constants';
 import { CardComponentSpec } from 'src/app/shared/mocks/components/card.component.spec';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,7 +51,7 @@ describe('VotesComponent', () => {
       expect(currentVotes).withContext('currentVotes should exist on HTML').toBeTruthy();
       expect(votes).withContext('votes should exist on HTML').toBeTruthy();
     });
-  
+
     it('results should be "-"', () => expect(result.nativeElement.textContent).toBe('-'));
     it('should have 0 current votes', () => expect(currentVotes.children.length).toBe(0));
     describe('should have a fribbonacci cards', () => {
@@ -77,7 +77,7 @@ describe('VotesComponent', () => {
       });
     });
   })
-  
+
 
   describe('after vote', () => {
     let voteSpy: jasmine.Spy;

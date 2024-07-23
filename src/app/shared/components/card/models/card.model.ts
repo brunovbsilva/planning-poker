@@ -1,4 +1,4 @@
-import { ICard } from "../interfaces/card.interface";
+import { ICard } from "./card.interface";
 
 export class Card implements ICard {
   public highlight: boolean = false;

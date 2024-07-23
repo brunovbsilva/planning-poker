@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RoomService } from '../../services/room.service';
+import { RoomService } from '../../services/room/room.service';
 import { IRoomItem } from './room-item/interfaces/room-item.inteface';
 import { map } from 'rxjs';
 import { RoomItem } from './room-item/models/room-item';

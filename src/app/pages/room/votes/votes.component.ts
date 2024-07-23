@@ -1,5 +1,5 @@
 import {Component, computed, Input, signal} from '@angular/core';
-import { ICard } from '../../../shared/components/card/interfaces/card.interface';
+import { ICard } from '../../../shared/components/card/models/card.interface';
 import { Card } from '../../../shared/components/card/models/card.model';
 import { hoverAnimation } from './animations/hover.animation';
 import { ITask } from '../interfaces/task.interface';
@@ -7,7 +7,7 @@ import { IVote } from '../interfaces/vote.interface';
 import { Vote } from '../models/vote';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { IRoom } from '../interfaces/room.interface';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { ModalVoteItemComponent } from './modal-vote-item/modal-vote-item.component';
 import { ModalComponent } from '../../../shared/components/modal/modal.component';
 import { CardComponent } from '../../../shared/components/card/card.component';

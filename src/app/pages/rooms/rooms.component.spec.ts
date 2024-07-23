@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testin
 
 import { RoomsComponent } from './rooms.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RoomItemComponent } from './room-item.component';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { RoomItem } from './models/room-item';
 import { Router } from '@angular/router';
 import { DebugElement } from '@angular/core';

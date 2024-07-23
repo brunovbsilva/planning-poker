@@ -1,6 +1,6 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { IRoom } from './interfaces/room.interface';
 import { Room } from './models/room';
 import { Task } from './models/task';
