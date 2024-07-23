@@ -95,6 +95,9 @@ firebase/firestore
 
 firebase/storage
 
+guid-typescript
+ISC
+
 idb
 ISC
 ISC License (ISC)
