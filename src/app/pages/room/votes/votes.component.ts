@@ -11,7 +11,6 @@ import { ModalComponent } from '../../../shared/components/modal/modal.component
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { MainButtonDirective } from '../../../shared/directives/main-button/main-button.directive';
 import {UserService} from "../../../services/user/user.service";
-import {ITask} from "../interfaces/task.interface";
 
 @Component({
     selector: 'app-votes',

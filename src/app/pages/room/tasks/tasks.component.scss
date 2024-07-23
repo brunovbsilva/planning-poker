@@ -2,7 +2,9 @@
 .update-tasks {
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: end;
+  gap: 0.5rem;
 }
 
 .tasks-control {

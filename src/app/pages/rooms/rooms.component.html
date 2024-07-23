@@ -1,23 +1,27 @@
 <div class="rooms-content">
-  <div class="actions">
-    <h2 class="rooms__header">Entre em uma sala</h2>
-    <button main-button theme="primary" (click)="modal.open()">Criar</button>
-  </div>
+  <form [formGroup]="enterForm" class="main-form">
+    <fieldset>
+      <legend>Entre em uma sala</legend>
+      <div class="form-field">
+        <label for="id">Código</label>
+        <input main-input formControlName="id" id="id" type="text" placeholder="Digite o código da sala">
+      </div>
+      <div class="actions">
+        <button main-button theme="accent" (click)="enterRoom()" [disabled]="enterForm.invalid">Entrar</button>
+      </div>
+    </fieldset>
+  </form>
 
-  <div class="rooms">
-    <div class="rooms__list">
-      @for (room of rooms; track room) {
-        <app-room-item [room]="room"></app-room-item>
-      }
-      @if (rooms.length == 0) {
-        <h3 class="no-room">Não há salas no momento!</h3>
-      }
-    </div>
-  </div>
+  <form [formGroup]="createForm" class="main-form">
+    <fieldset>
+      <legend>Crie uma sala</legend>
+      <div class="form-field">
+        <label for="name">Nome</label>
+        <input #name main-input formControlName="name" id="name" type="text" placeholder="Digite o nome da sala">
+      </div>
+      <div class="actions">
+        <button main-button (click)="createRoom(name.value)" [disabled]="createForm.invalid">Criar</button>
+      </div>
+    </fieldset>
+  </form>
 </div>
-
-<app-modal #modal modalTitle="Criar sala">
-  <input #name main-input type="text" class="input" placeholder="Digite o nome da sala">
-  <button main-button (click)="createRoom(name.value)">Criar</button>
-  <button main-button theme="error" (click)="modal.close()">Cancelar</button>
-</app-modal>

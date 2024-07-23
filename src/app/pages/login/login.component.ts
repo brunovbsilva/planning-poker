@@ -28,19 +28,18 @@ export class LoginComponent {
   ) {}
 
   async login(type: LoginType = 'default') {
+    await this.authenticate(type)
+      .finally(() => this.ngZone.run(() => this.router.navigate(['rooms'])));
+  }
+
+  private async authenticate(type: LoginType) {
     switch (type) {
       case 'google':
-        await this.googleAuthService.login()
-          .finally(() => this.ngZone.run(() => this.router.navigate(['rooms'])));
-        break;
+        return await this.googleAuthService.login();
       case 'facebook':
-        await this.facebookAuthService.login()
-          .finally(() => this.ngZone.run(() => this.router.navigate(['rooms'])));
-        break;
+        return await this.facebookAuthService.login();
       default:
-        await this.authService.login(this.loginForm.get('name')?.value)
-          .finally(() => this.ngZone.run(() => this.router.navigate(['rooms'])));
-        break;
+        return await this.authService.login(this.loginForm.get('name')?.value);
     }
   }
 }
