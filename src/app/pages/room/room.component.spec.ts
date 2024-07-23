@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testin
 
 import { RoomComponent } from './room.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { TasksComponentSpec } from 'src/app/shared/mocks/pages/tasks.component.spec';
 import { VotesComponentSpec } from 'src/app/shared/mocks/pages/votes.component.spec';
 import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
@@ -42,18 +42,18 @@ describe('RoomComponent', () => {
       fixture.detectChanges();
       room = fixture.debugElement.query(By.css('.current-room'));
     });
-  
+
     it('should create', () => {
       expect(component).toBeTruthy();
       expect(component.room).toBeTruthy();
       expect(room).withContext('room HTML should exist').toBeTruthy();
     });
-    
+
     it('should start listener room', fakeAsync(() => {
       tick(100);
       expect(spyListener).toHaveBeenCalled();
     }));
-  
+
     it('should update values on next value', () => {
       spyUpdate = spyOn(component.room!, 'updateValues').and.callThrough();
       service.updateRoom(RoomMock);

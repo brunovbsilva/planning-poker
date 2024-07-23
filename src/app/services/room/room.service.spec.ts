@@ -1,13 +1,13 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { RoomService } from './room.service';
-import { AngularFireModulesMock, AngularFireProvidersMock } from '../shared/mocks/others';
+import { AngularFireModulesMock, AngularFireProvidersMock } from '../../shared/mocks/others';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Room } from '../pages/room/models/room';
-import { Task } from '../pages/room/models/task';
-import { Vote } from '../pages/room/models/vote';
+import { Room } from '../../pages/room/models/room';
+import { Task } from '../../pages/room/models/task';
+import { Vote } from '../../pages/room/models/vote';
 import { Observable } from 'rxjs';
-import { IRoom } from '../pages/room/interfaces/room.interface';
-import { IRoomItem } from '../pages/rooms/room-item/interfaces/room-item.inteface';
+import { IRoom } from '../../pages/room/interfaces/room.interface';
+import { IRoomItem } from '../../pages/rooms/room-item/interfaces/room-item.inteface';
 
 describe('RoomService', () => {
   let service: RoomService;
@@ -91,5 +91,5 @@ describe('RoomService', () => {
       tick();
     }));
   });
-  
+
 });

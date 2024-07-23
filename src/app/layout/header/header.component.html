@@ -1,14 +1,12 @@
 <div class="header">
   <h4 class="header-title" [routerLink]="''">Planning Poker</h4>
-  @if (user()) {
     <div class="user-content">
       <div class="user">
-        <img class="user-image" [src]="user().photoURL" alt="user image">
-        <span class="user-name">{{ user().displayName }}</span>
+        @if (image$()) { <img class="user-image" [src]="image$()" alt="user image"> }
+        @if (name$()) { <span class="user-name">{{ name$() }}</span> }
       </div>
       <div class="logout">
         <button main-button theme="error" class="logout-btn" (click)="logout()">Sair</button>
       </div>
     </div>
-  }
 </div>
