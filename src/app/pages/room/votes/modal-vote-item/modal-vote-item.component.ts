@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, input} from '@angular/core';
+import {Component, EventEmitter, Output, input, model} from '@angular/core';
 import { MainButtonDirective } from '../../../../shared/directives/main-button/main-button.directive';
 
 @Component({
@@ -10,15 +10,13 @@ import { MainButtonDirective } from '../../../../shared/directives/main-button/m
 })
 export class ModalVoteItemComponent {
   public label = input.required<string>();
-  public currentValue: string = "";
-  @Output() onChoose: EventEmitter<string> = new EventEmitter<string>();
+  public currentValue = model<string>();
 
   public emit(value: string): void {
-    this.currentValue = value;
-    this.onChoose.emit(value)
+    this.currentValue.set(value);
   }
 
   public getTheme(value: string) {
-    return this.currentValue === value;
+    return this.currentValue() === value;
   }
 }

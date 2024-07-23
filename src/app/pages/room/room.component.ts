@@ -1,6 +1,6 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RoomService } from 'src/app/services/room.service';
+import { RoomService } from 'src/app/services/room/room.service';
 import { IRoom } from './interfaces/room.interface';
 import { Room } from './models/room';
 import { Task } from './models/task';
@@ -25,7 +25,7 @@ export class RoomComponent extends BaseComponent implements OnInit {
 
   public roomId: string | null;
   public $room = signal<IRoom | undefined>(this.startRoom(undefined));
-  public currentTask = 0;
+  public currentTask$ = signal<number>(0);
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -42,7 +42,7 @@ export class RoomComponent extends BaseComponent implements OnInit {
         .subscribe(value => this.$room.update(room => {
           if(room) room.updateValues(value);
           else room = this.startRoom(value);
-          if(this.currentTask >= (room?.tasks?.length ?? 0)) this.currentTask = 0;
+          if(this.currentTask$() >= (room?.tasks?.length ?? 0)) this.currentTask$.set(0);
           return room;
         }))
     );

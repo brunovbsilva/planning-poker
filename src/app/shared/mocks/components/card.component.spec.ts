@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ICard } from '../../components/card/interfaces/card.interface';
+import { ICard } from '../../components/card/models/card.interface';
 
 @Component({ selector: 'app-card', template: '' })
 export class CardComponentSpec {

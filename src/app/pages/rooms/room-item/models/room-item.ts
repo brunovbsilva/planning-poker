@@ -1,9 +1,9 @@
 import { IRoomItem } from "../interfaces/room-item.inteface";
-import { RoomService } from "src/app/services/room.service";
+import { RoomService } from "src/app/services/room/room.service";
 import { Router } from "@angular/router";
 
 export class RoomItem implements IRoomItem {
-  
+
   constructor(
     readonly id: string,
     readonly name: string,

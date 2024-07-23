@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot } from "@angular/router";
 import { map } from "rxjs";
 import { IRoom } from "src/app/pages/room/interfaces/room.interface";
-import { RoomService } from "src/app/services/room.service";
+import { RoomService } from "src/app/services/room/room.service";
 
 @Injectable({providedIn: 'root'})
 export class RoomNameResolver {

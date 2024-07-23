@@ -4,7 +4,7 @@ import { CardComponent } from './card.component';
 import { Card } from './models/card.model';
 import { CardType } from './models/card-type.enum';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ICard } from './interfaces/card.interface';
+import { ICard } from './models/card.interface';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 

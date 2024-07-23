@@ -1,1 +1,13 @@
-<button main-button theme="error" (click)="login()" class="login-btn login-btn--google">Entrar pelo google</button>
+<button main-button (click)="login('google')" class="login-btn login-btn--google">Entrar com Google</button>
+<!--<button main-button (click)="login('facebook')" class="login-btn login-btn&#45;&#45;facebook">Entrar com Facebook</button>-->
+
+<form [formGroup]="loginForm" class="main-form">
+  <fieldset>
+    <legend>Entre sem login</legend>
+    <div class="form-field">
+      <label for="name">Nome</label>
+      <input main-input formControlName="name" id="name" type="text" placeholder="Digite seu nome">
+    </div>
+    <button main-button theme="accent" (click)="login()" class="login-btn" [disabled]="loginForm.invalid">Entrar</button>
+  </fieldset>
+</form>
