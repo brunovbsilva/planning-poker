@@ -8,8 +8,10 @@
   .room-name {
     font-size: 3rem;
     text-align: center;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-
   .copy-button {
     position: absolute;
   }

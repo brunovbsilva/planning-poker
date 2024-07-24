@@ -28,7 +28,7 @@ export class RoomsComponent extends BaseComponent implements OnInit {
     id: new FormControl('', Validators.required)
   });
   createForm: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
+    name: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
 
   constructor(
