@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1721782378197,
+  "timestamp": 1721784157428,
   "index": "/planning-poker/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,7 @@
         "/planning-poker/144.0b3fe2ad77027003.js",
         "/planning-poker/favicon.ico",
         "/planning-poker/index.html",
-        "/planning-poker/main.03f06909aabb11df.js",
+        "/planning-poker/main.3c6304b9dc3a00b6.js",
         "/planning-poker/manifest.webmanifest",
         "/planning-poker/polyfills.479ad118c3604eff.js",
         "/planning-poker/runtime.99edb309fff022f1.js",
@@ -62,8 +62,8 @@
     "/planning-poker/assets/sass/_colors.scss": "5de29a856f4fe0df7865ffda71f074f70cd78826",
     "/planning-poker/assets/sass/_style.scss": "cc24958fa422f2814b5907e58d31259076b2f66f",
     "/planning-poker/favicon.ico": "18365c73ce4057bfb97de0a4b5024c91586f86e0",
-    "/planning-poker/index.html": "8e4b2a2844e8f830b3c7646be84c9541d4ce9bf6",
-    "/planning-poker/main.03f06909aabb11df.js": "1e5b04e754321db61cf4f6fcc99d7ca798e908ef",
+    "/planning-poker/index.html": "a2646b642c985e5b1cb4888b1ce59f577815ba2e",
+    "/planning-poker/main.3c6304b9dc3a00b6.js": "ad5b66b9ed0f9252b7f9e86a8a094d3fe3a0dfae",
     "/planning-poker/manifest.webmanifest": "6af0e14d38096f1361892fa9897795d4727da20c",
     "/planning-poker/polyfills.479ad118c3604eff.js": "b906e81280b31f70385369a7d7f6036b4eb3b993",
     "/planning-poker/runtime.99edb309fff022f1.js": "8460790c6a286dce42167d8b1b139afd49934e2f",
