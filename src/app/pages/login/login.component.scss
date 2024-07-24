@@ -1,20 +1,15 @@
 :host {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  .login-btn {
-    height: 60px;
-    width: 320px;
-    font-size: 1.5rem;
-    line-height: 1.75rem;
-    &--google {
-      background: red;
-    }
-    &--facebook {
-      background: blue;
-    }
+  .google {
+    background: red;
+  }
+  .facebook {
+    background: blue;
   }
 }

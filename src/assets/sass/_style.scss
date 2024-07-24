@@ -51,11 +51,14 @@ h1, h2, h3, h4, h5, h6 {
 
     .actions {
       display: flex;
-      button {
-        margin-top: .5rem;
-        height: 60px;
-        flex: 1 1 auto
-      }
+    }
+
+    button {
+      margin-top: .5rem;
+      height: 60px;
+      font-size: 1.5rem;
+      width: 100%;
+      flex: 1 1 auto
     }
   }
 }
