@@ -4,10 +4,9 @@ import { MainButtonDirective } from '../../shared/directives/main-button/main-bu
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth/auth.service";
 import {GoogleAuthService} from "../../services/auth/google-auth/google-auth.service";
-import {FacebookAuthService} from "../../services/auth/facebook-auth/facebook-auth.service";
 import {MainInputDirective} from "../../shared/directives/main-input/main-input.directive";
 
-type LoginType = 'google' | 'facebook' | 'default';
+type LoginType = 'google' | 'default';
 
 @Component({
     selector: 'app-login',
@@ -24,7 +23,6 @@ export class LoginComponent {
     private ngZone: NgZone,
     private authService: AuthService,
     private googleAuthService: GoogleAuthService,
-    private facebookAuthService: FacebookAuthService,
   ) {}
 
   async login(type: LoginType = 'default') {
@@ -36,8 +34,6 @@ export class LoginComponent {
     switch (type) {
       case 'google':
         return await this.googleAuthService.login();
-      case 'facebook':
-        return await this.facebookAuthService.login();
       default:
         return await this.authService.login(this.loginForm.get('name')?.value);
     }
