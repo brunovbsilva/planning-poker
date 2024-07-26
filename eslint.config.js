@@ -1,3 +1,5 @@
+import eslintConfigPrettier from "eslint-config-prettier";
+
 // @ts-check
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
@@ -39,5 +41,6 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {},
-  }
+  },
+  eslintConfigPrettier
 );
