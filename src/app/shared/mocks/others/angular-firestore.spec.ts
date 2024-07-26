@@ -30,10 +30,10 @@ export class AngularFirestoreMock {
   getResult() {
     return this.docObj.value;
   }
-  collection(path: string) {
+  collection() {
     return this.collectionObj;
   }
-  doc(path: string) {
+  doc() {
     return this.docObj;
   }
 }

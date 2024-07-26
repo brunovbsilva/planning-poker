@@ -77,7 +77,7 @@ describe('VotesComponent', () => {
   describe('after vote', () => {
     let voteSpy: jasmine.Spy;
     beforeEach(() => {
-      voteSpy = spyOn(component.task$, 'vote').and.callThrough();
+      voteSpy = spyOn(component.task, 'vote').and.callThrough();
       votes.children[0].triggerEventHandler('click', null);
       checkChanges();
     });
