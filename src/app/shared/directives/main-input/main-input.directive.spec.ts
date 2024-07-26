@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MainInputDirective } from './main-input.directive';
 import { ElementRef } from '@angular/core';
 import { MockElementRef } from '../../mocks/others/element-ref.spec';
@@ -6,14 +6,14 @@ import { MockElementRef } from '../../mocks/others/element-ref.spec';
 describe('MainInputDirective', () => {
   let elementRef: ElementRef;
   let directive: MainInputDirective;
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [{ provide: ElementRef, useClass: MockElementRef }],
     }).compileComponents();
 
     elementRef = TestBed.inject(ElementRef);
     directive = new MainInputDirective(elementRef);
-  }));
+  });
 
   it('should create an instance', () => {
     expect(directive).toBeTruthy();

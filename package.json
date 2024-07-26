@@ -2,12 +2,10 @@
   "name": "planning-poker",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint"
+    "test": "ng test --watch --code-coverage --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {

@@ -29,7 +29,7 @@
 
 <app-modal #modal modalTitle="Tasks">
   <div class="create-task">
-    <textarea #name main-input type="text" (keyup)="(0)" [formControl]="createTaskForm" placeholder="Digite os nomes das tasks"></textarea>
+    <textarea #name main-input type="text" [formControl]="createTaskForm" placeholder="Digite os nomes das tasks"></textarea>
     <button main-button [disabled]="!name.value" (click)="createTask(name.value); name.focus()">Criar</button>
   </div>
 

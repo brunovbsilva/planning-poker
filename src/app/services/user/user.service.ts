@@ -13,12 +13,12 @@ export class UserService {
 
   constructor() {}
 
-  setUser(user: IUser) {
+  public setUser(user: IUser) {
     this._user.set(user);
     localStorage.setItem(USER, JSON.stringify(user));
   }
 
-  removeUser() {
+  public removeUser() {
     this._user.set(null);
     localStorage.removeItem(USER);
   }
