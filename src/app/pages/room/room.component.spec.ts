@@ -58,9 +58,7 @@ describe('RoomComponent', () => {
       expect(component.room?.id).withContext('id from room should be equal mocked').toEqual(RoomMock.id);
       expect(component.room?.name).withContext('name from room should be equal mocked').toEqual(RoomMock.name);
       expect(component.room?.creator).withContext('creator from room should be equal mocked').toEqual(RoomMock.creator);
-      expect(component.room?.currentTask)
-        .withContext('currentTask from room should be equal mocked')
-        .toEqual(RoomMock.currentTask);
+      expect(component.room?.currentTask).withContext('currentTask from room should be equal mocked').toEqual(RoomMock.currentTask);
       expect(component.room?.tasks).withContext('tasks from room should be equal mocked').toEqual(RoomMock.tasks);
     });
   });
@@ -75,8 +73,7 @@ describe('RoomComponent', () => {
       votes = room.nativeElement.querySelector('app-votes');
     });
 
-    it('should show room name', () =>
-      expect(room.nativeElement.textContent).withContext('Room name').toContain(RoomMock.name));
+    it('should show room name', () => expect(room.nativeElement.textContent).withContext('Room name').toContain(RoomMock.name));
     it('should show tasks', () => expect(tasks).withContext('app-tasks HTML').toBeTruthy());
     it('should show votes', () => expect(votes).withContext('app-votes HTML').toBeTruthy());
   });
@@ -91,8 +88,7 @@ describe('RoomComponent', () => {
       votes = room.nativeElement.querySelector('app-votes');
     });
 
-    it('should show room name', () =>
-      expect(room.nativeElement.textContent).withContext('Room name').toContain(RoomMock.name));
+    it('should show room name', () => expect(room.nativeElement.textContent).withContext('Room name').toContain(RoomMock.name));
     it('should not show tasks', () => expect(tasks).withContext('app-tasks HTML').toBeTruthy());
     it('should not show votes', () => expect(votes).withContext('app-votes HTML').toBeFalsy());
   });

@@ -1,9 +1,5 @@
 <div class="actions">
-  <button
-    main-button
-    class="current-votes__btn-flip"
-    [disabled]="task.votes.length == 0 || flippedVotes"
-    (click)="showVotes()">
+  <button main-button class="current-votes__btn-flip" [disabled]="task.votes.length == 0 || flippedVotes" (click)="showVotes()">
     Virar cartas
   </button>
   <button
@@ -30,8 +26,7 @@
 @if (!flippedVotes) {
   <div class="votes">
     @for (card of cards$(); track card) {
-      <app-card #cardComponent class="card" [@hover]="cardComponent.isHovered" [card]="card" (click)="vote(card.value)">
-      </app-card>
+      <app-card #cardComponent class="card" [@hover]="cardComponent.isHovered" [card]="card" (click)="vote(card.value)"> </app-card>
     }
   </div>
 }

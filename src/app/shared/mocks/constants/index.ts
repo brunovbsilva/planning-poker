@@ -28,17 +28,7 @@ export const TaskNoVotesMock = ConstantMocks.getTaskMock('mocked task 1');
 export const TaskMock = ConstantMocks.getTaskMock('mocked task 2', [VoteMock]);
 export const TaskFlipMock = ConstantMocks.getTaskMock('mocked task 3', [VoteFlipMock]);
 export const RoomEmptyMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator');
-export const RoomTaskNoVotesMock = ConstantMocks.getRoomMock(
-  'mocked room',
-  'mocked creator',
-  [TaskNoVotesMock],
-  'mocked id'
-);
+export const RoomTaskNoVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskNoVotesMock], 'mocked id');
 export const RoomTaskAndVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock], 'mocked id');
-export const RoomMock = ConstantMocks.getRoomMock(
-  'mocked room',
-  'mocked creator',
-  [TaskMock, TaskFlipMock],
-  'mocked id'
-);
+export const RoomMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock, TaskFlipMock], 'mocked id');
 export const RoomItemMock = ConstantMocks.getRoomItemMock(RoomMock);

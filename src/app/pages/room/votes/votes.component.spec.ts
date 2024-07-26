@@ -84,10 +84,8 @@ describe('VotesComponent', () => {
 
     it('actions should appear', () => expect(actions).withContext('actions should exist on HTML').toBeTruthy());
     it('actions should have 2 buttons', () => expect(actions.children.length).toBe(2));
-    it('first button should have text "Virar cartas"', () =>
-      expect(actions.children[0].nativeElement.textContent).toBe('Virar cartas'));
-    it('second button should have text "Revotar"', () =>
-      expect(actions.children[1].nativeElement.textContent).toBe('Revotar'));
+    it('first button should have text "Virar cartas"', () => expect(actions.children[0].nativeElement.textContent).toBe('Virar cartas'));
+    it('second button should have text "Revotar"', () => expect(actions.children[1].nativeElement.textContent).toBe('Revotar'));
     it('result should be "-"', () => expect(result.nativeElement.textContent).toBe('-'));
     it('should have 1 current votes', () => expect(currentVotes.children.length).toBe(1));
 
@@ -99,8 +97,7 @@ describe('VotesComponent', () => {
         spyUpdateRoom = spyOn(service, 'updateRoom').and.callThrough();
       });
       it('flipped should be true', () => expect(component.flippedVotes).toBeTrue());
-      it('should hide fribonnacci votes', () =>
-        expect(votes).withContext('votes should NOT exist on HTML').not.toBeTruthy());
+      it('should hide fribonnacci votes', () => expect(votes).withContext('votes should NOT exist on HTML').not.toBeTruthy());
       it('result should be "1"', () => expect(result.nativeElement.textContent).toBe('1'));
       it('on try to vote again, should not be possible', () => {
         component.vote(1);

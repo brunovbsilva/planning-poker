@@ -34,8 +34,7 @@ describe('ModalComponent', () => {
 
     it('should show modal', () => expect(modal).toBeTruthy());
     it('should show background', () => expect(background).toBeTruthy());
-    it('should show title', () =>
-      expect(modal.query(By.css('.modal__header > h1')).nativeElement.innerText).toEqual(component.modalTitle));
+    it('should show title', () => expect(modal.query(By.css('.modal__header > h1')).nativeElement.innerText).toEqual(component.modalTitle));
 
     describe('on background click', () => {
       beforeEach(() => {

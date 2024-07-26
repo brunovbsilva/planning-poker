@@ -39,9 +39,7 @@ export class VotesComponent implements AfterViewInit {
   public compute$ = computed(() => {
     const complexity = this.complexity$();
     const understanding = this.understanding$();
-    return [complexity, understanding].some(x => x == '?')
-      ? '?'
-      : this.getVoteByComplexity(Number(complexity), Number(understanding));
+    return [complexity, understanding].some(x => x == '?') ? '?' : this.getVoteByComplexity(Number(complexity), Number(understanding));
   });
 
   constructor(
