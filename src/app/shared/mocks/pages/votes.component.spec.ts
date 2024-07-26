@@ -1,16 +1,16 @@
-import { Component, Input } from '@angular/core';
-import { IRoom } from 'src/app/pages/room/interfaces/room.interface';
-import { ITask } from 'src/app/pages/room/interfaces/task.interface';
-import { Card } from '../../components/card/models/card.model';
+import { Component, Input } from '@angular/core'
+import { IRoom } from 'src/app/pages/room/interfaces/room.interface'
+import { ITask } from 'src/app/pages/room/interfaces/task.interface'
+import { Card } from '../../components/card/models/card.model'
 
 @Component({ selector: 'app-votes', template: '' })
 export class VotesComponentSpec {
-  @Input() room!: IRoom;
+  @Input() room!: IRoom
   get task(): ITask {
-    return this.room.tasks[this.room.currentTask];
-  };
+    return this.room.tasks[this.room.currentTask]
+  }
   get flippedVotes(): boolean {
-    return this.task.votes.some(vote => !vote.hidden);
+    return this.task.votes.some((vote) => !vote.hidden)
   }
 
   public cards: Card[] = [
@@ -23,6 +23,6 @@ export class VotesComponentSpec {
     new Card(3, 21),
     new Card(4, 34),
     new Card(1, 55),
-    new Card(2, 89)
-  ];
+    new Card(2, 89),
+  ]
 }

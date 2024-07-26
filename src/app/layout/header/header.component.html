@@ -1,12 +1,18 @@
 <div class="header">
   <h4 class="header-title" [routerLink]="''">Planning Poker</h4>
-    <div class="user-content">
-      <div class="user">
-        @if (image$()) { <img class="user-image" [src]="image$()" alt="user image"> }
-        @if (name$()) { <span class="user-name">{{ name$() }}</span> }
-      </div>
-      <div class="logout">
-        <button main-button theme="error" class="logout-btn" (click)="logout()">Sair</button>
-      </div>
+  <div class="user-content">
+    <div class="user">
+      @if (image$()) {
+        <img class="user-image" [src]="image$()" alt="user image" />
+      }
+      @if (name$()) {
+        <span class="user-name">{{ name$() }}</span>
+      }
     </div>
+    <div class="logout">
+      <button main-button theme="error" class="logout-btn" (click)="logout()">
+        Sair
+      </button>
+    </div>
+  </div>
 </div>

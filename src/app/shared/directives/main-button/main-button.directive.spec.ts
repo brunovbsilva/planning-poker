@@ -1,33 +1,31 @@
-import { ElementRef } from '@angular/core';
-import { MainButtonDirective, Theme } from './main-button.directive';
-import { MockElementRef } from '../../mocks/others/element-ref.spec';
-import { TestBed, async } from '@angular/core/testing';
+import { ElementRef } from '@angular/core'
+import { MainButtonDirective, Theme } from './main-button.directive'
+import { MockElementRef } from '../../mocks/others/element-ref.spec'
+import { TestBed, async } from '@angular/core/testing'
 
 describe('MainButtonDirective', () => {
-  let elementRef: ElementRef;
-  let directive: MainButtonDirective;
+  let elementRef: ElementRef
+  let directive: MainButtonDirective
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [
-        {provide: ElementRef, useClass: MockElementRef}
-      ]
-    }).compileComponents();
+      providers: [{ provide: ElementRef, useClass: MockElementRef }],
+    }).compileComponents()
 
-    elementRef = TestBed.inject(ElementRef);
-    directive = new MainButtonDirective(elementRef);
-  }));
-  
+    elementRef = TestBed.inject(ElementRef)
+    directive = new MainButtonDirective(elementRef)
+  }))
+
   it('should create an instance', () => {
-    expect(directive).toBeTruthy();
-  });
+    expect(directive).toBeTruthy()
+  })
 
-  ['primary', 'accent', 'warn', 'error'].forEach((theme) => {
+  ;['primary', 'accent', 'warn', 'error'].forEach((theme) => {
     it('should set style', () => {
-      directive.theme = theme as Theme;
-      const spy = spyOn(elementRef.nativeElement.classList, 'add');
-      directive.ngOnInit();
-      expect(spy).toHaveBeenCalledWith(`main-button`);
-      expect(spy).toHaveBeenCalledWith(`main-button--${theme}`);
-    });
-  });
-});
+      directive.theme = theme as Theme
+      const spy = spyOn(elementRef.nativeElement.classList, 'add')
+      directive.ngOnInit()
+      expect(spy).toHaveBeenCalledWith(`main-button`)
+      expect(spy).toHaveBeenCalledWith(`main-button--${theme}`)
+    })
+  })
+})

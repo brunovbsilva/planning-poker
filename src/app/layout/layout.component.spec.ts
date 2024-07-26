@@ -1,25 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { LayoutComponent } from './layout.component';
-import { HeaderComponentSpec } from '../shared/mocks/layout/header.component.spec';
+import { LayoutComponent } from './layout.component'
+import { HeaderComponentSpec } from '../shared/mocks/layout/header.component.spec'
 
 describe('LayoutComponent', () => {
-  let component: LayoutComponent;
-  let fixture: ComponentFixture<LayoutComponent>;
+  let component: LayoutComponent
+  let fixture: ComponentFixture<LayoutComponent>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [HeaderComponentSpec],
-    imports: [
-        LayoutComponent
-    ]
-});
-    fixture = TestBed.createComponent(LayoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      declarations: [HeaderComponentSpec],
+      imports: [LayoutComponent],
+    })
+    fixture = TestBed.createComponent(LayoutComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

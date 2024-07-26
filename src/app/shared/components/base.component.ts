@@ -1,17 +1,17 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core'
+import { Subscription } from 'rxjs'
 
-@Component({standalone: true, template: ''})
+@Component({ standalone: true, template: '' })
 export class BaseComponent implements OnDestroy {
-  public objectsForDestruction: Subscription[] = [];
+  public objectsForDestruction: Subscription[] = []
 
   constructor() {}
 
   toDestroy(subscription: Subscription) {
-    this.objectsForDestruction.push(subscription);
+    this.objectsForDestruction.push(subscription)
   }
 
   ngOnDestroy(): void {
-    this.objectsForDestruction.forEach(object => object.unsubscribe());
+    this.objectsForDestruction.forEach((object) => object.unsubscribe())
   }
 }

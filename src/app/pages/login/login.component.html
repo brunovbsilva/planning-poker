@@ -10,10 +10,24 @@
     <legend>Entre sem login</legend>
     <div class="form-field">
       <label for="name">Nome</label>
-      <input main-input formControlName="name" id="name" type="text" placeholder="Digite seu nome">
+      <input
+        main-input
+        formControlName="name"
+        id="name"
+        type="text"
+        placeholder="Digite seu nome"
+      />
     </div>
     <div class="actions">
-      <button main-button theme="accent" (click)="login()" class="login-btn" [disabled]="loginForm.invalid">Entrar</button>
+      <button
+        main-button
+        theme="accent"
+        (click)="login()"
+        class="login-btn"
+        [disabled]="loginForm.invalid"
+      >
+        Entrar
+      </button>
     </div>
   </fieldset>
 </form>
