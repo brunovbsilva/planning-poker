@@ -1,22 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { IRoom } from '../../pages/room/interfaces/room.interface';
-import {Observable, map} from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { IRoomItem } from '../../pages/rooms/models/room-item.inteface';
 import { ITask } from '../../pages/room/interfaces/task.interface';
 import { IVote } from '../../pages/room/interfaces/vote.interface';
-import {RoomItem} from "../../pages/rooms/models/room-item";
+import { RoomItem } from '../../pages/rooms/models/room-item';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RoomService {
-
   constructor(private firestore: AngularFirestore) {}
 
   async createRoom(room: IRoom) {
-    return await this.firestore.collection<IRoom>('rooms')
-      .add(this.roomObjectModel(room))
+    return await this.firestore.collection<IRoom>('rooms').add(this.roomObjectModel(room));
   }
 
   async updateRoom(room: IRoom): Promise<void> {
@@ -28,21 +26,24 @@ export class RoomService {
   }
 
   listenerRoom(roomId: string): Observable<IRoom> {
-    return this.firestore.doc<IRoom>(`rooms/${roomId}`).valueChanges()
+    return this.firestore
+      .doc<IRoom>(`rooms/${roomId}`)
+      .valueChanges()
       .pipe(map(room => Object.assign({ id: roomId }, room)));
   }
 
   getRooms(): Observable<IRoomItem[]> {
-    return this.firestore.collection<IRoom>('rooms').snapshotChanges()
+    return this.firestore
+      .collection<IRoom>('rooms')
+      .snapshotChanges()
       .pipe(
         map(actions => actions.map(this.actionToRoomModel)),
         map(rooms => rooms.map(room => new RoomItem(room.id, room.name)))
       );
   }
 
-  getRoomById(roomId: string) : Observable<IRoomItem | undefined> {
-    return this.getRooms()
-      .pipe(map(list => list.find(room => room.id === roomId)));
+  getRoomById(roomId: string): Observable<IRoomItem | undefined> {
+    return this.getRooms().pipe(map(list => list.find(room => room.id === roomId)));
   }
 
   private actionToRoomModel(action: any) {
@@ -54,13 +55,13 @@ export class RoomService {
     return Object.assign({
       name: room.name,
       creator: room.creator,
-      tasks: room.tasks.map(task => this.taskObjectModel(task))
+      tasks: room.tasks.map(task => this.taskObjectModel(task)),
     });
   }
   private taskObjectModel(task: ITask) {
     return Object.assign({
       name: task.name,
-      votes: task.votes.map(vote => this.voteObjectModel(vote))
+      votes: task.votes.map(vote => this.voteObjectModel(vote)),
     });
   }
   private voteObjectModel(vote: IVote) {
@@ -68,7 +69,7 @@ export class RoomService {
       userId: vote.userId,
       userName: vote.userName,
       value: String(vote.value),
-      hidden: vote.hidden
+      hidden: vote.hidden,
     });
   }
 }

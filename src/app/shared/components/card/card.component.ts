@@ -3,23 +3,22 @@ import { flipAnimation } from './animations/flip.animation';
 import { ICard } from './models/card.interface';
 
 @Component({
-    selector: 'app-card',
-    templateUrl: './card.component.html',
-    styleUrls: ['./card.component.scss'],
-    animations: flipAnimation,
-    standalone: true,
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
+  animations: flipAnimation,
+  standalone: true,
   host: {
-     '[class.highlighted]': 'card.highlight'
-  }
+    '[class.highlighted]': 'card.highlight',
+  },
 })
 export class CardComponent {
-
   @Input() card!: ICard;
   public isHovered = false;
 
   @HostListener('mouseenter', ['$event'])
   @HostListener('mouseleave', ['$event'])
-  private changeIsHovered(event: MouseEvent){
+  private changeIsHovered(event: MouseEvent) {
     this.isHovered = event.type === 'mouseenter';
   }
 

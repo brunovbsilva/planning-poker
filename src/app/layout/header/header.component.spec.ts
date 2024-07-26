@@ -14,14 +14,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [
-        AngularFireModulesMock,
-        HeaderComponent
-    ],
-    providers: [
-        AngularFireProvidersMock
-    ]
-});
+      imports: [AngularFireModulesMock, HeaderComponent],
+      providers: [AngularFireProvidersMock],
+    });
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
 

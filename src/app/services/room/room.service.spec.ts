@@ -15,10 +15,7 @@ describe('RoomService', () => {
   const roomMock = new Room(
     'mocked room',
     'mocked creator',
-    [new Task(
-      'mocked task',
-      [new Vote('mocked user id', 'mocked user name', 10)]
-    )],
+    [new Task('mocked task', [new Vote('mocked user id', 'mocked user name', 10)])],
     0,
     'mocked id'
   );
@@ -26,9 +23,7 @@ describe('RoomService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AngularFireModulesMock],
-      providers: [
-        AngularFireProvidersMock
-      ]
+      providers: [AngularFireProvidersMock],
     });
     service = TestBed.inject(RoomService);
     firestore = TestBed.inject(AngularFirestore);
@@ -45,7 +40,7 @@ describe('RoomService', () => {
       service.createRoom(roomMock);
     });
 
-    it('should call firestore.collection(\'rooms\').add', () => expect(firestoreCreateSpy).toHaveBeenCalled());
+    it("should call firestore.collection('rooms').add", () => expect(firestoreCreateSpy).toHaveBeenCalled());
   });
 
   describe('updateRoom', () => {
@@ -55,7 +50,7 @@ describe('RoomService', () => {
       service.updateRoom(roomMock);
     });
 
-    it('should call firestore.doc(\'rooms/\'+room.id).update', () => expect(firestoreUpdateSpy).toHaveBeenCalled());
+    it("should call firestore.doc('rooms/'+room.id).update", () => expect(firestoreUpdateSpy).toHaveBeenCalled());
   });
 
   describe('deleteRoom', () => {
@@ -65,12 +60,12 @@ describe('RoomService', () => {
       service.deleteRoom(roomMock.id!);
     });
 
-    it('should call firestore.doc(\'rooms/\'+roomId).delete', () => expect(firestoreDeleteSpy).toHaveBeenCalled());
+    it("should call firestore.doc('rooms/'+roomId).delete", () => expect(firestoreDeleteSpy).toHaveBeenCalled());
   });
 
   describe('listenerRoom', () => {
     let observer: Observable<IRoom>;
-    beforeEach(() => observer = service.listenerRoom(roomMock.id!));
+    beforeEach(() => (observer = service.listenerRoom(roomMock.id!)));
 
     it('should get observable', () => expect(observer).toBeTruthy());
     it('should get a room', fakeAsync(() => {
@@ -82,7 +77,7 @@ describe('RoomService', () => {
 
   describe('getRooms', () => {
     let observer: Observable<IRoomItem[]>;
-    beforeEach(() => observer = service.getRooms());
+    beforeEach(() => (observer = service.getRooms()));
 
     it('should get observable', () => expect(observer).toBeTruthy());
     it('should get a room', fakeAsync(() => {
@@ -91,5 +86,4 @@ describe('RoomService', () => {
       tick();
     }));
   });
-
 });

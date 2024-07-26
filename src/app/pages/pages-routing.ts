@@ -6,5 +6,5 @@ import { RoomNameResolver } from '../shared/resolvers/room-name.resolver';
 export const routes: Routes = [
   { path: 'rooms', component: RoomsComponent, title: 'Salas' },
   { path: 'room/:id', component: RoomComponent, title: RoomNameResolver },
-  { path: '**', redirectTo: 'rooms' }
+  { path: '**', redirectTo: 'rooms' },
 ];

@@ -3,11 +3,11 @@ import { IModal } from './interfaces/modal.interface';
 import { ModalKeyDownDirective } from './directives/modal-key-down.directive';
 
 @Component({
-    selector: 'app-modal',
-    templateUrl: './modal.component.html',
-    styleUrls: ['./modal.component.scss'],
-    standalone: true,
-    imports: [ModalKeyDownDirective]
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
+  standalone: true,
+  imports: [ModalKeyDownDirective],
 })
 export class ModalComponent implements IModal {
   @ViewChildren('button') buttons: HTMLElement[] = [];
@@ -26,5 +26,4 @@ export class ModalComponent implements IModal {
   close(): void {
     this.isOpen.set(false);
   }
-
 }

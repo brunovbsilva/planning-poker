@@ -1,11 +1,11 @@
-import { IVote } from "../interfaces/vote.interface";
+import { IVote } from '../interfaces/vote.interface';
 
 export class Vote implements IVote {
   constructor(
     public readonly userId: string,
     public readonly userName: string,
     public value: string | number,
-    public hidden = true,
+    public hidden = true
   ) {}
 
   updateVote(vote: number): void {
@@ -20,13 +20,12 @@ export class Vote implements IVote {
   }
 
   private updateHidden(hidden: boolean): void {
-    if(this.hidden === hidden) return;
+    if (this.hidden === hidden) return;
     this.hidden = hidden;
   }
 
   private updateCurrentVote(vote: string | number): void {
-    if(this.value === vote) return;
+    if (this.value === vote) return;
     this.value = vote;
   }
-
 }

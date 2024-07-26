@@ -12,8 +12,8 @@ describe('ModalComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [ModalComponent]
-});
+      imports: [ModalComponent],
+    });
     fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     component.modalTitle = 'Test title';
@@ -65,10 +65,10 @@ describe('ModalComponent', () => {
         fixture.detectChanges();
         background = fixture.debugElement.query(By.css('.background'));
         modal = fixture.debugElement.query(By.css('.modal'));
-      })
+      });
       it('should set isOpen to true', () => expect(component.isOpen$).toBeTruthy());
       it('should show modal', () => expect(modal).toBeTruthy());
       it('should show background', () => expect(background).toBeTruthy());
-    })
+    });
   });
 });

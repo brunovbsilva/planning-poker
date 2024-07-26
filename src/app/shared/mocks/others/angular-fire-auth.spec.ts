@@ -1,5 +1,5 @@
 export class AngularFireAuthMock {
-  public currentUser = new Promise((resolve) => resolve(null));
+  public currentUser = new Promise(resolve => resolve(null));
   signInWithEmailAndPassword(email: string, password: string) {
     return this.currentUser;
   }

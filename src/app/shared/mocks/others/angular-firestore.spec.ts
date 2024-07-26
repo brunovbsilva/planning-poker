@@ -1,5 +1,5 @@
-import { Observable, Subject, of } from "rxjs";
-import { RoomItemMock } from "../constants";
+import { Observable, Subject, of } from 'rxjs';
+import { RoomItemMock } from '../constants';
 
 class Doc {
   public value: Subject<any> = new Subject<any>();
@@ -36,6 +36,4 @@ export class AngularFirestoreMock {
   doc(path: string) {
     return this.docObj;
   }
-
- 
 }

@@ -8,7 +8,7 @@ export class VotesComponentSpec {
   @Input() room!: IRoom;
   get task(): ITask {
     return this.room.tasks[this.room.currentTask];
-  };
+  }
   get flippedVotes(): boolean {
     return this.task.votes.some(vote => !vote.hidden);
   }
@@ -23,6 +23,6 @@ export class VotesComponentSpec {
     new Card(3, 21),
     new Card(4, 34),
     new Card(1, 55),
-    new Card(2, 89)
+    new Card(2, 89),
   ];
 }

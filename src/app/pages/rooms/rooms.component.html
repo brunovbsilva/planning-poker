@@ -3,7 +3,7 @@
     <legend>Entre em uma sala</legend>
     <div class="form-field">
       <label for="id">Código</label>
-      <input main-input formControlName="id" id="id" type="text" placeholder="Digite o código da sala">
+      <input main-input formControlName="id" id="id" type="text" placeholder="Digite o código da sala" />
     </div>
     <div class="actions">
       <button main-button theme="accent" (click)="enterRoom()" [disabled]="enterForm.invalid">Entrar</button>
@@ -15,7 +15,7 @@
     <legend>Crie uma sala</legend>
     <div class="form-field">
       <label for="name">Nome</label>
-      <input #name main-input formControlName="name" id="name" type="text" placeholder="Digite o nome da sala">
+      <input #name main-input formControlName="name" id="name" type="text" placeholder="Digite o nome da sala" />
     </div>
     <div class="actions">
       <button main-button (click)="createRoom(name.value)" [disabled]="createForm.invalid">Criar</button>

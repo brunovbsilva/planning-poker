@@ -23,11 +23,10 @@ describe('RoomComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [TasksComponentSpec,
-        VotesComponentSpec],
-    imports: [RoomComponent],
-    providers: [RoomServiceProviderMock]
-});
+      declarations: [TasksComponentSpec, VotesComponentSpec],
+      imports: [RoomComponent],
+      providers: [RoomServiceProviderMock],
+    });
     fixture = TestBed.createComponent(RoomComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(RoomService);
@@ -62,7 +61,7 @@ describe('RoomComponent', () => {
       expect(component.room?.currentTask).withContext('currentTask from room should be equal mocked').toEqual(RoomMock.currentTask);
       expect(component.room?.tasks).withContext('tasks from room should be equal mocked').toEqual(RoomMock.tasks);
     });
-  })
+  });
 
   describe('if room has tasks', () => {
     beforeEach(() => {

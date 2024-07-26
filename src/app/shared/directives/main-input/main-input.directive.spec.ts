@@ -8,15 +8,13 @@ describe('MainInputDirective', () => {
   let directive: MainInputDirective;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [
-        {provide: ElementRef, useClass: MockElementRef}
-      ]
+      providers: [{ provide: ElementRef, useClass: MockElementRef }],
     }).compileComponents();
 
     elementRef = TestBed.inject(ElementRef);
     directive = new MainInputDirective(elementRef);
   }));
-  
+
   it('should create an instance', () => {
     expect(directive).toBeTruthy();
   });

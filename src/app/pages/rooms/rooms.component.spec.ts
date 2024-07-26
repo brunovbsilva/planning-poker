@@ -19,17 +19,9 @@ describe('RoomsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [
-        AngularFireModulesMock,
-        RoomsComponent,
-        RoomItemComponent,
-        ModalComponent
-    ],
-    providers: [
-        AngularFireProvidersMock,
-        RoomServiceProviderMock
-    ]
-});
+      imports: [AngularFireModulesMock, RoomsComponent, RoomItemComponent, ModalComponent],
+      providers: [AngularFireProvidersMock, RoomServiceProviderMock],
+    });
     fixture = TestBed.createComponent(RoomsComponent);
     component = fixture.componentInstance;
     roomService = TestBed.inject(RoomService);
@@ -47,7 +39,6 @@ describe('RoomsComponent', () => {
     expect(rooms).toBeTruthy();
     expect(modal).toBeTruthy();
   });
-
 
   describe('on actions', () => {
     let header: HTMLElement;
@@ -82,11 +73,11 @@ describe('RoomsComponent', () => {
         fixture.detectChanges();
         roomItemList = rooms.nativeElement.querySelectorAll('app-room-item');
         noRoomLabel = rooms.nativeElement.querySelector('.no-room');
-      }))
+      }));
 
       it('should have one room', () => expect(roomItemList.length).toBe(1));
       it('should not have label no room', () => expect(noRoomLabel).toBeFalsy());
-    })
+    });
   });
 
   describe('on oppened modal', () => {

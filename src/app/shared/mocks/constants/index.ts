@@ -1,11 +1,11 @@
-import { IRoom } from "src/app/pages/room/interfaces/room.interface";
-import { ITask } from "src/app/pages/room/interfaces/task.interface";
-import { IVote } from "src/app/pages/room/interfaces/vote.interface";
-import { Room } from "src/app/pages/room/models/room";
-import { Task } from "src/app/pages/room/models/task";
-import { Vote } from "src/app/pages/room/models/vote";
-import { IRoomItem } from "src/app/pages/rooms/models/room-item.inteface";
-import { RoomItem } from "src/app/pages/rooms/models/room-item";
+import { IRoom } from 'src/app/pages/room/interfaces/room.interface';
+import { ITask } from 'src/app/pages/room/interfaces/task.interface';
+import { IVote } from 'src/app/pages/room/interfaces/vote.interface';
+import { Room } from 'src/app/pages/room/models/room';
+import { Task } from 'src/app/pages/room/models/task';
+import { Vote } from 'src/app/pages/room/models/vote';
+import { IRoomItem } from 'src/app/pages/rooms/models/room-item.inteface';
+import { RoomItem } from 'src/app/pages/rooms/models/room-item';
 
 export class ConstantMocks {
   static getTaskMock(name: string, votes: IVote[] = []): ITask {

@@ -8,20 +8,17 @@ describe('MainButtonDirective', () => {
   let directive: MainButtonDirective;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [
-        {provide: ElementRef, useClass: MockElementRef}
-      ]
+      providers: [{ provide: ElementRef, useClass: MockElementRef }],
     }).compileComponents();
 
     elementRef = TestBed.inject(ElementRef);
     directive = new MainButtonDirective(elementRef);
   }));
-  
+
   it('should create an instance', () => {
     expect(directive).toBeTruthy();
   });
-
-  ['primary', 'accent', 'warn', 'error'].forEach((theme) => {
+  ['primary', 'accent', 'warn', 'error'].forEach(theme => {
     it('should set style', () => {
       directive.theme = theme as Theme;
       const spy = spyOn(elementRef.nativeElement.classList, 'add');

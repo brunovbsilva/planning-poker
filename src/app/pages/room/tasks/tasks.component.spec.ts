@@ -13,13 +13,10 @@ describe('TasksComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [ModalComponentSpec],
-    imports: [AngularFireModulesMock, TasksComponent],
-    providers: [
-        AngularFireProvidersMock,
-        RoomServiceProviderMock
-    ]
-});
+      declarations: [ModalComponentSpec],
+      imports: [AngularFireModulesMock, TasksComponent],
+      providers: [AngularFireProvidersMock, RoomServiceProviderMock],
+    });
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
 
@@ -36,12 +33,12 @@ describe('TasksComponent', () => {
   describe('on', () => {
     let updateRoomSpy: jasmine.Spy;
     let roomSpy: {
-      nextTask: jasmine.Spy,
-      previousTask: jasmine.Spy,
-      setTask: jasmine.Spy,
-      createTask: jasmine.Spy,
-      deleteTask: jasmine.Spy
-    }
+      nextTask: jasmine.Spy;
+      previousTask: jasmine.Spy;
+      setTask: jasmine.Spy;
+      createTask: jasmine.Spy;
+      deleteTask: jasmine.Spy;
+    };
     beforeEach(() => {
       updateRoomSpy = spyOn(service, 'updateRoom');
       roomSpy = {
@@ -49,8 +46,8 @@ describe('TasksComponent', () => {
         previousTask: spyOn(component.room, 'previousTask').and.callThrough(),
         setTask: spyOn(component.room, 'setTaskIndex').and.callThrough(),
         createTask: spyOn(component.room, 'createTask').and.callThrough(),
-        deleteTask: spyOn(component.room, 'deleteTask').and.callThrough()
-      }
+        deleteTask: spyOn(component.room, 'deleteTask').and.callThrough(),
+      };
     });
     afterEach(() => {
       expect(updateRoomSpy).toHaveBeenCalledTimes(1);
@@ -59,7 +56,7 @@ describe('TasksComponent', () => {
     describe('nextTask', () => {
       beforeEach(() => {
         component.room.currentTask = 0;
-        component.nextTask()
+        component.nextTask();
       });
 
       it('should call room.nextTask', () => expect(roomSpy.nextTask).toHaveBeenCalled());
@@ -69,7 +66,7 @@ describe('TasksComponent', () => {
     describe('previousTask', () => {
       beforeEach(() => {
         component.room.currentTask = 1;
-        component.previousTask()
+        component.previousTask();
       });
 
       it('should call room.previousTask', () => expect(roomSpy.previousTask).toHaveBeenCalled());
@@ -79,7 +76,7 @@ describe('TasksComponent', () => {
     describe('setTask', () => {
       beforeEach(() => {
         component.room.currentTask = 0;
-        component.setTask(1)
+        component.setTask(1);
       });
 
       it('should call room.setTaskIndex', () => expect(roomSpy.setTask).toHaveBeenCalled());
@@ -97,12 +94,12 @@ describe('TasksComponent', () => {
 
     describe('deleteTask', () => {
       beforeEach(() => {
-        component.room.tasks = [TaskMock]
+        component.room.tasks = [TaskMock];
         component.deleteTask(component.room.tasks[0]);
       });
 
       it('should call room.deleteTask', () => expect(roomSpy.deleteTask).toHaveBeenCalled());
       it('should delete task', () => expect(component.room.tasks.length).toBe(0));
     });
-  })
+  });
 });
