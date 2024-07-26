@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LoginComponent} from './login.component';
-import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others';
+import { LoginComponent } from './login.component';
+import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

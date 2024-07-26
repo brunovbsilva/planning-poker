@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {GoogleAuthService} from './google-auth.service';
+import { GoogleAuthService } from './google-auth.service';
 
 describe('GoogleAuthService', () => {
   let service: GoogleAuthService;

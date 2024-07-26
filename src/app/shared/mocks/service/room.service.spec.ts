@@ -1,8 +1,8 @@
-import {BehaviorSubject, Observable} from 'rxjs';
-import {IRoom} from 'src/app/pages/room/interfaces/room.interface';
-import {IRoomItem} from 'src/app/pages/rooms/models/room-item.inteface';
-import {RoomMock} from '../constants';
-import {RoomItem} from 'src/app/pages/rooms/models/room-item';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IRoom } from 'src/app/pages/room/interfaces/room.interface';
+import { IRoomItem } from 'src/app/pages/rooms/models/room-item.inteface';
+import { RoomMock } from '../constants';
+import { RoomItem } from 'src/app/pages/rooms/models/room-item';
 
 export class RoomServiceMock {
   private subject = new BehaviorSubject<IRoom>(RoomMock);

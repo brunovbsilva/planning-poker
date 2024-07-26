@@ -1,7 +1,7 @@
-import {IRoom} from '../interfaces/room.interface';
-import {ITask} from '../interfaces/task.interface';
-import {Task} from './task';
-import {Vote} from './vote';
+import { IRoom } from '../interfaces/room.interface';
+import { ITask } from '../interfaces/task.interface';
+import { Task } from './task';
+import { Vote } from './vote';
 
 export class Room implements IRoom {
   private _name: string;

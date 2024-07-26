@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore} from '@angular/fire/compat/firestore';
-import {IRoom} from '../../pages/room/interfaces/room.interface';
-import {Observable, map} from 'rxjs';
-import {IRoomItem} from '../../pages/rooms/models/room-item.inteface';
-import {ITask} from '../../pages/room/interfaces/task.interface';
-import {IVote} from '../../pages/room/interfaces/vote.interface';
-import {RoomItem} from '../../pages/rooms/models/room-item';
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { IRoom } from '../../pages/room/interfaces/room.interface';
+import { Observable, map } from 'rxjs';
+import { IRoomItem } from '../../pages/rooms/models/room-item.inteface';
+import { ITask } from '../../pages/room/interfaces/task.interface';
+import { IVote } from '../../pages/room/interfaces/vote.interface';
+import { RoomItem } from '../../pages/rooms/models/room-item';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,7 @@ export class RoomService {
     return this.firestore
       .doc<IRoom>(`rooms/${roomId}`)
       .valueChanges()
-      .pipe(map(room => Object.assign({id: roomId}, room)));
+      .pipe(map(room => Object.assign({ id: roomId }, room)));
   }
 
   getRooms(): Observable<IRoomItem[]> {
@@ -49,7 +49,7 @@ export class RoomService {
   private actionToRoomModel(action: any) {
     const data = action.payload.doc.data() as IRoomItem;
     const id = action.payload.doc.id;
-    return Object.assign({id: id}, data);
+    return Object.assign({ id: id }, data);
   }
   private roomObjectModel(room: IRoom) {
     return Object.assign({

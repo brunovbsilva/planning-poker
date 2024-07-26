@@ -1,14 +1,14 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {VotesComponent} from './votes.component';
-import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others';
-import {RoomService} from 'src/app/services/room/room.service';
-import {RoomTaskNoVotesMock} from 'src/app/shared/mocks/constants';
-import {CardComponentSpec} from 'src/app/shared/mocks/components/card.component.spec';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {RoomServiceProviderMock} from 'src/app/shared/mocks/service';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
-import {CardComponent} from 'src/app/shared/components/card/card.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { VotesComponent } from './votes.component';
+import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
+import { RoomService } from 'src/app/services/room/room.service';
+import { RoomTaskNoVotesMock } from 'src/app/shared/mocks/constants';
+import { CardComponentSpec } from 'src/app/shared/mocks/components/card.component.spec';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { CardComponent } from 'src/app/shared/components/card/card.component';
 
 describe('VotesComponent', () => {
   let component: VotesComponent;
@@ -53,16 +53,16 @@ describe('VotesComponent', () => {
         value: number;
       }
       const fribonnacciTests: FribonnacciTest[] = [
-        {position: 0, value: 1},
-        {position: 1, value: 2},
-        {position: 2, value: 3},
-        {position: 3, value: 5},
-        {position: 4, value: 8},
-        {position: 5, value: 13},
-        {position: 6, value: 21},
-        {position: 7, value: 34},
-        {position: 8, value: 55},
-        {position: 9, value: 89},
+        { position: 0, value: 1 },
+        { position: 1, value: 2 },
+        { position: 2, value: 3 },
+        { position: 3, value: 5 },
+        { position: 4, value: 8 },
+        { position: 5, value: 13 },
+        { position: 6, value: 21 },
+        { position: 7, value: 34 },
+        { position: 8, value: 55 },
+        { position: 9, value: 89 },
       ];
       it('length should be 10', () => expect(votes.children.length).toBe(10));
       fribonnacciTests.forEach(test => {

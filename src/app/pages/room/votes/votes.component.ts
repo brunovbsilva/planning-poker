@@ -1,16 +1,16 @@
-import {AfterViewInit, Component, computed, effect, Input, model, signal, ViewChild} from '@angular/core';
-import {ICard} from '../../../shared/components/card/models/card.interface';
-import {Card} from '../../../shared/components/card/models/card.model';
-import {hoverAnimation} from './animations/hover.animation';
-import {IVote} from '../interfaces/vote.interface';
-import {Vote} from '../models/vote';
-import {IRoom} from '../interfaces/room.interface';
-import {RoomService} from 'src/app/services/room/room.service';
-import {ModalVoteItemComponent} from './modal-vote-item/modal-vote-item.component';
-import {ModalComponent} from '../../../shared/components/modal/modal.component';
-import {CardComponent} from '../../../shared/components/card/card.component';
-import {MainButtonDirective} from '../../../shared/directives/main-button/main-button.directive';
-import {UserService} from '../../../services/user/user.service';
+import { AfterViewInit, Component, computed, effect, Input, model, signal, ViewChild } from '@angular/core';
+import { ICard } from '../../../shared/components/card/models/card.interface';
+import { Card } from '../../../shared/components/card/models/card.model';
+import { hoverAnimation } from './animations/hover.animation';
+import { IVote } from '../interfaces/vote.interface';
+import { Vote } from '../models/vote';
+import { IRoom } from '../interfaces/room.interface';
+import { RoomService } from 'src/app/services/room/room.service';
+import { ModalVoteItemComponent } from './modal-vote-item/modal-vote-item.component';
+import { ModalComponent } from '../../../shared/components/modal/modal.component';
+import { CardComponent } from '../../../shared/components/card/card.component';
+import { MainButtonDirective } from '../../../shared/directives/main-button/main-button.directive';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-votes',

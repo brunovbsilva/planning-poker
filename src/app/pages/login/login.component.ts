@@ -1,10 +1,10 @@
-import {Component, NgZone} from '@angular/core';
-import {Router} from '@angular/router';
-import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {AuthService} from '../../services/auth/auth.service';
-import {GoogleAuthService} from '../../services/auth/google-auth/google-auth.service';
-import {MainInputDirective} from '../../shared/directives/main-input/main-input.directive';
+import { Component, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+import { MainButtonDirective } from '../../shared/directives/main-button/main-button.directive';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
+import { GoogleAuthService } from '../../services/auth/google-auth/google-auth.service';
+import { MainInputDirective } from '../../shared/directives/main-input/main-input.directive';
 
 type LoginType = 'google' | 'default';
 

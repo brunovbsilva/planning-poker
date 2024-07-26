@@ -1,14 +1,14 @@
-import {ElementRef} from '@angular/core';
-import {MainButtonDirective, Theme} from './main-button.directive';
-import {MockElementRef} from '../../mocks/others/element-ref.spec';
-import {TestBed, async} from '@angular/core/testing';
+import { ElementRef } from '@angular/core';
+import { MainButtonDirective, Theme } from './main-button.directive';
+import { MockElementRef } from '../../mocks/others/element-ref.spec';
+import { TestBed, async } from '@angular/core/testing';
 
 describe('MainButtonDirective', () => {
   let elementRef: ElementRef;
   let directive: MainButtonDirective;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [{provide: ElementRef, useClass: MockElementRef}],
+      providers: [{ provide: ElementRef, useClass: MockElementRef }],
     }).compileComponents();
 
     elementRef = TestBed.inject(ElementRef);

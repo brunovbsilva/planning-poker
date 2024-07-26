@@ -1,13 +1,13 @@
-import {ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
-import {RoomsComponent} from './rooms.component';
-import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others';
-import {RoomService} from 'src/app/services/room/room.service';
-import {ModalComponent} from 'src/app/shared/components/modal/modal.component';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
-import {RoomItemComponent} from './room-item/room-item.component';
-import {RoomServiceProviderMock} from 'src/app/shared/mocks/service';
+import { RoomsComponent } from './rooms.component';
+import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
+import { RoomService } from 'src/app/services/room/room.service';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { RoomItemComponent } from './room-item/room-item.component';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
 
 describe('RoomsComponent', () => {
   let component: RoomsComponent;

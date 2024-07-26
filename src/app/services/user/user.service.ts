@@ -1,5 +1,5 @@
-import {computed, Injectable, signal} from '@angular/core';
-import {IUser} from '../auth/models/user.interface';
+import { computed, Injectable, signal } from '@angular/core';
+import { IUser } from '../auth/models/user.interface';
 
 const USER = 'Logged-User';
 

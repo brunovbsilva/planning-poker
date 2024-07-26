@@ -1,16 +1,16 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {RoomService} from '../../services/room/room.service';
-import {IRoomItem} from './models/room-item.inteface';
-import {RoomItem} from './models/room-item';
-import {Router} from '@angular/router';
-import {Room} from '../room/models/room';
-import {IModal} from 'src/app/shared/components/modal/interfaces/modal.interface';
-import {BaseComponent} from 'src/app/shared/components/base.component';
-import {MainInputDirective} from '../../shared/directives/main-input/main-input.directive';
-import {ModalComponent} from '../../shared/components/modal/modal.component';
-import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserService} from '../../services/user/user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { RoomService } from '../../services/room/room.service';
+import { IRoomItem } from './models/room-item.inteface';
+import { RoomItem } from './models/room-item';
+import { Router } from '@angular/router';
+import { Room } from '../room/models/room';
+import { IModal } from 'src/app/shared/components/modal/interfaces/modal.interface';
+import { BaseComponent } from 'src/app/shared/components/base.component';
+import { MainInputDirective } from '../../shared/directives/main-input/main-input.directive';
+import { ModalComponent } from '../../shared/components/modal/modal.component';
+import { MainButtonDirective } from '../../shared/directives/main-button/main-button.directive';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-rooms',

@@ -1,5 +1,5 @@
-import {IUser} from './user.interface';
-import {Guid} from 'guid-typescript';
+import { IUser } from './user.interface';
+import { Guid } from 'guid-typescript';
 
 export class User implements IUser {
   readonly id: string;

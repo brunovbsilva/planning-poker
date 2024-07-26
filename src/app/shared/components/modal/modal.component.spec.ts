@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ModalComponent} from './modal.component';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
+import { ModalComponent } from './modal.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;

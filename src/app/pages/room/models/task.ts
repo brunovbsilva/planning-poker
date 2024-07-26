@@ -1,6 +1,6 @@
-import {ITask} from '../interfaces/task.interface';
-import {IVote} from '../interfaces/vote.interface';
-import {Vote} from './vote';
+import { ITask } from '../interfaces/task.interface';
+import { IVote } from '../interfaces/vote.interface';
+import { Vote } from './vote';
 
 export class Task implements ITask {
   constructor(

@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot} from '@angular/router';
-import {map} from 'rxjs';
-import {IRoom} from 'src/app/pages/room/interfaces/room.interface';
-import {RoomService} from 'src/app/services/room/room.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { map } from 'rxjs';
+import { IRoom } from 'src/app/pages/room/interfaces/room.interface';
+import { RoomService } from 'src/app/services/room/room.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class RoomNameResolver {
   constructor(private roomService: RoomService) {}
   resolve(route: ActivatedRouteSnapshot) {

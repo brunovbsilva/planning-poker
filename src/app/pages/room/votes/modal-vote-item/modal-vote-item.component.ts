@@ -1,5 +1,5 @@
-import {Component, input, model} from '@angular/core';
-import {MainButtonDirective} from '../../../../shared/directives/main-button/main-button.directive';
+import { Component, input, model } from '@angular/core';
+import { MainButtonDirective } from '../../../../shared/directives/main-button/main-button.directive';
 
 @Component({
   selector: 'app-modal-vote-item',

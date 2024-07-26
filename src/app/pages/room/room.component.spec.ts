@@ -1,14 +1,14 @@
-import {ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing';
-import {RoomComponent} from './room.component';
-import {RoomService} from 'src/app/services/room/room.service';
-import {TasksComponentSpec} from 'src/app/shared/mocks/pages/tasks.component.spec';
-import {VotesComponentSpec} from 'src/app/shared/mocks/pages/votes.component.spec';
-import {RoomServiceProviderMock} from 'src/app/shared/mocks/service';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
-import {RoomEmptyMock, RoomMock} from 'src/app/shared/mocks/constants';
-import {TasksComponent} from './tasks/tasks.component';
-import {VotesComponent} from './votes/votes.component';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { RoomComponent } from './room.component';
+import { RoomService } from 'src/app/services/room/room.service';
+import { TasksComponentSpec } from 'src/app/shared/mocks/pages/tasks.component.spec';
+import { VotesComponentSpec } from 'src/app/shared/mocks/pages/votes.component.spec';
+import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { RoomEmptyMock, RoomMock } from 'src/app/shared/mocks/constants';
+import { TasksComponent } from './tasks/tasks.component';
+import { VotesComponent } from './votes/votes.component';
 
 describe('RoomComponent', () => {
   let component: RoomComponent;

@@ -1,4 +1,4 @@
-import {IRoomItem} from './room-item.inteface';
+import { IRoomItem } from './room-item.inteface';
 
 export class RoomItem implements IRoomItem {
   constructor(

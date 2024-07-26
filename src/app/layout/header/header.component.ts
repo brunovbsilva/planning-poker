@@ -1,7 +1,7 @@
-import {Component, computed, NgZone} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
-import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive';
-import {UserService} from '../../services/user/user.service';
+import { Component, computed, NgZone } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { MainButtonDirective } from '../../shared/directives/main-button/main-button.directive';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',

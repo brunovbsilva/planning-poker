@@ -1,15 +1,15 @@
-import {Component, signal, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {RoomService} from 'src/app/services/room/room.service';
-import {IRoom} from './interfaces/room.interface';
-import {Room} from './models/room';
-import {Task} from './models/task';
-import {Vote} from './models/vote';
-import {BaseComponent} from 'src/app/shared/components/base.component';
-import {VotesComponent} from './votes/votes.component';
-import {TasksComponent} from './tasks/tasks.component';
-import {JsonPipe} from '@angular/common';
-import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive';
+import { Component, signal, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RoomService } from 'src/app/services/room/room.service';
+import { IRoom } from './interfaces/room.interface';
+import { Room } from './models/room';
+import { Task } from './models/task';
+import { Vote } from './models/vote';
+import { BaseComponent } from 'src/app/shared/components/base.component';
+import { VotesComponent } from './votes/votes.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { JsonPipe } from '@angular/common';
+import { MainButtonDirective } from '../../shared/directives/main-button/main-button.directive';
 
 @Component({
   selector: 'app-room',

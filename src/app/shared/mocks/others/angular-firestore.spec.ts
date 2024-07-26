@@ -1,5 +1,5 @@
-import {Observable, Subject, of} from 'rxjs';
-import {RoomItemMock} from '../constants';
+import { Observable, Subject, of } from 'rxjs';
+import { RoomItemMock } from '../constants';
 
 class Doc {
   public value: Subject<any> = new Subject<any>();
@@ -20,7 +20,7 @@ class Collection {
     this.value.next(value);
   }
   snapshotChanges(): Observable<any> {
-    return of([{payload: {doc: {data: () => RoomItemMock, id: RoomItemMock.id}}}]);
+    return of([{ payload: { doc: { data: () => RoomItemMock, id: RoomItemMock.id } } }]);
   }
 }
 

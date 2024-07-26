@@ -14,7 +14,7 @@ fs.access(dir, fs.constants.F_OK, err => {
     console.log("src doesn't exist, creating now", process.cwd());
     // Create /src
     try {
-      fs.mkdirSync(dir, {recursive: true});
+      fs.mkdirSync(dir, { recursive: true });
     } catch (error) {
       console.log(`Error while creating ${dir}. Error is ${error}`);
       process.exit(1);

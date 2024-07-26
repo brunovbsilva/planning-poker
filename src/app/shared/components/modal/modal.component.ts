@@ -1,6 +1,6 @@
-import {Component, Input, Signal, ViewChildren, WritableSignal, signal} from '@angular/core';
-import {IModal} from './interfaces/modal.interface';
-import {ModalKeyDownDirective} from './directives/modal-key-down.directive';
+import { Component, Input, Signal, ViewChildren, WritableSignal, signal } from '@angular/core';
+import { IModal } from './interfaces/modal.interface';
+import { ModalKeyDownDirective } from './directives/modal-key-down.directive';
 
 @Component({
   selector: 'app-modal',
