@@ -1,17 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { VotesComponent } from './votes.component'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from 'src/app/shared/mocks/others'
-import { RoomService } from 'src/app/services/room/room.service'
-import { RoomTaskNoVotesMock } from 'src/app/shared/mocks/constants'
-import { CardComponentSpec } from 'src/app/shared/mocks/components/card.component.spec'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { RoomServiceProviderMock } from 'src/app/shared/mocks/service'
-import { DebugElement } from '@angular/core'
-import { By } from '@angular/platform-browser'
-import { CardComponent } from 'src/app/shared/components/card/card.component'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
+import {VotesComponent} from './votes.component'
+import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others'
+import {RoomService} from 'src/app/services/room/room.service'
+import {RoomTaskNoVotesMock} from 'src/app/shared/mocks/constants'
+import {CardComponentSpec} from 'src/app/shared/mocks/components/card.component.spec'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {RoomServiceProviderMock} from 'src/app/shared/mocks/service'
+import {DebugElement} from '@angular/core'
+import {By} from '@angular/platform-browser'
+import {CardComponent} from 'src/app/shared/components/card/card.component'
 
 describe('VotesComponent', () => {
   let component: VotesComponent
@@ -25,11 +22,7 @@ describe('VotesComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [CardComponentSpec],
-      imports: [
-        AngularFireModulesMock,
-        BrowserAnimationsModule,
-        VotesComponent,
-      ],
+      imports: [AngularFireModulesMock, BrowserAnimationsModule, VotesComponent],
       providers: [AngularFireProvidersMock, RoomServiceProviderMock],
     })
     fixture = TestBed.createComponent(VotesComponent)
@@ -37,7 +30,7 @@ describe('VotesComponent', () => {
     service = TestBed.inject(RoomService)
 
     service.updateRoom(RoomTaskNoVotesMock)
-    service.listenerRoom('path').subscribe((room) => {
+    service.listenerRoom('path').subscribe(room => {
       component.room = room
       checkChanges()
     })
@@ -46,42 +39,35 @@ describe('VotesComponent', () => {
   describe('on Init', () => {
     it('should create', () => {
       expect(component).toBeTruthy()
-      expect(actions)
-        .withContext('actions should NOT exist on HTML')
-        .not.toBeTruthy()
+      expect(actions).withContext('actions should NOT exist on HTML').not.toBeTruthy()
       expect(result).withContext('result should exist on HTML').toBeTruthy()
-      expect(currentVotes)
-        .withContext('currentVotes should exist on HTML')
-        .toBeTruthy()
+      expect(currentVotes).withContext('currentVotes should exist on HTML').toBeTruthy()
       expect(votes).withContext('votes should exist on HTML').toBeTruthy()
     })
 
-    it('results should be "-"', () =>
-      expect(result.nativeElement.textContent).toBe('-'))
-    it('should have 0 current votes', () =>
-      expect(currentVotes.children.length).toBe(0))
+    it('results should be "-"', () => expect(result.nativeElement.textContent).toBe('-'))
+    it('should have 0 current votes', () => expect(currentVotes.children.length).toBe(0))
     describe('should have a fribbonacci cards', () => {
       interface FribonnacciTest {
         position: number
         value: number
       }
       const fribonnacciTests: FribonnacciTest[] = [
-        { position: 0, value: 1 },
-        { position: 1, value: 2 },
-        { position: 2, value: 3 },
-        { position: 3, value: 5 },
-        { position: 4, value: 8 },
-        { position: 5, value: 13 },
-        { position: 6, value: 21 },
-        { position: 7, value: 34 },
-        { position: 8, value: 55 },
-        { position: 9, value: 89 },
+        {position: 0, value: 1},
+        {position: 1, value: 2},
+        {position: 2, value: 3},
+        {position: 3, value: 5},
+        {position: 4, value: 8},
+        {position: 5, value: 13},
+        {position: 6, value: 21},
+        {position: 7, value: 34},
+        {position: 8, value: 55},
+        {position: 9, value: 89},
       ]
       it('length should be 10', () => expect(votes.children.length).toBe(10))
-      fribonnacciTests.forEach((test) => {
+      fribonnacciTests.forEach(test => {
         it(`position ${test.position} should have value ${test.value}`, () => {
-          const card: CardComponent =
-            votes.children[test.position].componentInstance
+          const card: CardComponent = votes.children[test.position].componentInstance
           expect(card.card.value).toBe(test.value)
         })
       })
@@ -96,20 +82,14 @@ describe('VotesComponent', () => {
       checkChanges()
     })
 
-    it('actions should appear', () =>
-      expect(actions).withContext('actions should exist on HTML').toBeTruthy())
-    it('actions should have 2 buttons', () =>
-      expect(actions.children.length).toBe(2))
+    it('actions should appear', () => expect(actions).withContext('actions should exist on HTML').toBeTruthy())
+    it('actions should have 2 buttons', () => expect(actions.children.length).toBe(2))
     it('first button should have text "Virar cartas"', () =>
-      expect(actions.children[0].nativeElement.textContent).toBe(
-        'Virar cartas'
-      ))
+      expect(actions.children[0].nativeElement.textContent).toBe('Virar cartas'))
     it('second button should have text "Revotar"', () =>
       expect(actions.children[1].nativeElement.textContent).toBe('Revotar'))
-    it('result should be "-"', () =>
-      expect(result.nativeElement.textContent).toBe('-'))
-    it('should have 1 current votes', () =>
-      expect(currentVotes.children.length).toBe(1))
+    it('result should be "-"', () => expect(result.nativeElement.textContent).toBe('-'))
+    it('should have 1 current votes', () => expect(currentVotes.children.length).toBe(1))
 
     describe('after show votes', () => {
       let spyUpdateRoom: jasmine.Spy
@@ -118,14 +98,10 @@ describe('VotesComponent', () => {
         checkChanges()
         spyUpdateRoom = spyOn(service, 'updateRoom').and.callThrough()
       })
-      it('flipped should be true', () =>
-        expect(component.flippedVotes).toBeTrue())
+      it('flipped should be true', () => expect(component.flippedVotes).toBeTrue())
       it('should hide fribonnacci votes', () =>
-        expect(votes)
-          .withContext('votes should NOT exist on HTML')
-          .not.toBeTruthy())
-      it('result should be "1"', () =>
-        expect(result.nativeElement.textContent).toBe('1'))
+        expect(votes).withContext('votes should NOT exist on HTML').not.toBeTruthy())
+      it('result should be "1"', () => expect(result.nativeElement.textContent).toBe('1'))
       it('on try to vote again, should not be possible', () => {
         component.vote(1)
         expect(voteSpy).not.toHaveBeenCalled()
@@ -142,14 +118,10 @@ describe('VotesComponent', () => {
         actions.children[1].triggerEventHandler('click', null)
         checkChanges()
       })
-      it('flipped should be false', () =>
-        expect(component.flippedVotes).toBeFalse())
-      it('should show fribonnacci votes', () =>
-        expect(votes).withContext('votes should exist on HTML').toBeTruthy())
-      it('result should be "-"', () =>
-        expect(result.nativeElement.textContent).toBe('-'))
-      it('current votes should be empty', () =>
-        expect(currentVotes.children.length).toBe(0))
+      it('flipped should be false', () => expect(component.flippedVotes).toBeFalse())
+      it('should show fribonnacci votes', () => expect(votes).withContext('votes should exist on HTML').toBeTruthy())
+      it('result should be "-"', () => expect(result.nativeElement.textContent).toBe('-'))
+      it('current votes should be empty', () => expect(currentVotes.children.length).toBe(0))
     })
   })
 

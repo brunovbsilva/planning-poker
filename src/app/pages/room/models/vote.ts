@@ -1,4 +1,4 @@
-import { IVote } from '../interfaces/vote.interface'
+import {IVote} from '../interfaces/vote.interface'
 
 export class Vote implements IVote {
   constructor(

@@ -1,16 +1,13 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing'
-import { RoomService } from './room.service'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from '../../shared/mocks/others'
-import { AngularFirestore } from '@angular/fire/compat/firestore'
-import { Room } from '../../pages/room/models/room'
-import { Task } from '../../pages/room/models/task'
-import { Vote } from '../../pages/room/models/vote'
-import { Observable } from 'rxjs'
-import { IRoom } from '../../pages/room/interfaces/room.interface'
-import { IRoomItem } from '../../pages/rooms/models/room-item.inteface'
+import {TestBed, fakeAsync, tick} from '@angular/core/testing'
+import {RoomService} from './room.service'
+import {AngularFireModulesMock, AngularFireProvidersMock} from '../../shared/mocks/others'
+import {AngularFirestore} from '@angular/fire/compat/firestore'
+import {Room} from '../../pages/room/models/room'
+import {Task} from '../../pages/room/models/task'
+import {Vote} from '../../pages/room/models/vote'
+import {Observable} from 'rxjs'
+import {IRoom} from '../../pages/room/interfaces/room.interface'
+import {IRoomItem} from '../../pages/rooms/models/room-item.inteface'
 
 describe('RoomService', () => {
   let service: RoomService
@@ -18,11 +15,7 @@ describe('RoomService', () => {
   const roomMock = new Room(
     'mocked room',
     'mocked creator',
-    [
-      new Task('mocked task', [
-        new Vote('mocked user id', 'mocked user name', 10),
-      ]),
-    ],
+    [new Task('mocked task', [new Vote('mocked user id', 'mocked user name', 10)])],
     0,
     'mocked id'
   )
@@ -47,8 +40,7 @@ describe('RoomService', () => {
       service.createRoom(roomMock)
     })
 
-    it("should call firestore.collection('rooms').add", () =>
-      expect(firestoreCreateSpy).toHaveBeenCalled())
+    it("should call firestore.collection('rooms').add", () => expect(firestoreCreateSpy).toHaveBeenCalled())
   })
 
   describe('updateRoom', () => {
@@ -58,8 +50,7 @@ describe('RoomService', () => {
       service.updateRoom(roomMock)
     })
 
-    it("should call firestore.doc('rooms/'+room.id).update", () =>
-      expect(firestoreUpdateSpy).toHaveBeenCalled())
+    it("should call firestore.doc('rooms/'+room.id).update", () => expect(firestoreUpdateSpy).toHaveBeenCalled())
   })
 
   describe('deleteRoom', () => {
@@ -69,8 +60,7 @@ describe('RoomService', () => {
       service.deleteRoom(roomMock.id!)
     })
 
-    it("should call firestore.doc('rooms/'+roomId).delete", () =>
-      expect(firestoreDeleteSpy).toHaveBeenCalled())
+    it("should call firestore.doc('rooms/'+roomId).delete", () => expect(firestoreDeleteSpy).toHaveBeenCalled())
   })
 
   describe('listenerRoom', () => {
@@ -79,7 +69,7 @@ describe('RoomService', () => {
 
     it('should get observable', () => expect(observer).toBeTruthy())
     it('should get a room', fakeAsync(() => {
-      observer.subscribe((r) => expect(r).toBeInstanceOf(Object))
+      observer.subscribe(r => expect(r).toBeInstanceOf(Object))
       service.updateRoom(roomMock)
       tick()
     }))
@@ -91,7 +81,7 @@ describe('RoomService', () => {
 
     it('should get observable', () => expect(observer).toBeTruthy())
     it('should get a room', fakeAsync(() => {
-      observer.subscribe((r) => expect(r).toBeInstanceOf(Array<IRoomItem>))
+      observer.subscribe(r => expect(r).toBeInstanceOf(Array<IRoomItem>))
       service.createRoom(roomMock)
       tick()
     }))

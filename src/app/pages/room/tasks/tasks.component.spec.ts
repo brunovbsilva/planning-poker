@@ -1,13 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { TasksComponent } from './tasks.component'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from 'src/app/shared/mocks/others'
-import { ModalComponentSpec } from 'src/app/shared/mocks/components/modal.component.spec'
-import { RoomService } from 'src/app/services/room/room.service'
-import { RoomMock, TaskMock } from 'src/app/shared/mocks/constants'
-import { RoomServiceProviderMock } from 'src/app/shared/mocks/service'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
+import {TasksComponent} from './tasks.component'
+import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others'
+import {ModalComponentSpec} from 'src/app/shared/mocks/components/modal.component.spec'
+import {RoomService} from 'src/app/services/room/room.service'
+import {RoomMock, TaskMock} from 'src/app/shared/mocks/constants'
+import {RoomServiceProviderMock} from 'src/app/shared/mocks/service'
 
 describe('TasksComponent', () => {
   let component: TasksComponent
@@ -62,10 +59,8 @@ describe('TasksComponent', () => {
         component.nextTask()
       })
 
-      it('should call room.nextTask', () =>
-        expect(roomSpy.nextTask).toHaveBeenCalled())
-      it('should increment room.currentTask', () =>
-        expect(component.room.currentTask).toBe(1))
+      it('should call room.nextTask', () => expect(roomSpy.nextTask).toHaveBeenCalled())
+      it('should increment room.currentTask', () => expect(component.room.currentTask).toBe(1))
     })
 
     describe('previousTask', () => {
@@ -74,10 +69,8 @@ describe('TasksComponent', () => {
         component.previousTask()
       })
 
-      it('should call room.previousTask', () =>
-        expect(roomSpy.previousTask).toHaveBeenCalled())
-      it('should decrement room.currentTask', () =>
-        expect(component.room.currentTask).toBe(0))
+      it('should call room.previousTask', () => expect(roomSpy.previousTask).toHaveBeenCalled())
+      it('should decrement room.currentTask', () => expect(component.room.currentTask).toBe(0))
     })
 
     describe('setTask', () => {
@@ -86,10 +79,8 @@ describe('TasksComponent', () => {
         component.setTask(1)
       })
 
-      it('should call room.setTaskIndex', () =>
-        expect(roomSpy.setTask).toHaveBeenCalled())
-      it('should set room.currentTask', () =>
-        expect(component.room.currentTask).toBe(1))
+      it('should call room.setTaskIndex', () => expect(roomSpy.setTask).toHaveBeenCalled())
+      it('should set room.currentTask', () => expect(component.room.currentTask).toBe(1))
     })
 
     describe('createTask', () => {
@@ -97,12 +88,8 @@ describe('TasksComponent', () => {
         component.createTask('mocked task created')
       })
 
-      it('should call room.createTask', () =>
-        expect(roomSpy.createTask).toHaveBeenCalled())
-      it('should push new task', () =>
-        expect(component.room.tasks.slice(-1)[0].name).toBe(
-          'mocked task created'
-        ))
+      it('should call room.createTask', () => expect(roomSpy.createTask).toHaveBeenCalled())
+      it('should push new task', () => expect(component.room.tasks.slice(-1)[0].name).toBe('mocked task created'))
     })
 
     describe('deleteTask', () => {
@@ -111,10 +98,8 @@ describe('TasksComponent', () => {
         component.deleteTask(component.room.tasks[0])
       })
 
-      it('should call room.deleteTask', () =>
-        expect(roomSpy.deleteTask).toHaveBeenCalled())
-      it('should delete task', () =>
-        expect(component.room.tasks.length).toBe(0))
+      it('should call room.deleteTask', () => expect(roomSpy.deleteTask).toHaveBeenCalled())
+      it('should delete task', () => expect(component.room.tasks.length).toBe(0))
     })
   })
 })

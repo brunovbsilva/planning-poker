@@ -1,6 +1,6 @@
-import { Component, HostListener, Input } from '@angular/core'
-import { flipAnimation } from './animations/flip.animation'
-import { ICard } from './models/card.interface'
+import {Component, HostListener, Input} from '@angular/core'
+import {flipAnimation} from './animations/flip.animation'
+import {ICard} from './models/card.interface'
 
 @Component({
   selector: 'app-card',

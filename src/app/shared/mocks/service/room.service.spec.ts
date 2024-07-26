@@ -1,8 +1,8 @@
-import { BehaviorSubject, Observable } from 'rxjs'
-import { IRoom } from 'src/app/pages/room/interfaces/room.interface'
-import { IRoomItem } from 'src/app/pages/rooms/models/room-item.inteface'
-import { RoomMock } from '../constants'
-import { RoomItem } from 'src/app/pages/rooms/models/room-item'
+import {BehaviorSubject, Observable} from 'rxjs'
+import {IRoom} from 'src/app/pages/room/interfaces/room.interface'
+import {IRoomItem} from 'src/app/pages/rooms/models/room-item.inteface'
+import {RoomMock} from '../constants'
+import {RoomItem} from 'src/app/pages/rooms/models/room-item'
 
 export class RoomServiceMock {
   private subject = new BehaviorSubject<IRoom>(RoomMock)
@@ -10,18 +10,13 @@ export class RoomServiceMock {
   createRoom(room: IRoom): void {
     let service: any
     let router: any
-    this.roomsSubject.next([
-      ...this.roomsSubject.value,
-      new RoomItem(room.id!, room.name),
-    ])
+    this.roomsSubject.next([...this.roomsSubject.value, new RoomItem(room.id!, room.name)])
   }
   updateRoom(room: IRoom): void {
     this.subject.next(room)
   }
   deleteRoom(id: string): void {
-    this.roomsSubject.next(
-      this.roomsSubject.value.filter((room) => room.id !== id)
-    )
+    this.roomsSubject.next(this.roomsSubject.value.filter(room => room.id !== id))
   }
   listenerRoom(id: string): Observable<IRoom> {
     return this.subject.asObservable()

@@ -1,4 +1,4 @@
-import { IVote } from './vote.interface'
+import {IVote} from './vote.interface'
 
 export interface ITask {
   name: string

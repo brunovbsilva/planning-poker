@@ -1,10 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { LoginComponent } from './login.component'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from 'src/app/shared/mocks/others'
+import {LoginComponent} from './login.component'
+import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others'
 
 describe('LoginComponent', () => {
   let component: LoginComponent
@@ -27,13 +24,9 @@ describe('LoginComponent', () => {
   describe('login', () => {
     let signInWithPopupSpy: jasmine.Spy
     beforeEach(() => {
-      signInWithPopupSpy = spyOn(
-        component.auth,
-        'signInWithPopup'
-      ).and.callThrough()
+      signInWithPopupSpy = spyOn(component.auth, 'signInWithPopup').and.callThrough()
       component.login()
     })
-    it('should call auth.signInWithPopup', () =>
-      expect(signInWithPopupSpy).toHaveBeenCalled())
+    it('should call auth.signInWithPopup', () => expect(signInWithPopupSpy).toHaveBeenCalled())
   })
 })

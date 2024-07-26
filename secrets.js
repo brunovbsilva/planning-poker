@@ -8,13 +8,13 @@ const prodFile = 'environment.prod.ts' // For production deployment
 
 const content = `${process.env.FIREBASE_DETAILS}`
 
-fs.access(dir, fs.constants.F_OK, (err) => {
+fs.access(dir, fs.constants.F_OK, err => {
   if (err) {
     // Directory doesn't exist
     console.log("src doesn't exist, creating now", process.cwd())
     // Create /src
     try {
-      fs.mkdirSync(dir, { recursive: true })
+      fs.mkdirSync(dir, {recursive: true})
     } catch (error) {
       console.log(`Error while creating ${dir}. Error is ${error}`)
       process.exit(1)

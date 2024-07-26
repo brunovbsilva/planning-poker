@@ -1,4 +1,4 @@
-import { ModalKeyDownDirective } from './modal-key-down.directive'
+import {ModalKeyDownDirective} from './modal-key-down.directive'
 
 describe('ModalKeydownsDirective', () => {
   it('should create an instance', () => {

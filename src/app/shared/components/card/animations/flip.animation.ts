@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations'
+import {animate, state, style, transition, trigger} from '@angular/animations'
 
 export const flipAnimation = [
   trigger('flipAnimation', [

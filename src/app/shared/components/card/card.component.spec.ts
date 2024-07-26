@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { CardComponent } from './card.component'
-import { Card } from './models/card.model'
-import { CardType } from './models/card-type.enum'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ICard } from './models/card.interface'
-import { By } from '@angular/platform-browser'
-import { DebugElement } from '@angular/core'
+import {CardComponent} from './card.component'
+import {Card} from './models/card.model'
+import {CardType} from './models/card-type.enum'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {ICard} from './models/card.interface'
+import {By} from '@angular/platform-browser'
+import {DebugElement} from '@angular/core'
 
 describe('CardComponent', () => {
   let component: CardComponent
@@ -34,13 +34,13 @@ describe('CardComponent', () => {
       expected: string
     }
     const itemsForTest: CardTypeTest[] = [
-      { card: new Card(CardType.HEARTS, 1), expected: '\u2665' },
-      { card: new Card(CardType.DIAMONDS, 1), expected: '\u2666' },
-      { card: new Card(CardType.SPADES, 1), expected: '\u2660' },
-      { card: new Card(CardType.CLUBS, 1), expected: '\u2663' },
+      {card: new Card(CardType.HEARTS, 1), expected: '\u2665'},
+      {card: new Card(CardType.DIAMONDS, 1), expected: '\u2666'},
+      {card: new Card(CardType.SPADES, 1), expected: '\u2660'},
+      {card: new Card(CardType.CLUBS, 1), expected: '\u2663'},
     ]
 
-    itemsForTest.forEach((item) => {
+    itemsForTest.forEach(item => {
       it(`should return ${item.expected} when card is ${item.card.type}`, () => {
         component.card = item.card
         expect(component.getCardType()).toEqual(item.expected)
@@ -54,17 +54,17 @@ describe('CardComponent', () => {
       expected: string | number
     }
     const itemsForTest: CardValueTest[] = [
-      { card: new Card(CardType.HEARTS, 1), expected: 'A' },
-      { card: new Card(CardType.HEARTS, 2), expected: 2 },
-      { card: new Card(CardType.HEARTS, 5), expected: 5 },
-      { card: new Card(CardType.HEARTS, 10), expected: 10 },
-      { card: new Card(CardType.HEARTS, 11), expected: 'J' },
-      { card: new Card(CardType.HEARTS, 12), expected: 'Q' },
-      { card: new Card(CardType.HEARTS, 13), expected: 'K' },
-      { card: new Card(CardType.HEARTS, 99), expected: 99 },
+      {card: new Card(CardType.HEARTS, 1), expected: 'A'},
+      {card: new Card(CardType.HEARTS, 2), expected: 2},
+      {card: new Card(CardType.HEARTS, 5), expected: 5},
+      {card: new Card(CardType.HEARTS, 10), expected: 10},
+      {card: new Card(CardType.HEARTS, 11), expected: 'J'},
+      {card: new Card(CardType.HEARTS, 12), expected: 'Q'},
+      {card: new Card(CardType.HEARTS, 13), expected: 'K'},
+      {card: new Card(CardType.HEARTS, 99), expected: 99},
     ]
 
-    itemsForTest.forEach((item) => {
+    itemsForTest.forEach(item => {
       it(`should return ${item.expected} when card is ${item.card.value}`, () => {
         component.card = item.card
         expect(component.getCardValue()).toEqual(item.expected)

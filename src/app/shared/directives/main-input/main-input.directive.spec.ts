@@ -1,14 +1,14 @@
-import { TestBed, async } from '@angular/core/testing'
-import { MainInputDirective } from './main-input.directive'
-import { ElementRef } from '@angular/core'
-import { MockElementRef } from '../../mocks/others/element-ref.spec'
+import {TestBed, async} from '@angular/core/testing'
+import {MainInputDirective} from './main-input.directive'
+import {ElementRef} from '@angular/core'
+import {MockElementRef} from '../../mocks/others/element-ref.spec'
 
 describe('MainInputDirective', () => {
   let elementRef: ElementRef
   let directive: MainInputDirective
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [{ provide: ElementRef, useClass: MockElementRef }],
+      providers: [{provide: ElementRef, useClass: MockElementRef}],
     }).compileComponents()
 
     elementRef = TestBed.inject(ElementRef)

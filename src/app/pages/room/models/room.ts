@@ -1,7 +1,7 @@
-import { IRoom } from '../interfaces/room.interface'
-import { ITask } from '../interfaces/task.interface'
-import { Task } from './task'
-import { Vote } from './vote'
+import {IRoom} from '../interfaces/room.interface'
+import {ITask} from '../interfaces/task.interface'
+import {Task} from './task'
+import {Vote} from './vote'
 
 export class Room implements IRoom {
   private _name: string
@@ -32,7 +32,7 @@ export class Room implements IRoom {
     this.tasks.push(new Task(name))
   }
   deleteTask(task: ITask): void {
-    this.tasks = this.tasks.filter((taskItem) => taskItem !== task)
+    this.tasks = this.tasks.filter(taskItem => taskItem !== task)
   }
 
   updateValues(room: IRoom): void {
@@ -56,12 +56,10 @@ export class Room implements IRoom {
     if (tasksToUpdate.length === 0) this.tasks = []
     else
       tasksToUpdate.forEach((task: ITask) => {
-        const currentTask = this.tasks.find((x) => x.name === task.name)
+        const currentTask = this.tasks.find(x => x.name === task.name)
         if (currentTask) currentTask.updateValues(task)
         else this.pushTask(task)
-        this.tasks = this.tasks.filter((x) =>
-          tasksToUpdate.map((x) => x.name).includes(x.name)
-        )
+        this.tasks = this.tasks.filter(x => tasksToUpdate.map(x => x.name).includes(x.name))
       })
   }
 
@@ -69,10 +67,7 @@ export class Room implements IRoom {
     this.tasks.push(
       new Task(
         task.name,
-        task.votes.map(
-          (vote) =>
-            new Vote(vote.userId, vote.userName, vote.value, vote.hidden)
-        )
+        task.votes.map(vote => new Vote(vote.userId, vote.userName, vote.value, vote.hidden))
       )
     )
   }

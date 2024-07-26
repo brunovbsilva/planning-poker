@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { ModalComponent } from './modal.component'
-import { DebugElement } from '@angular/core'
-import { By } from '@angular/platform-browser'
+import {ModalComponent} from './modal.component'
+import {DebugElement} from '@angular/core'
+import {By} from '@angular/platform-browser'
 
 describe('ModalComponent', () => {
   let component: ModalComponent
@@ -35,9 +35,7 @@ describe('ModalComponent', () => {
     it('should show modal', () => expect(modal).toBeTruthy())
     it('should show background', () => expect(background).toBeTruthy())
     it('should show title', () =>
-      expect(
-        modal.query(By.css('.modal__header > h1')).nativeElement.innerText
-      ).toEqual(component.modalTitle))
+      expect(modal.query(By.css('.modal__header > h1')).nativeElement.innerText).toEqual(component.modalTitle))
 
     describe('on background click', () => {
       beforeEach(() => {
@@ -46,8 +44,7 @@ describe('ModalComponent', () => {
         background = fixture.debugElement.query(By.css('.background'))
         modal = fixture.debugElement.query(By.css('.modal'))
       })
-      it('should set isOpen to false', () =>
-        expect(component.isOpen$).toBeFalsy())
+      it('should set isOpen to false', () => expect(component.isOpen$).toBeFalsy())
       it('should hide modal', () => expect(modal).toBeFalsy())
       it('should hide background', () => expect(background).toBeFalsy())
     })
@@ -70,8 +67,7 @@ describe('ModalComponent', () => {
         background = fixture.debugElement.query(By.css('.background'))
         modal = fixture.debugElement.query(By.css('.modal'))
       })
-      it('should set isOpen to true', () =>
-        expect(component.isOpen$).toBeTruthy())
+      it('should set isOpen to true', () => expect(component.isOpen$).toBeTruthy())
       it('should show modal', () => expect(modal).toBeTruthy())
       it('should show background', () => expect(background).toBeTruthy())
     })

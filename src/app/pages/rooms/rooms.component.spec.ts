@@ -1,21 +1,13 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing'
+import {ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing'
 
-import { RoomsComponent } from './rooms.component'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from 'src/app/shared/mocks/others'
-import { RoomService } from 'src/app/services/room/room.service'
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
-import { DebugElement } from '@angular/core'
-import { By } from '@angular/platform-browser'
-import { RoomItemComponent } from './room-item/room-item.component'
-import { RoomServiceProviderMock } from 'src/app/shared/mocks/service'
+import {RoomsComponent} from './rooms.component'
+import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others'
+import {RoomService} from 'src/app/services/room/room.service'
+import {ModalComponent} from 'src/app/shared/components/modal/modal.component'
+import {DebugElement} from '@angular/core'
+import {By} from '@angular/platform-browser'
+import {RoomItemComponent} from './room-item/room-item.component'
+import {RoomServiceProviderMock} from 'src/app/shared/mocks/service'
 
 describe('RoomsComponent', () => {
   let component: RoomsComponent
@@ -27,12 +19,7 @@ describe('RoomsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AngularFireModulesMock,
-        RoomsComponent,
-        RoomItemComponent,
-        ModalComponent,
-      ],
+      imports: [AngularFireModulesMock, RoomsComponent, RoomItemComponent, ModalComponent],
       providers: [AngularFireProvidersMock, RoomServiceProviderMock],
     })
     fixture = TestBed.createComponent(RoomsComponent)
@@ -61,10 +48,8 @@ describe('RoomsComponent', () => {
       button = actions.nativeElement.querySelector('button')
     })
 
-    it('header should be "Escolha ou crie uma sala"', () =>
-      expect(header.innerText).toBe('Escolha ou crie uma sala'))
-    it('button should be "Criar sala"', () =>
-      expect(button.innerText).toBe('Criar sala'))
+    it('header should be "Escolha ou crie uma sala"', () => expect(header.innerText).toBe('Escolha ou crie uma sala'))
+    it('button should be "Criar sala"', () => expect(button.innerText).toBe('Criar sala'))
     describe('on click button', () => {
       beforeEach(() => button.click())
       it('should open modal', () => expect(component.modal.isOpen$).toBeTrue())
@@ -79,8 +64,7 @@ describe('RoomsComponent', () => {
       noRoomLabel = rooms.nativeElement.querySelector('.no-room')
     })
     it('should have no rooms', () => expect(roomItemList.length).toBe(0))
-    it('should have label no room', () =>
-      expect(noRoomLabel.innerText).toBe('Não há salas no momento!'))
+    it('should have label no room', () => expect(noRoomLabel.innerText).toBe('Não há salas no momento!'))
 
     describe('on create room', () => {
       beforeEach(fakeAsync(() => {
@@ -107,14 +91,11 @@ describe('RoomsComponent', () => {
       buttons = modal.nativeElement.querySelectorAll('button')
     })
 
-    it('should have title "Criar sala"', () =>
-      expect(component.modal.modalTitle).toBe('Criar sala'))
+    it('should have title "Criar sala"', () => expect(component.modal.modalTitle).toBe('Criar sala'))
     it('should have input', () => expect(input).toBeTruthy())
     it('should have 2 buttons', () => expect(buttons.length).toBe(2))
-    it('should have button "Criar"', () =>
-      expect(buttons[0].innerText).toBe('Criar'))
-    it('should have button "Cancelar"', () =>
-      expect(buttons[1].innerText).toBe('Cancelar'))
+    it('should have button "Criar"', () => expect(buttons[0].innerText).toBe('Criar'))
+    it('should have button "Cancelar"', () => expect(buttons[1].innerText).toBe('Cancelar'))
 
     describe('on try to create room with a name', () => {
       let createRoomServiceSpy: jasmine.Spy
@@ -129,10 +110,8 @@ describe('RoomsComponent', () => {
         tick(100)
       }))
 
-      it('should call roomService.createRoom', () =>
-        expect(createRoomServiceSpy).toHaveBeenCalled())
-      it('should call modal.close', () =>
-        expect(modalCloseSpy).toHaveBeenCalled())
+      it('should call roomService.createRoom', () => expect(createRoomServiceSpy).toHaveBeenCalled())
+      it('should call modal.close', () => expect(modalCloseSpy).toHaveBeenCalled())
     })
 
     describe('on try to create room without a name', () => {
@@ -145,10 +124,8 @@ describe('RoomsComponent', () => {
         tick(100)
       }))
 
-      it('should not call roomService.createRoom', () =>
-        expect(createRoomServiceSpy).not.toHaveBeenCalled())
-      it('should not call modal.close', () =>
-        expect(modalCloseSpy).not.toHaveBeenCalled())
+      it('should not call roomService.createRoom', () => expect(createRoomServiceSpy).not.toHaveBeenCalled())
+      it('should not call modal.close', () => expect(modalCloseSpy).not.toHaveBeenCalled())
     })
   })
 })

@@ -1,17 +1,9 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-} from '@angular/core/testing'
+import {ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing'
 
-import { HeaderComponent } from './header.component'
-import {
-  AngularFireModulesMock,
-  AngularFireProvidersMock,
-} from 'src/app/shared/mocks/others'
-import { Router } from '@angular/router'
-import { AngularFireAuth } from '@angular/fire/compat/auth'
+import {HeaderComponent} from './header.component'
+import {AngularFireModulesMock, AngularFireProvidersMock} from 'src/app/shared/mocks/others'
+import {Router} from '@angular/router'
+import {AngularFireAuth} from '@angular/fire/compat/auth'
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent
@@ -50,7 +42,6 @@ describe('HeaderComponent', () => {
     }))
 
     it('should call signOut', () => expect(authSpy).toHaveBeenCalled())
-    it('should call navigate', () =>
-      expect(routerSpy).toHaveBeenCalledWith(['']))
+    it('should call navigate', () => expect(routerSpy).toHaveBeenCalledWith(['']))
   })
 })

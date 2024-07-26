@@ -1,4 +1,4 @@
-import { ITask } from './task.interface'
+import {ITask} from './task.interface'
 
 export interface IRoom {
   readonly id?: string

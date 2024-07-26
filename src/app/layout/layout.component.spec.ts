@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import {ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { LayoutComponent } from './layout.component'
-import { HeaderComponentSpec } from '../shared/mocks/layout/header.component.spec'
+import {LayoutComponent} from './layout.component'
+import {HeaderComponentSpec} from '../shared/mocks/layout/header.component.spec'
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent
