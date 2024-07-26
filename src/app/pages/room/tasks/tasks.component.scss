@@ -1,4 +1,4 @@
-@import "../../../../assets/sass/colors";
+@import '../../../../assets/sass/colors';
 .update-tasks {
   margin-bottom: 1rem;
   display: flex;
@@ -20,7 +20,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .tasks-control__previous, .tasks-control__next {
+  .tasks-control__previous,
+  .tasks-control__next {
     display: flex;
     gap: 5px;
     > button {
@@ -36,7 +37,6 @@
           color: map-get($disabled, constrast, dark);
         }
       }
-
     }
   }
 }
@@ -52,7 +52,7 @@ app-modal {
   .create-task {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
     margin-bottom: 16px;
     input {
       flex: 1;
@@ -89,5 +89,4 @@ app-modal {
       }
     }
   }
-
 }

@@ -17,21 +17,19 @@ $base-color: map-get(colors.$primary, base);
   height: 6rem;
   background-color: #f8f9fa;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform: transform 1s;
-  -ms-transform: transform 1s;
-  transform: transform 1s;
 
   .card-front {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    -webkit-transform : rotateY(0deg);
-    -ms-transform     : rotateY(0deg);
-    transform         : rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 
     border: 2px solid $base-color;
     color: $base-color;
@@ -49,8 +47,8 @@ $base-color: map-get(colors.$primary, base);
     .creator-name {
       position: absolute;
       top: 0;
-      left: .5rem;
-      font-size: .75rem;
+      left: 0.5rem;
+      font-size: 0.75rem;
       max-width: 3.5rem;
       white-space: nowrap;
       overflow: hidden;
@@ -60,9 +58,9 @@ $base-color: map-get(colors.$primary, base);
   }
 
   .card-back {
-    -webkit-transform : rotateY(-180deg);
-    -ms-transform     : rotateY(-180deg);
-    transform         : rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
     background: $base-color;
     .back-image {
       width: 100%;
@@ -74,8 +72,8 @@ $base-color: map-get(colors.$primary, base);
     .creator-name {
       position: absolute;
       top: 0;
-      left: .5rem;
-      font-size: .75rem;
+      left: 0.5rem;
+      font-size: 0.75rem;
       max-width: 3.5rem;
       white-space: nowrap;
       overflow: hidden;

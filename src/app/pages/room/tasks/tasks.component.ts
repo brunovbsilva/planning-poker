@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, model, Output, ViewChild} from '@angular/core';
+import { Component, Input, model, ViewChild } from '@angular/core';
 import { RoomService } from 'src/app/services/room/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';
@@ -9,27 +9,26 @@ import { ModalComponent } from '../../../shared/components/modal/modal.component
 import { MainButtonDirective } from '../../../shared/directives/main-button/main-button.directive';
 
 @Component({
-    selector: 'app-tasks',
-    templateUrl: './tasks.component.html',
-    styleUrls: ['./tasks.component.scss'],
-    standalone: true,
-    imports: [MainButtonDirective, ModalComponent, FormsModule, MainInputDirective, ReactiveFormsModule]
+  selector: 'app-tasks',
+  templateUrl: './tasks.component.html',
+  styleUrls: ['./tasks.component.scss'],
+  standalone: true,
+  imports: [MainButtonDirective, ModalComponent, FormsModule, MainInputDirective, ReactiveFormsModule],
 })
 export class TasksComponent {
-
   @Input() room!: IRoom;
   @ViewChild('modal') modal!: IModal;
   public createTaskForm = new FormControl('');
   currentTask$ = model.required<number>();
 
-  constructor(private roomService: RoomService) { }
+  constructor(private roomService: RoomService) {}
 
   nextTask() {
-    this.currentTask$.update(x => (x+1) % this.room.tasks.length);
+    this.currentTask$.update(x => (x + 1) % this.room.tasks.length);
   }
 
   previousTask() {
-    this.currentTask$.update(x => (x-1) % this.room.tasks.length);
+    this.currentTask$.update(x => (x - 1) % this.room.tasks.length);
   }
 
   setTask(index: number) {

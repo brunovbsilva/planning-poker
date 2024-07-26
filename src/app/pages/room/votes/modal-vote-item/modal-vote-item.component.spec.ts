@@ -8,10 +8,9 @@ describe('ModalVoteItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModalVoteItemComponent]
-    })
-    .compileComponents();
-    
+      imports: [ModalVoteItemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ModalVoteItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

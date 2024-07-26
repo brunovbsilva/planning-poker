@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VotesComponent } from './votes.component';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
 import { RoomService } from 'src/app/services/room/room.service';
-import { RoomTaskNoVotesMock} from 'src/app/shared/mocks/constants';
+import { RoomTaskNoVotesMock } from 'src/app/shared/mocks/constants';
 import { CardComponentSpec } from 'src/app/shared/mocks/components/card.component.spec';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoomServiceProviderMock } from 'src/app/shared/mocks/service';
@@ -21,23 +21,16 @@ describe('VotesComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [CardComponentSpec],
-    imports: [
-        AngularFireModulesMock,
-        BrowserAnimationsModule,
-        VotesComponent
-    ],
-    providers: [
-        AngularFireProvidersMock,
-        RoomServiceProviderMock
-    ]
-});
+      declarations: [CardComponentSpec],
+      imports: [AngularFireModulesMock, BrowserAnimationsModule, VotesComponent],
+      providers: [AngularFireProvidersMock, RoomServiceProviderMock],
+    });
     fixture = TestBed.createComponent(VotesComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(RoomService);
 
     service.updateRoom(RoomTaskNoVotesMock);
-    service.listenerRoom('path').subscribe((room) => {
+    service.listenerRoom('path').subscribe(room => {
       component.room = room;
       checkChanges();
     });
@@ -55,8 +48,11 @@ describe('VotesComponent', () => {
     it('results should be "-"', () => expect(result.nativeElement.textContent).toBe('-'));
     it('should have 0 current votes', () => expect(currentVotes.children.length).toBe(0));
     describe('should have a fribbonacci cards', () => {
-      type FribonnacciTest = { position: number, value: number };
-      let fribonnacciTests: FribonnacciTest[] = [
+      interface FribonnacciTest {
+        position: number;
+        value: number;
+      }
+      const fribonnacciTests: FribonnacciTest[] = [
         { position: 0, value: 1 },
         { position: 1, value: 2 },
         { position: 2, value: 3 },
@@ -66,7 +62,7 @@ describe('VotesComponent', () => {
         { position: 6, value: 21 },
         { position: 7, value: 34 },
         { position: 8, value: 55 },
-        { position: 9, value: 89 }
+        { position: 9, value: 89 },
       ];
       it('length should be 10', () => expect(votes.children.length).toBe(10));
       fribonnacciTests.forEach(test => {
@@ -76,13 +72,12 @@ describe('VotesComponent', () => {
         });
       });
     });
-  })
-
+  });
 
   describe('after vote', () => {
     let voteSpy: jasmine.Spy;
     beforeEach(() => {
-      voteSpy = spyOn(component.task$, 'vote').and.callThrough();
+      voteSpy = spyOn(component.task, 'vote').and.callThrough();
       votes.children[0].triggerEventHandler('click', null);
       checkChanges();
     });
@@ -127,7 +122,7 @@ describe('VotesComponent', () => {
     });
   });
 
-  function checkChanges() : void {
+  function checkChanges(): void {
     fixture.detectChanges();
     actions = fixture.debugElement.query(By.css('.actions'));
     result = fixture.debugElement.query(By.css('.votes-result>h1'));
@@ -135,5 +130,3 @@ describe('VotesComponent', () => {
     votes = fixture.debugElement.query(By.css('.votes'));
   }
 });
-
-

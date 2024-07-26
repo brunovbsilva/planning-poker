@@ -1,23 +1,16 @@
 <div class="actions">
-  <button main-button
-    class="current-votes__btn-flip"
-    [disabled]="task.votes.length == 0 || flippedVotes"
-    (click)="showVotes()">
+  <button main-button class="current-votes__btn-flip" [disabled]="task.votes.length == 0 || flippedVotes" (click)="showVotes()">
     Virar cartas
   </button>
-  <button main-button
+  <button
+    main-button
     theme="accent"
     class="current-votes__btn-revote"
     [disabled]="task.votes.length == 0 || !flippedVotes"
     (click)="revote()">
     Revotar
   </button>
-  <button main-button
-    theme="accent"
-    [disabled]="flippedVotes"
-    (click)="complexityModal.open()">
-    Votar
-  </button>
+  <button main-button theme="accent" [disabled]="flippedVotes" (click)="complexityModal.open()">Votar</button>
 </div>
 
 <div class="votes-result">
@@ -33,9 +26,7 @@
 @if (!flippedVotes) {
   <div class="votes">
     @for (card of cards$(); track card) {
-      <app-card #cardComponent class="card" [@hover]="cardComponent.isHovered" [card]="card"
-                (click)="vote(card.value)">
-      </app-card>
+      <app-card #cardComponent class="card" [@hover]="cardComponent.isHovered" [card]="card" (click)="vote(card.value)"> </app-card>
     }
   </div>
 }
@@ -49,10 +40,5 @@
     <h2 class="modal-result">{{ compute$() }}</h2>
   </div>
 
-  <button main-button
-    theme="primary"
-    [disabled]="flippedVotes"
-    (click)="computeVote()">
-    Votar
-  </button>
+  <button main-button theme="primary" [disabled]="flippedVotes" (click)="computeVote()">Votar</button>
 </app-modal>

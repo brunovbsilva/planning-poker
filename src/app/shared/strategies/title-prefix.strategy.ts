@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Title } from "@angular/platform-browser";
-import { RouterStateSnapshot, TitleStrategy } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
 
 @Injectable()
 export class TitlePrefixStrategy extends TitleStrategy {

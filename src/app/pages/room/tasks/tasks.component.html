@@ -6,13 +6,21 @@
 @if (room.tasks[currentTask$()]) {
   <div class="tasks-control">
     <div class="tasks-control__previous">
-      <button main-button [disabled]="currentTask$() == 0" (click)="setTask(0)">{{'<<'}}</button>
-      <button main-button [disabled]="currentTask$() == 0" (click)="previousTask()">{{'<'}}</button>
+      <button main-button [disabled]="currentTask$() == 0" (click)="setTask(0)">
+        {{ '<<' }}
+      </button>
+      <button main-button [disabled]="currentTask$() == 0" (click)="previousTask()">
+        {{ '<' }}
+      </button>
     </div>
     <h3 class="tasks-control__name">{{ room.tasks[currentTask$()].name }}</h3>
     <div class="tasks-control__next">
-      <button main-button [disabled]="currentTask$() == room.tasks.length - 1" (click)="nextTask()">{{'>'}}</button>
-      <button main-button [disabled]="currentTask$() == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">{{'>>'}}</button>
+      <button main-button [disabled]="currentTask$() == room.tasks.length - 1" (click)="nextTask()">
+        {{ '>' }}
+      </button>
+      <button main-button [disabled]="currentTask$() == room.tasks.length - 1" (click)="setTask(room.tasks.length - 1)">
+        {{ '>>' }}
+      </button>
     </div>
   </div>
 } @else {
@@ -20,9 +28,8 @@
 }
 
 <app-modal #modal modalTitle="Tasks">
-
   <div class="create-task">
-    <textarea #name main-input type="text" (keyup)="0" [formControl]="createTaskForm" placeholder="Digite os nomes das tasks"></textarea>
+    <textarea #name main-input type="text" [formControl]="createTaskForm" placeholder="Digite os nomes das tasks"></textarea>
     <button main-button [disabled]="!name.value" (click)="createTask(name.value); name.focus()">Criar</button>
   </div>
 
@@ -37,5 +44,4 @@
       <h3 class="no-tasks-modal">Não há tasks no momento</h3>
     }
   </div>
-
 </app-modal>

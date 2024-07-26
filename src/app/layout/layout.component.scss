@@ -11,12 +11,12 @@
   }
 }
 
-@media (min-width:641px)  {
+@media (min-width: 641px) {
   :host .page {
     height: calc(100vh - 100px);
   }
 }
-@media (min-width:961px)  { 
+@media (min-width: 961px) {
   :host .page {
     height: calc(100vh - 80px);
   }

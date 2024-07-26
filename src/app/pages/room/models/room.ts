@@ -1,10 +1,9 @@
-import { IRoom } from "../interfaces/room.interface";
-import { ITask } from "../interfaces/task.interface";
-import { Task } from "./task";
-import { Vote } from "./vote";
+import { IRoom } from '../interfaces/room.interface';
+import { ITask } from '../interfaces/task.interface';
+import { Task } from './task';
+import { Vote } from './vote';
 
 export class Room implements IRoom {
-
   private _name: string;
   public get name(): string {
     return this._name;
@@ -19,7 +18,7 @@ export class Room implements IRoom {
     name: string,
     creator: string,
     public tasks: ITask[] = [],
-    public readonly id?: string,
+    public readonly id?: string
   ) {
     this._name = name;
     this._creator = creator;
@@ -43,35 +42,33 @@ export class Room implements IRoom {
   }
 
   private updateName(name: string): void {
-    if(this._name === name || !name) return;
+    if (this._name === name || !name) return;
     this._name = name;
   }
 
   private updateCreator(creator: string): void {
-    if(this._creator === creator || !creator) return;
+    if (this._creator === creator || !creator) return;
     this._creator = creator;
   }
 
   private updateTasks(tasksToUpdate: ITask[]): void {
-    if(this.tasks === tasksToUpdate) return;
-    if(tasksToUpdate.length === 0) this.tasks = [];
-    else tasksToUpdate.forEach((task: ITask) => {
-      const currentTask = this.tasks.find(x => x.name === task.name);
-      if(currentTask) currentTask.updateValues(task);
-      else this.pushTask(task);
-      this.tasks = this.tasks.filter(x => tasksToUpdate.map(x => x.name).includes(x.name));
-    });
+    if (this.tasks === tasksToUpdate) return;
+    if (tasksToUpdate.length === 0) this.tasks = [];
+    else
+      tasksToUpdate.forEach((task: ITask) => {
+        const currentTask = this.tasks.find(x => x.name === task.name);
+        if (currentTask) currentTask.updateValues(task);
+        else this.pushTask(task);
+        this.tasks = this.tasks.filter(x => tasksToUpdate.map(x => x.name).includes(x.name));
+      });
   }
 
   private pushTask(task: ITask): void {
-    this.tasks.push(new Task(
-      task.name,
-      task.votes.map(vote => new Vote(
-        vote.userId,
-        vote.userName,
-        vote.value,
-        vote.hidden
-      ))
-    ));
+    this.tasks.push(
+      new Task(
+        task.name,
+        task.votes.map(vote => new Vote(vote.userId, vote.userName, vote.value, vote.hidden))
+      )
+    );
   }
 }
