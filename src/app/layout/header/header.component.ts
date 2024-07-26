@@ -1,7 +1,7 @@
-import {Component, computed, NgZone} from '@angular/core'
-import {Router, RouterLink} from '@angular/router'
-import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive'
-import {UserService} from '../../services/user/user.service'
+import {Component, computed, NgZone} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {MainButtonDirective} from '../../shared/directives/main-button/main-button.directive';
+import {UserService} from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +11,8 @@ import {UserService} from '../../services/user/user.service'
   imports: [RouterLink, MainButtonDirective],
 })
 export class HeaderComponent {
-  name$ = computed(() => this.user.user$()?.name)
-  image$ = computed(() => this.user.user$()?.image)
+  name$ = computed(() => this.user.user$()?.name);
+  image$ = computed(() => this.user.user$()?.image);
 
   constructor(
     private user: UserService,
@@ -21,7 +21,7 @@ export class HeaderComponent {
   ) {}
 
   async logout() {
-    this.user.removeUser()
-    setTimeout(() => this.ngZone.run(() => this.router.navigate([''])), 1)
+    this.user.removeUser();
+    setTimeout(() => this.ngZone.run(() => this.router.navigate([''])), 1);
   }
 }

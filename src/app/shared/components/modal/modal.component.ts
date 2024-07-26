@@ -1,6 +1,6 @@
-import {Component, Input, Signal, ViewChildren, WritableSignal, signal} from '@angular/core'
-import {IModal} from './interfaces/modal.interface'
-import {ModalKeyDownDirective} from './directives/modal-key-down.directive'
+import {Component, Input, Signal, ViewChildren, WritableSignal, signal} from '@angular/core';
+import {IModal} from './interfaces/modal.interface';
+import {ModalKeyDownDirective} from './directives/modal-key-down.directive';
 
 @Component({
   selector: 'app-modal',
@@ -10,20 +10,20 @@ import {ModalKeyDownDirective} from './directives/modal-key-down.directive'
   imports: [ModalKeyDownDirective],
 })
 export class ModalComponent implements IModal {
-  @ViewChildren('button') buttons: HTMLElement[] = []
-  @Input() modalTitle = ''
-  private isOpen: WritableSignal<boolean> = signal(false)
-  public isOpen$: Signal<boolean>
+  @ViewChildren('button') buttons: HTMLElement[] = [];
+  @Input() modalTitle = '';
+  private isOpen: WritableSignal<boolean> = signal(false);
+  public isOpen$: Signal<boolean>;
 
   constructor() {
-    this.isOpen$ = this.isOpen.asReadonly()
+    this.isOpen$ = this.isOpen.asReadonly();
   }
 
   open(): void {
-    this.isOpen.set(true)
+    this.isOpen.set(true);
   }
 
   close(): void {
-    this.isOpen.set(false)
+    this.isOpen.set(false);
   }
 }

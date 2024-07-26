@@ -1,6 +1,6 @@
-import {Component, HostListener, Input} from '@angular/core'
-import {flipAnimation} from './animations/flip.animation'
-import {ICard} from './models/card.interface'
+import {Component, HostListener, Input} from '@angular/core';
+import {flipAnimation} from './animations/flip.animation';
+import {ICard} from './models/card.interface';
 
 @Component({
   selector: 'app-card',
@@ -13,14 +13,14 @@ import {ICard} from './models/card.interface'
   },
 })
 export class CardComponent {
-  @Input() card!: ICard
-  public isHovered = false
+  @Input() card!: ICard;
+  public isHovered = false;
 
   @HostListener('mouseenter', ['$event'])
   @HostListener('mouseleave', ['$event'])
   private changeIsHovered(event: MouseEvent) {
-    this.isHovered = event.type === 'mouseenter'
+    this.isHovered = event.type === 'mouseenter';
   }
 
-  protected readonly history = history
+  protected readonly history = history;
 }

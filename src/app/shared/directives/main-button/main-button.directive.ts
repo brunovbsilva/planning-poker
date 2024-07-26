@@ -1,22 +1,22 @@
-import {Directive, ElementRef, Input, OnInit} from '@angular/core'
+import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 
-export type Theme = 'primary' | 'accent' | 'warn' | 'error'
+export type Theme = 'primary' | 'accent' | 'warn' | 'error';
 
 @Directive({
   selector: 'button[main-button]',
   standalone: true,
 })
 export class MainButtonDirective implements OnInit {
-  @Input() theme: Theme = 'primary'
+  @Input() theme: Theme = 'primary';
 
   constructor(private element: ElementRef) {}
 
   ngOnInit(): void {
-    this.setStyle()
+    this.setStyle();
   }
 
   private setStyle(): void {
-    this.element.nativeElement.classList.add('main-button')
-    this.element.nativeElement.classList.add(`main-button--${this.theme}`)
+    this.element.nativeElement.classList.add('main-button');
+    this.element.nativeElement.classList.add(`main-button--${this.theme}`);
   }
 }

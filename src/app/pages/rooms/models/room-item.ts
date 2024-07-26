@@ -1,4 +1,4 @@
-import {IRoomItem} from './room-item.inteface'
+import {IRoomItem} from './room-item.inteface';
 
 export class RoomItem implements IRoomItem {
   constructor(
@@ -7,6 +7,6 @@ export class RoomItem implements IRoomItem {
   ) {}
 
   getPath(): string[] {
-    return ['room', this.id]
+    return ['room', this.id];
   }
 }

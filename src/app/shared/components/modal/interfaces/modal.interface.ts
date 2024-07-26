@@ -1,9 +1,9 @@
-import {Signal} from '@angular/core'
+import {Signal} from '@angular/core';
 
 export interface IModal {
-  modalTitle: string
-  isOpen$: Signal<boolean>
+  modalTitle: string;
+  isOpen$: Signal<boolean>;
 
-  open(): void
-  close(): void
+  open(): void;
+  close(): void;
 }

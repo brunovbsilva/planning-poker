@@ -1,4 +1,4 @@
-import {ICard} from './card.interface'
+import {ICard} from './card.interface';
 
 export class Card implements ICard {
   constructor(
@@ -9,6 +9,6 @@ export class Card implements ICard {
   ) {}
 
   toggleFlip(): void {
-    this.isFliped = !this.isFliped
+    this.isFliped = !this.isFliped;
   }
 }

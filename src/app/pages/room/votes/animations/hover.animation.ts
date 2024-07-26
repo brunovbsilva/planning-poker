@@ -1,4 +1,4 @@
-import {animate, state, style, transition, trigger} from '@angular/animations'
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 export const hoverAnimation = [
   trigger('hover', [
@@ -6,4 +6,4 @@ export const hoverAnimation = [
     state('false', style({transform: 'translateY(0)'})),
     transition('true <=> false', animate('200ms ease-in-out')),
   ]),
-]
+];

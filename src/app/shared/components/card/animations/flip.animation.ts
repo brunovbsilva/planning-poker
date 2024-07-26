@@ -1,4 +1,4 @@
-import {animate, state, style, transition, trigger} from '@angular/animations'
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 export const flipAnimation = [
   trigger('flipAnimation', [
@@ -17,4 +17,4 @@ export const flipAnimation = [
     transition('true => false', animate('500ms ease-out')),
     transition('false => true', animate('500ms ease-in')),
   ]),
-]
+];

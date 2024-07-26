@@ -1,8 +1,8 @@
-import {Routes} from '@angular/router'
-import {LayoutComponent} from './layout/layout.component'
-import {LoginComponent} from './pages/login/login.component'
-import {inject} from '@angular/core'
-import {UserService} from './services/user/user.service'
+import {Routes} from '@angular/router';
+import {LayoutComponent} from './layout/layout.component';
+import {LoginComponent} from './pages/login/login.component';
+import {inject} from '@angular/core';
+import {UserService} from './services/user/user.service';
 
 export const routes: Routes = [
   {
@@ -18,4 +18,4 @@ export const routes: Routes = [
   },
   {path: '', component: LoginComponent},
   {path: '**', redirectTo: ''},
-]
+];
