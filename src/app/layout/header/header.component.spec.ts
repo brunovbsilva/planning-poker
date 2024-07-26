@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFireModulesMock, AngularFireProvidersMock } from 'src/app/shared/mocks/others';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -16,7 +15,6 @@ describe('HeaderComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
     imports: [
-        RouterTestingModule,
         AngularFireModulesMock,
         HeaderComponent
     ],

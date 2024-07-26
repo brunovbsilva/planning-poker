@@ -21,8 +21,6 @@ $base-color: map-get(colors.$primary, base);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform: transform 1s;
-  -ms-transform: transform 1s;
-  transform: transform 1s;
 
   .card-front {
     display: flex;

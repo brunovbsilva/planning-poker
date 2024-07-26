@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RoomService } from '../../services/room/room.service';
 import { IRoomItem } from './models/room-item.inteface';
-import {lastValueFrom, map} from 'rxjs';
 import { RoomItem } from './models/room-item';
 import { Router } from '@angular/router';
 import { Room } from '../room/models/room';

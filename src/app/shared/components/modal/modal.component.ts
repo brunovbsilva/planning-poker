@@ -1,13 +1,13 @@
 import { Component, Input, Signal, ViewChildren, WritableSignal, signal } from '@angular/core';
 import { IModal } from './interfaces/modal.interface';
-import { ModalKeydownsDirective } from './directives/modal-keydowns.directive';
+import { ModalKeyDownDirective } from './directives/modal-key-down.directive';
 
 @Component({
     selector: 'app-modal',
     templateUrl: './modal.component.html',
     styleUrls: ['./modal.component.scss'],
     standalone: true,
-    imports: [ModalKeydownsDirective]
+    imports: [ModalKeyDownDirective]
 })
 export class ModalComponent implements IModal {
   @ViewChildren('button') buttons: HTMLElement[] = [];
@@ -22,7 +22,7 @@ export class ModalComponent implements IModal {
   open(): void {
     this.isOpen.set(true);
   }
-  
+
   close(): void {
     this.isOpen.set(false);
   }

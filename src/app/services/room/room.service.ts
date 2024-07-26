@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { IRoom } from '../../pages/room/interfaces/room.interface';
-import {Observable, map, lastValueFrom} from 'rxjs';
+import {Observable, map} from 'rxjs';
 import { IRoomItem } from '../../pages/rooms/models/room-item.inteface';
 import { ITask } from '../../pages/room/interfaces/task.interface';
 import { IVote } from '../../pages/room/interfaces/vote.interface';

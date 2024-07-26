@@ -7,7 +7,6 @@ import { Vote } from "src/app/pages/room/models/vote";
 import { IRoomItem } from "src/app/pages/rooms/models/room-item.inteface";
 import { RoomItem } from "src/app/pages/rooms/models/room-item";
 
-const any: any = jasmine.anything();
 export class ConstantMocks {
   static getTaskMock(name: string, votes: IVote[] = []): ITask {
     return new Task(name, votes);
@@ -15,11 +14,11 @@ export class ConstantMocks {
   static getVoteMock(id: string, user: string, value: number = 10, hidden: boolean = true): IVote {
     return new Vote(id, user, value, hidden);
   }
-  static getRoomMock(name: string, creator: string, tasks: ITask[] = [], currentTask: number = 0, id: string = 'mocked id'): IRoom {
-    return new Room(name, creator, tasks, currentTask, id);
+  static getRoomMock(name: string, creator: string, tasks: ITask[] = [], id: string = 'mocked id'): IRoom {
+    return new Room(name, creator, tasks, id);
   }
   static getRoomItemMock(room: IRoom): IRoomItem {
-    return new RoomItem(room.id!, room.name, any, any);
+    return new RoomItem(room.id!, room.name);
   }
 }
 
@@ -29,7 +28,7 @@ export const TaskNoVotesMock = ConstantMocks.getTaskMock('mocked task 1');
 export const TaskMock = ConstantMocks.getTaskMock('mocked task 2', [VoteMock]);
 export const TaskFlipMock = ConstantMocks.getTaskMock('mocked task 3', [VoteFlipMock]);
 export const RoomEmptyMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator');
-export const RoomTaskNoVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskNoVotesMock], 0, 'mocked id');
-export const RoomTaskAndVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock], 0, 'mocked id');
-export const RoomMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock, TaskFlipMock], 0, 'mocked id');
+export const RoomTaskNoVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskNoVotesMock], 'mocked id');
+export const RoomTaskAndVotesMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock], 'mocked id');
+export const RoomMock = ConstantMocks.getRoomMock('mocked room', 'mocked creator', [TaskMock, TaskFlipMock], 'mocked id');
 export const RoomItemMock = ConstantMocks.getRoomItemMock(RoomMock);

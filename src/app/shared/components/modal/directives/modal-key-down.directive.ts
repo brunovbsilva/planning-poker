@@ -1,10 +1,10 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
-    selector: '[modalKeydowns]',
+    selector: '[modalKeyDowns]',
     standalone: true
 })
-export class ModalKeydownsDirective {
+export class ModalKeyDownDirective {
 
   @Output() escapeKeydown: EventEmitter<void> = new EventEmitter<void>();
   @Output() enterKeydown: EventEmitter<void> = new EventEmitter<void>();
@@ -12,12 +12,12 @@ export class ModalKeydownsDirective {
   constructor() { }
 
   @HostListener("document:keydown.escape", ["$event"])
-  public onEscapeKeydown(event: KeyboardEvent): void {
+  public onEscapeKeydown(): void {
     this.escapeKeydown.emit();
   }
 
   @HostListener("document:keydown.enter", ["$event"])
-  public onEnterKeydown(event: KeyboardEvent): void {
+  public onEnterKeydown(): void {
     this.enterKeydown.emit();
   }
 

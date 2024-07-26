@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, model, Output, ViewChild} from '@angular/core';
+import {Component, Input, model, ViewChild} from '@angular/core';
 import { RoomService } from 'src/app/services/room/room.service';
 import { IRoom } from '../interfaces/room.interface';
 import { ITask } from '../interfaces/task.interface';

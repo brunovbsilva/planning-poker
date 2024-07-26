@@ -1,6 +1,5 @@
 import {computed, Injectable, signal} from '@angular/core';
 import {IUser} from "../auth/models/user.interface";
-import {setUserId} from "@angular/fire/analytics";
 
 const USER: string = 'Logged-User';
 

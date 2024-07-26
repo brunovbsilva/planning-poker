@@ -2,7 +2,7 @@
   <div class="background" (click)="close()"></div>
 }
 @if (isOpen$()) {
-  <div class="modal" modalKeydowns (escapeKeydown)="close()">
+  <div class="modal" modalKeyDowns (escapeKeydown)="close()">
     <div class="modal__header">
       <h1>{{ modalTitle }}</h1>
     </div>

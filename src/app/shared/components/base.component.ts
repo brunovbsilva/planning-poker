@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-@Component({ template: '' })
+@Component({standalone: true, template: ''})
 export class BaseComponent implements OnDestroy {
   public objectsForDestruction: Subscription[] = [];
 

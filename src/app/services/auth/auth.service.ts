@@ -1,11 +1,6 @@
 import {Injectable} from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {User} from "./models/user.model";
-import {IUser} from "./models/user.interface";
 import {UserService} from "../user/user.service";
-import {of, throwIfEmpty} from "rxjs";
-
-const USER = 'logged-user';
 
 @Injectable({
   providedIn: 'root'

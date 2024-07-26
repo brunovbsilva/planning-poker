@@ -1,8 +1,8 @@
-import { ModalKeydownsDirective } from './modal-keydowns.directive';
+import { ModalKeyDownDirective } from './modal-key-down.directive';
 
 describe('ModalKeydownsDirective', () => {
   it('should create an instance', () => {
-    const directive = new ModalKeydownsDirective();
+    const directive = new ModalKeyDownDirective();
     expect(directive).toBeTruthy();
   });
 });

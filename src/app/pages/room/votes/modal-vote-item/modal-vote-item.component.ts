@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, input, model} from '@angular/core';
+import {Component, input, model} from '@angular/core';
 import { MainButtonDirective } from '../../../../shared/directives/main-button/main-button.directive';
 
 @Component({

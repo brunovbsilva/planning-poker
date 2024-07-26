@@ -10,7 +10,7 @@ export class RoomServiceMock {
   createRoom(room: IRoom): void {
     let service: any;
     let router: any;
-    this.roomsSubject.next([...this.roomsSubject.value, new RoomItem(room.id!, room.name, service, router)]);
+    this.roomsSubject.next([...this.roomsSubject.value, new RoomItem(room.id!, room.name)]);
   }
   updateRoom(room: IRoom): void {
     this.subject.next(room);
