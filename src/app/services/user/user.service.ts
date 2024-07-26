@@ -1,7 +1,7 @@
 import {computed, Injectable, signal} from '@angular/core';
 import {IUser} from "../auth/models/user.interface";
 
-const USER: string = 'Logged-User';
+const USER = 'Logged-User';
 
 @Injectable({
   providedIn: 'root'

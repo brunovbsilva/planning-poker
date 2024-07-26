@@ -5,7 +5,7 @@ export class Vote implements IVote {
     public readonly userId: string,
     public readonly userName: string,
     public value: string | number,
-    public hidden: boolean = true,
+    public hidden = true,
   ) {}
 
   updateVote(vote: number): void {

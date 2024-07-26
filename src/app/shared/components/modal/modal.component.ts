@@ -11,7 +11,7 @@ import { ModalKeyDownDirective } from './directives/modal-key-down.directive';
 })
 export class ModalComponent implements IModal {
   @ViewChildren('button') buttons: HTMLElement[] = [];
-  @Input() modalTitle: string = '';
+  @Input() modalTitle = '';
   private isOpen: WritableSignal<boolean> = signal(false);
   public isOpen$: Signal<boolean>;
 

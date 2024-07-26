@@ -3,9 +3,9 @@ import { ICard } from "./card.interface";
 export class Card implements ICard {
   constructor(
     public readonly value: string | number,
-    public isFliped: boolean = false,
+    public isFliped = false,
     public readonly creator?: string,
-    public highlight: boolean = false,
+    public highlight = false,
   ) {}
 
   toggleFlip(): void {

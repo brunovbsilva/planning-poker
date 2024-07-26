@@ -31,8 +31,8 @@ describe('CardComponent', () => {
   });
 
   describe('getCardType', () => {
-    type CardTypeTest = { card: ICard, expected: string };
-    let itemsForTest: CardTypeTest[] = [
+    interface CardTypeTest { card: ICard, expected: string }
+    const itemsForTest: CardTypeTest[] = [
       { card: new Card(CardType.HEARTS, 1), expected: "\u2665" },
       { card: new Card(CardType.DIAMONDS, 1), expected: "\u2666" },
       { card: new Card(CardType.SPADES, 1), expected: "\u2660" },
@@ -48,8 +48,8 @@ describe('CardComponent', () => {
   });
 
   describe('getCardValue', () => {
-    type CardValueTest = { card: ICard, expected: string | number };
-    let itemsForTest: CardValueTest[] = [
+    interface CardValueTest { card: ICard, expected: string | number }
+    const itemsForTest: CardValueTest[] = [
       { card: new Card(CardType.HEARTS, 1), expected: "A" },
       { card: new Card(CardType.HEARTS, 2), expected: 2 },
       { card: new Card(CardType.HEARTS, 5), expected: 5 },

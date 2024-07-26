@@ -15,7 +15,7 @@ import { ICard } from './models/card.interface';
 export class CardComponent {
 
   @Input() card!: ICard;
-  public isHovered: boolean = false;
+  public isHovered = false;
 
   @HostListener('mouseenter', ['$event'])
   @HostListener('mouseleave', ['$event'])

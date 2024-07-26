@@ -55,8 +55,8 @@ describe('VotesComponent', () => {
     it('results should be "-"', () => expect(result.nativeElement.textContent).toBe('-'));
     it('should have 0 current votes', () => expect(currentVotes.children.length).toBe(0));
     describe('should have a fribbonacci cards', () => {
-      type FribonnacciTest = { position: number, value: number };
-      let fribonnacciTests: FribonnacciTest[] = [
+      interface FribonnacciTest { position: number, value: number }
+      const fribonnacciTests: FribonnacciTest[] = [
         { position: 0, value: 1 },
         { position: 1, value: 2 },
         { position: 2, value: 3 },
